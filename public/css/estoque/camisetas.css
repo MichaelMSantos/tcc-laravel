@@ -1,0 +1,88 @@
+.estoque, .camisetas {
+    border-left: 3px solid #3b7ddd !important;
+}
+
+.cards {
+    display: flex;
+    gap: .8rem;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.card {
+    height: 8.75rem;
+    width: 18rem;
+    box-shadow: 0px 10px 20px -4px rgba(0, 0, 0, 0.06);
+}
+
+.card:nth-child(1){
+    border-left: 3px solid blue;
+}
+
+.card:nth-child(2){
+    border-left: 3px solid #dbdb02;
+}
+
+.card:nth-child(3){
+    border-left: 3px solid red;
+}
+
+.card-title {
+    padding: .8rem;
+    font-size: 13px;
+}
+
+.card-body {
+    font-size: 32px;   
+}
+
+.table-responsive {
+    margin-top: 2rem;
+    background-color: #ffff;
+    padding: .875rem 2rem 2rem 2rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-group {
+    padding-top: .8rem;
+}
+
+#novo {
+    border: 2px solid #0561fc;
+    color: #0561fc;
+}
+
+#exportar {
+    border: 2px solid #d62525;
+    color: #d62525;
+}
+.button-group button {
+    padding: 0 .7rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+#filtrar {
+    border: 2px solid black;
+    color: black;
+}
+.table-responsive .title {
+    padding-top: .8rem;
+    font-size: 21px;
+    font-weight: 600;
+    color: #040125;
+}
+
+.table {
+    border: 1px solid #e2e2e2;
+}
+
+th {
+    color: #686868 !important;
+}
