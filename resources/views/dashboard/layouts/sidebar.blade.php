@@ -9,9 +9,6 @@
     {{-- Bootstrap CDN --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
 
     {{-- CSS Styles --}}
     <link rel="stylesheet" href="/global.css">
@@ -23,6 +20,7 @@
 </head>
 
 <body>
+    @yield('modalContent')
     <main>
         {{-- Sidebar Structure --}}
         <aside id="sidebar">
@@ -74,7 +72,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/dashboard/administradores" class="sidebar-link administradores">
+                    <a href="/dashboard/funcionarios" class="sidebar-link administradores">
                         <img src="/images/sidebar/clarity_administrator-line.svg" alt="">
                         <span>Administradores</span>
                     </a>
@@ -84,7 +82,6 @@
                         <img src="/images/sidebar/fornecedores.svg" alt="">
                         <span>Forncedores</span>
                     </a>
-
                 </li>
                 </a>
                 </li>
@@ -115,5 +112,8 @@
     </main>
 </body>
 <script src="/js/sidebar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+</script>
 
 </html>

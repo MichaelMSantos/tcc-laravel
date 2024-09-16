@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <section class="recents table-responsive">
+    <section class="recents table-responsive shadow-sm">
         <p class="title">
             Estoques Recentes
         </p>
@@ -69,25 +69,25 @@
         </p>
         <div class="cards">
             <a href="/dashboard/estoque/camisetas">
-                <div class="card-content">
+                <div class="card-content shadow">
                     <img src="/images/home/shirt.svg" alt="">
                     <span>Camisetas</span>
                 </div>
             </a>
             <a href="/dashboard/estoque/tintas">
-                <div class="card-content">
+                <div class="card-content shadow">
                     <img src="/images/home/paint.svg" alt="">
                     <span>Tintas</span>
                 </div>
             </a>
             <a href="/dashboard/estoque/tecidos">
-                <div class="card-content">
+                <div class="card-content shadow">
                     <img src="/images/home/tecido.svg" alt="">
                     <span>Tecidos</span>
                 </div>
             </a>
             <a href="#">
-                <div class="card-content">
+                <div class="card-content shadow">
                     <img src="/images/home/finance.svg" alt="">
                     <span>Financeiro</span>
                 </div>

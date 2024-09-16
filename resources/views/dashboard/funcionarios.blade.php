@@ -10,5 +10,44 @@
             <li class="breadcrumb-item active" aria-current="page">Funcionarios</li>
         </ol>
     </nav>
+    <div class="table-responsive">
+        <div class="table-header">
+            <div class="table-desc">
+                <div class="title">
+                    Funcionarios
+                </div>
+                <p class="subtitle">
+                    Registro de funcionarios cadastrados no sistema.
+                </p>
+            </div>
+            <div class="action">
+                <div class="search-box">
+                    <span class="icon">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" name="search" id="search" placeholder="Buscar">
+                </div>
+                <button id="novo">Novo Funcionario</button>
+            </div>
+        </div>
 
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row"> 000-000-000-00</th>
+                <th scope="row"> Teste </th>
+                <th scope="row">teste@gmail.com</th>
+                <th scope="row"></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 @endsection
