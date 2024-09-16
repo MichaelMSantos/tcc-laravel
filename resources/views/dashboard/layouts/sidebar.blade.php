@@ -74,7 +74,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/dashboard/administradores" class="sidebar-link">
+                    <a href="/dashboard/administradores" class="sidebar-link administradores">
                         <img src="/images/sidebar/clarity_administrator-line.svg" alt="">
                         <span>Administradores</span>
                     </a>
