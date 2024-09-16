@@ -29,6 +29,7 @@ th {
 .table-header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
 }
 
 .actions {
@@ -39,12 +40,31 @@ th {
     flex: 1;
 }
 
+
+.search-box {
+    width: 45%;
+    display: flex;
+    margin-right: .4rem;
+}
 #search {
-    width: 40%;
+    width: 100%;
     padding: 0 .6rem;
-    border-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     border: 1px solid #888888;
     margin-right: .3rem;
+    color: #575757;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: #2f515f;
+    width: 50px;
 }
 
 #novo {
@@ -63,3 +83,5 @@ th {
     font-size: 13px;
     margin-left: .6rem;
 }
+
+

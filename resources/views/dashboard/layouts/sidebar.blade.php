@@ -5,19 +5,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
+
+    {{-- Bootstrap CDN --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/global.css">
-    <link rel="stylesheet" href="/css/sidebar.css">
-    <link rel="stylesheet" href="@yield('link')">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 
+    {{-- CSS Styles --}}
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="@yield('link')">
+
+    {{-- Bootstrap Icon Link --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <main>
+        {{-- Sidebar Structure --}}
         <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
@@ -67,7 +74,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../administradores/index.php" class="sidebar-link">
+                    <a href="/dashboard/administradores" class="sidebar-link">
                         <img src="/images/sidebar/clarity_administrator-line.svg" alt="">
                         <span>Administradores</span>
                     </a>
@@ -100,6 +107,8 @@
                 </a>
             </div>
         </aside>
+
+        {{-- Main Content  --}}
         <div class="wrapper">
             @yield('content')
         </div>

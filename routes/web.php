@@ -28,4 +28,6 @@ Route::get('/dashboard/fornecedores', function () {
     return view('dashboard.fornecedores');
 });
 
-
+Route::get('/dashboard/administradores', function () {
+    return view('dashboard.administradores');
+});
