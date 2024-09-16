@@ -29,5 +29,5 @@ Route::get('/dashboard/fornecedores', function () {
 });
 
 Route::get('/dashboard/administradores', function () {
-    return view('dashboard.administradores');
+    return view('dashboard.funcionarios');
 });
