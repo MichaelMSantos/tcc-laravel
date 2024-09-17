@@ -47,6 +47,7 @@
 .table-header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .button-group {

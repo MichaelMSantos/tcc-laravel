@@ -17,6 +17,12 @@
 
     @if (Request::is('dashboard/estoque/camisetas'))
         <link rel="stylesheet" href="/css/modal.css">
+
+    @elseif (Request::is('dashboard/estoque/tecidos'))
+        <link rel="stylesheet" href="/css/modal.css">
+
+    @elseif (Request::is('dashboard/estoque/tintas'))
+        <link rel="stylesheet" href="/css/modal.css">
     @endif
 
     {{-- Bootstrap Icon Link --}}
@@ -65,7 +71,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../financeiro/index.php" class="sidebar-link">
+                    <a href="/dashboard/financeiro" class="sidebar-link">
                         <img src="/images/sidebar/material-symbols_finance-mode-rounded.svg" alt="">
                         <span>Financeiro</span>
                     </a>
@@ -110,7 +116,7 @@
             </div>
         </aside>
 
-        {{-- Main Content  --}}
+        {{-- Main Content --}}
         <div class="wrapper">
             @yield('content')
         </div>
@@ -119,6 +125,6 @@
 <script src="/js/sidebar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-</script>
+    </script>
 
 </html>

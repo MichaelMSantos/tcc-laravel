@@ -18,6 +18,7 @@
 
 .table-header {
     display: flex;
+    margin-bottom: 15px;
 }
 
 .table-desc {

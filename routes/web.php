@@ -36,3 +36,8 @@ Route::get('/dashboard/pouco-estoque', function () {
     return view('dashboard.pouco-estoque');
 });
 
+Route::get('/dashboard/financeiro', function () {
+    return view('dashboard.financeiro');
+});
+
+
