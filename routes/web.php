@@ -32,3 +32,7 @@ Route::get('/dashboard/funcionarios', function () {
     return view('dashboard.funcionarios');
 });
 
+Route::get('/dashboard/pouco-estoque', function () {
+    return view('dashboard.pouco-estoque');
+});
+

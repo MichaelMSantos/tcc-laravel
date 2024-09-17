@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="../poucoestoque/index.php" class="sidebar-link">
+                    <a href="/dashboard/pouco-estoque" class="sidebar-link">
                         <img src="/images/sidebar/healthicons_stock-out-outline.svg" alt="">
                         <span>Pouco esotque</span>
                     </a>
