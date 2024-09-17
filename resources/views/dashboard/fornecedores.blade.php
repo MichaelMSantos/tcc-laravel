@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.sidebar')
+@extends('dashboard.layouts.layout')
 @section('title', 'Fornecedores')
 @section('link', '/css/dashboard/fornecedores.css')
 

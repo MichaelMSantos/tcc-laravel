@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.sidebar')
+@extends('dashboard.layouts.layout')
 @section('title', 'Camisetas - Estoque')
 @section('link', '/css/estoque/camisetas.css')
 
@@ -18,7 +18,7 @@
                 Total em estoque
             </div>
             <div class="card-body">
-                20
+                {{ $camisetas->count() }}
             </div>
         </div>
         <div class="card">
@@ -72,6 +72,14 @@
                         <th>{{ $camiseta->cor }}</th>
                         <th>{{ $camiseta->quantidade }}</th>
                         <th>{{ $camiseta->categoria }}</th>
+                        <td>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#updateCamiseta">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#deleteCamiseta">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
@@ -80,6 +88,6 @@
 
     {{-- Modal  --}}
     @include('dashboard.estoque.modal.camiseta-create')
-    @include('dashboard.estoque.modal.camiseta-update')
-    @include('dashboard.estoque.modal.camiseta-delete')
+    {{-- @include('dashboard.estoque.modal.camiseta-update')
+    @include('dashboard.estoque.modal.camiseta-delete') --}}
 @endsection

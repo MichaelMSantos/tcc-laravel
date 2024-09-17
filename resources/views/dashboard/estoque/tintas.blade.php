@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.sidebar')
+@extends('dashboard.layouts.layout')
 @section('title', 'Tintas - Estoque')
 @section('link', '/css/estoque/tintas.css')
 

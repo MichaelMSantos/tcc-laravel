@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.sidebar')
+@extends('dashboard.layouts.layout')
 @section('title', 'Dashboard')
 @section('link', '/css/dashboard/fina.css')
 
