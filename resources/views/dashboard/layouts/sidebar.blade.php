@@ -26,6 +26,7 @@
 <body>
     @yield('modalContent')
     <main>
+
         {{-- Sidebar Structure --}}
         <aside id="sidebar">
             <div class="d-flex">
