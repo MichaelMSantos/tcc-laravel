@@ -2,6 +2,7 @@
     display: flex;
     width: 100%;
     gap: .9rem;
+    margin-bottom: .65rem;
 }
 
 .input-group {
@@ -9,11 +10,33 @@
     flex-direction: column;
 }
 
+label {
+    font-weight: 600;
+    color: #444444;
+}
+#modelo, #quantidade,
+#categoria, #cor, 
+#tamanho, #codigo {
+    border: 1px solid #383838;
+    border-radius: 6px;
+}
+
 #quantidade {
-    width: 65%;
+    width: 100%;
+}
+
+#codigo {
+    width: 60%;
 }
 
 .option-group {
     display: flex;
     gap: .7rem;
+}
+
+#scanner {
+    padding: 0 .4rem;
+    border: solid 1px #383838;
+    border-radius: 6px;
+    width: 25% !important;
 }

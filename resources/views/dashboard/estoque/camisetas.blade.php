@@ -98,7 +98,7 @@
                     <div class="input-content">
                         <input type="text" name="codigo" id="codigo">
                         <span> ou </span>
-                        <button type="button">Escanear</button>
+                        <button type="button" id="scanner">Escanear</button>
                     </div>
                     <div class="input-content">
                         <div class="input-group">
