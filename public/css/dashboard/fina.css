@@ -1,21 +1,5 @@
-.fornecedores {
+.administradores {
     border-left: 3px solid #3b7ddd !important;
-}
-
-.table-responsive .title {
-    padding-top: .8rem;
-    font-size: 21px;
-    font-weight: 600;
-    color: #040125;
-    flex: 1;
-}
-
-.table {
-    border: 1px solid #e2e2e2;
-}
-
-th {
-    color: #686868 !important;
 }
 
 .table-responsive {
@@ -26,20 +10,43 @@ th {
     border-radius: 6px;
 }
 
+.title {
+    font-size: 21px;
+    font-weight: 600;
+    color: #040125;
+}
+
 .table-header {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 15px;
 }
 
-.actions {
+.table-desc {
     display: flex;
-    justify-content: flex-end;
-    padding-bottom: 2px;
-    padding-top: .8rem;
     flex: 1;
+    flex-direction: column;
 }
 
+.subtitle {
+    margin: 0 !important;
+    font-size: 13px;
+}
+
+.action {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    padding-top: .8rem;
+}
+
+#novo {
+    height: 1.95rem;
+    border: 2px solid #ff0000;
+    color: #ff0000;
+    padding: 0 .7rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
 
 .search-box {
     width: 45%;
@@ -49,6 +56,7 @@ th {
 #search {
     width: 100%;
     padding: 0 .6rem;
+    height: 1.95rem;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     border: 1px solid #888888;
@@ -65,16 +73,14 @@ th {
     border-bottom-left-radius: 20px;
     background-color: #2f515f;
     width: 50px;
-}
-
-#novo {
-    border: 2px solid #0561fc;
-    color: #0561fc;
-    padding: 0 .7rem;
-    border-radius: 20px;
-    font-weight: 600;
+    font-size: 14px;
+    height: 1.95rem;
 }
 
 .table {
-    margin-bottom: 6px;
+    border: 1px solid #e2e2e2;
+}
+
+th {
+    color: #686868 !important;
 }
