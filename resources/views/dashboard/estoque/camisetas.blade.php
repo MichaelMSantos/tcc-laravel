@@ -11,6 +11,7 @@
             <li class="breadcrumb-item active" aria-current="page">Camisetas</li>
         </ol>
     </nav>
+
     <div class="cards">
         <div class="card">
             <div class="card-title">
@@ -63,22 +64,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($camisetas as $camiseta)
                 <tr>
-                    <th scope="row">00000</th>
-                    <th>teste</th>
-                    <th>G</th>
-                    <th>teste</th>
-                    <th>2</th>
-                    <th>Adulto</th>
+                    <th scope="row">{{ $camiseta->codigo }}</th>
+                    <th>{{ $camiseta->modelo }}</th>
+                    <th>{{ $camiseta->tamanho }}</th>
+                    <th>{{ $camiseta->cor }}</th>
+                    <th>{{ $camiseta->quantidade }}</th>
+                    <th>{{ $camiseta->categoria }}</th> 
                 </tr>
-                <tr>
-                    <th scope="row">00000</th>
-                    <th>teste</th>
-                    <th>G</th>
-                    <th>teste</th>
-                    <th>2</th>
-                    <th>Adulto</th>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

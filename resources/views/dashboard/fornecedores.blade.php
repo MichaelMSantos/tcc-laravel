@@ -38,13 +38,15 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($fornecedores as $fornecedor )
                 <tr>
-                    <th scope="row">teste</th>
-                    <th scope="row">0000-0000</th>
-                    <th scope="row">teste</th>
-                    <th scope="row">teste</th>
+                    <th scope="row">{{ $fornecedor->nome }}</th>
+                    <th>{{ $fornecedor->telefone }}</th>
+                    <th>{{ $fornecedor->endereco }}</th>
+                    <th scope="row"></th>
                     <th scope="row"></th>
                 </tr>
+                @endforeach
             </tbody>
         </table>
         <p class="subtitle">

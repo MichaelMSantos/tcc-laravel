@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('tamanho', 3)->nullable();
             $table->string('cor', 30)->nullable();
             $table->integer('quantidade')->nullable();
+            $table->string('categoria')->nullable();
             $table->unsignedBigInteger('fornecedor_id');
 
             $table->foreign('fornecedor_id')->references('id')->on('fornecedores')->onDelete('cascade');
