@@ -1,0 +1,19 @@
+.input-content {
+    display: flex;
+    width: 100%;
+    gap: .9rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+#quantidade {
+    width: 65%;
+}
+
+.option-group {
+    display: flex;
+    gap: .7rem;
+}
