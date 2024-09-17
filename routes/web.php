@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CamisetaController;
 
 Route::get('/', function () {
     return view('login');
@@ -11,9 +12,10 @@ Route::get('/dashboard', function () {
 });
 
 
-Route::get('/dashboard/estoque/camisetas', function () {
-    return view('dashboard.estoque.camisetas');
-});
+// View da pagina de camisetas
+Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index']);
+
+
 
 Route::get('/dashboard/estoque/tecidos', function () {
     return view('dashboard.estoque.tecidos');
