@@ -24,7 +24,6 @@
 </head>
 
 <body>
-    @yield('modalContent')
     <main>
 
         {{-- Sidebar Structure --}}
