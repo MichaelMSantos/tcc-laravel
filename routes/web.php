@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TecidoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CamisetaController;
 use App\Http\Controllers\FornecedorController;
@@ -17,9 +18,9 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index']);
 
 
-Route::get('/dashboard/estoque/tecidos', function () {
-    return view('dashboard.estoque.tecidos');
-});
+// View da pagina tecidos
+Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index']);
+
 
 Route::get('/dashboard/estoque/tintas', function () {
     return view('dashboard.estoque.tintas');
