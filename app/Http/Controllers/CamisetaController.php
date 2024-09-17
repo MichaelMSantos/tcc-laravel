@@ -14,5 +14,19 @@ class CamisetaController extends Controller
         return view('dashboard.estoque.camisetas', ['camisetas' => $camisetas]);
     }
 
-    public function create() {}
+    public function store(Request $request)
+    {
+        $camiseta = new Camiseta;
+
+        $camiseta->codigo = $request->codigo;
+        $camiseta->modelo = $request->modelo;
+        $camiseta->tamanho = $request->tamanho;
+        $camiseta->cor = $request->cor;
+        $camiseta->quantidade = $request->quantidade;
+        $camiseta->categoria = $request->categoria;
+
+        $camiseta->save();
+
+        return back()->with('sucesso', 'Camiseta registrada com sucesso');
+    }
 }

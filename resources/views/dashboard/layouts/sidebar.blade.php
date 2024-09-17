@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
 
-    {{-- Bootstrap CDN --}}
+    {{-- CSS CDN --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
 
     {{-- CSS Styles --}}
     <link rel="stylesheet" href="/global.css">
@@ -17,10 +21,8 @@
 
     @if (Request::is('dashboard/estoque/camisetas'))
         <link rel="stylesheet" href="/css/modal.css">
-
     @elseif (Request::is('dashboard/estoque/tecidos'))
         <link rel="stylesheet" href="/css/modal.css">
-
     @elseif (Request::is('dashboard/estoque/tintas'))
         <link rel="stylesheet" href="/css/modal.css">
     @endif
@@ -122,8 +124,10 @@
     </main>
 </body>
 <script src="/js/sidebar.js"></script>
+
+{{-- Link JS CDN --}}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+</script>
 
 </html>

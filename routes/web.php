@@ -16,6 +16,7 @@ Route::get('/dashboard', function () {
 
 // View da pagina de camisetas
 Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index']);
+Route::post('/dashboard/estoque/camisetas', [CamisetaController::class, 'store']);
 
 
 // View da pagina tecidos
