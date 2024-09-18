@@ -17,9 +17,9 @@ Route::get('/dashboard', function () {
 // View da pagina de camisetas
 route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])->name('camiseta.index');
 Route::post('/dashboard/estoque/camisetas', [CamisetaController::class, 'store']);
-Route::get('/dashboard/estoque/camisetas/edit/{codigo}', [CamisetaController::class, 'edit'])->name('camiseta.edit');
-Route::delete('/dashboard/estoque/camisetas/delete/{codigo}', [CamisetaController::class, 'destroy'])->name('camiseta.delete');
-Route::put('/dashboard/estoque/camisetas/update/{codigo}', [CamisetaController::class, 'update'])->name('camiseta.update');
+Route::get('/dashboard/estoque/camisetas/edit/{id}', [CamisetaController::class, 'edit'])->name('camiseta.edit');
+Route::delete('/dashboard/estoque/camisetas/delete/{id}', [CamisetaController::class, 'destroy'])->name('camiseta.delete');
+Route::put('/dashboard/estoque/camisetas/update/{id}', [CamisetaController::class, 'update'])->name('camiseta.update');
 
 // View da pagina tecidos
 Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index']);

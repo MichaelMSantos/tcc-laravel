@@ -18,6 +18,7 @@ class CamisetaController extends Controller
     {
         $camiseta = new Camiseta;
 
+        $camiseta->id = $request->id;
         $camiseta->codigo = $request->codigo;
         $camiseta->modelo = $request->modelo;
         $camiseta->tamanho = $request->tamanho;
@@ -30,25 +31,28 @@ class CamisetaController extends Controller
         return back()->with('sucesso', 'Camiseta registrada com sucesso');
     }
 
-    public function edit($codigo)
+    public function edit($id)
     {
-        $camiseta = Camiseta::findOrFail($codigo);
+        $camiseta = Camiseta::where('codigo', $id)->firstOrFail();
 
-        return view('dashboard.estoque.modal.camiseta-edit', ['camiseta' => $camiseta]);
+        return view('dashboard.estoque.modal.camiseta-edit', compact('camiseta'));
     }
 
     public function update(Request $request)
     {
-        Camiseta::findOrFail($request->codigo)->update($request->all());
 
         $camisetas = Camiseta::all();
+
+        Camiseta::findOrFail($request->id)->update($request->all());
+
+
         return back()->with('sucesso', 'Camiseta atualizada com sucesso!');
     }
 
 
-    public function destroy($codigo)
+    public function destroy($id)
     {
-        $camiseta = Camiseta::findOrFail($codigo);
+        $camiseta = Camiseta::findOrFail($id);
 
         $camiseta->delete();
 

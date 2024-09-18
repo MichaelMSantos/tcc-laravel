@@ -9,7 +9,7 @@ class Camiseta extends Model
 {
     use HasFactory;
     protected $table = 'camisetas';
-    protected $primaryKey ='codigo';
+    protected $primaryKey ='id';
     
     protected $fillable = [
         'codigo',        

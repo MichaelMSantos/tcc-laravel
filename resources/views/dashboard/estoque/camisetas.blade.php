@@ -73,12 +73,12 @@
                         <th>{{ $camiseta->quantidade }}</th>
                         <th>{{ $camiseta->categoria }}</th>
                         <td>
-                            <a href="{{ route('camiseta.edit', $camiseta->codigo) }}" data-bs-toggle="modal"
-                                data-bs-target="#updateCamiseta">
+                            <a href="{{ route('camiseta.edit', $camiseta->id) }}" data-bs-toggle="modal"
+                                data-bs-target="#update-{{ $camiseta->id }}">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
                             <a href="#" class="modal-trigger" data-bs-toggle="modal"
-                                data-bs-target="#delete-{{ $camiseta->codigo }}">
+                                data-bs-target="#delete-{{ $camiseta->id }}">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>

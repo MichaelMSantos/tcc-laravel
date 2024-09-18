@@ -72,13 +72,13 @@
                     </ul>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/dashboard/financeiro" class="sidebar-link">
+                    <a href="/dashboard/financeiro" class="sidebar-link financeiro">
                         <img src="/images/sidebar/material-symbols_finance-mode-rounded.svg" alt="">
                         <span>Financeiro</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="/dashboard/pouco-estoque" class="sidebar-link">
+                    <a href="/dashboard/pouco-estoque" class="sidebar-link pouco-estoque">
                         <img src="/images/sidebar/healthicons_stock-out-outline.svg" alt="">
                         <span>Pouco esotque</span>
                     </a>

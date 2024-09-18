@@ -1,7 +1,7 @@
-<form action="{{ route('camiseta.update', $camiseta->codigo) }}" method="POST">
+<form action="{{ route('camiseta.update', $camiseta->id) }}" method="POST">
     @csrf
     @method('PUT')
-    <div class="modal fade" id="updateCamiseta" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="update-{{ $camiseta->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

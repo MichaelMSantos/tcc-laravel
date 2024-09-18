@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('camisetas', function (Blueprint $table) {
-            $table->bigInteger('codigo')->primary();
+            $table->id();
+            $table->bigInteger('codigo')->unique();
             $table->string('modelo', 200)->nullable();
             $table->string('tamanho', 3)->nullable();
             $table->string('cor', 30)->nullable();
