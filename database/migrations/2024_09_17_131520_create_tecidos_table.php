@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tecidos', function (Blueprint $table) {
-            $table->biginteger('codigo')->primary();
+            $table->id();
+            $table->biginteger('codigo')->unique();
             $table->string('medidas', 200)->nullable();
             $table->string('cor', 30);
             $table->integer('quantidade');
