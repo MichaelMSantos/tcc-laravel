@@ -23,6 +23,9 @@ Route::put('/dashboard/estoque/camisetas/update/{id}', [CamisetaController::clas
 
 // View da pagina tecidos
 Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index']);
+Route::get('/dashboard/estoque/tecidos/edit/{id}', [TecidoController::class, 'edit']);
+
+
 
 
 Route::get('/dashboard/estoque/tintas', function () {
