@@ -9,4 +9,15 @@ class Camiseta extends Model
 {
     use HasFactory;
     protected $table = 'camisetas';
+    protected $primaryKey ='codigo';
+    
+    protected $fillable = [
+        'codigo',        
+        'modelo',
+        'tamanho',
+        'cor',
+        'quantidade',
+        'categoria',
+    ];
+
 }

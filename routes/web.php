@@ -15,9 +15,11 @@ Route::get('/dashboard', function () {
 
 
 // View da pagina de camisetas
-Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index']);
+route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])->name('camiseta.index');
 Route::post('/dashboard/estoque/camisetas', [CamisetaController::class, 'store']);
-
+Route::get('/dashboard/estoque/camisetas/edit/{codigo}', [CamisetaController::class, 'edit'])->name('camiseta.edit');
+Route::delete('/dashboard/estoque/camisetas/delete/{codigo}', [CamisetaController::class, 'destroy'])->name('camiseta.delete');
+Route::put('/dashboard/estoque/camisetas/update/{codigo}', [CamisetaController::class, 'update'])->name('camiseta.update');
 
 // View da pagina tecidos
 Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index']);
@@ -29,7 +31,7 @@ Route::get('/dashboard/estoque/tintas', function () {
 
 
 // View da Pagina de Fornecedores
-Route::get('/dashboard/fornecedores',[FornecedorController::class, 'index']);
+Route::get('/dashboard/fornecedores', [FornecedorController::class, 'index']);
 
 
 
@@ -44,5 +46,3 @@ Route::get('/dashboard/pouco-estoque', function () {
 Route::get('/dashboard/financeiro', function () {
     return view('dashboard.financeiro');
 });
-
-

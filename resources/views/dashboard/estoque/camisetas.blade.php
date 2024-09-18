@@ -26,7 +26,7 @@
                 Pouco estoque
             </div>
             <div class="card-body">
-                20
+                {{ $countCamiseta = DB::table('camisetas')->where('quantidade', '<=', 20)->count() }}
             </div>
         </div>
         <div class="card">
@@ -34,7 +34,7 @@
                 Sem estoque
             </div>
             <div class="card-body">
-                20
+                {{ $semCamiseta = DB::table('camisetas')->where('quantidade', '<', 1)->count() }}
             </div>
         </div>
     </div>
@@ -73,14 +73,20 @@
                         <th>{{ $camiseta->quantidade }}</th>
                         <th>{{ $camiseta->categoria }}</th>
                         <td>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#updateCamiseta">
+                            <a href="{{ route('camiseta.edit', $camiseta->codigo) }}" data-bs-toggle="modal"
+                                data-bs-target="#updateCamiseta">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#deleteCamiseta">
+                            <a href="#" class="modal-trigger" data-bs-toggle="modal"
+                                data-bs-target="#delete-{{ $camiseta->codigo }}">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
                     </tr>
+
+                    @include('dashboard.estoque.modal.camiseta-edit', ['camiseta' => $camiseta])
+                    @include('dashboard.estoque.modal.camiseta-delete', ['camiseta' => $camiseta])
+
                 @endforeach
             </tbody>
         </table>
@@ -88,6 +94,4 @@
 
     {{-- Modal  --}}
     @include('dashboard.estoque.modal.camiseta-create')
-    {{-- @include('dashboard.estoque.modal.camiseta-update')
-    @include('dashboard.estoque.modal.camiseta-delete') --}}
 @endsection
