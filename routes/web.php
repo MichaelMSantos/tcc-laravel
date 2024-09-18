@@ -4,6 +4,7 @@ use App\Http\Controllers\TecidoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CamisetaController;
 use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\TintaController;
 
 Route::get('/', function () {
     return view('login');
@@ -24,10 +25,12 @@ Route::put('/dashboard/estoque/camisetas/update/{id}', [CamisetaController::clas
 // View da pagina tecidos
 Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index']);
 
-
-Route::get('/dashboard/estoque/tintas', function () {
-    return view('dashboard.estoque.tintas');
-});
+// View da pagina tintas 
+route::get('/dashboard/estoque/tintas', [TintaController::class, 'index'])->name('tinta.index');
+Route::post('/dashboard/estoque/tintas', [TintaController::class, 'store']);
+Route::get('/dashboard/estoque/tintas/edit/{id}', action: [TintaController::class, 'edit'])->name('tinta.edit');
+// Route::delete('/dashboard/estoque/tintas/delete/{id}', [TintaController::class, 'destroy'])->name('tinta.delete');
+Route::put('/dashboard/estoque/tintas/update/{id}', [TintaController::class, 'update'])->name('tinta.update');
 
 
 // View da Pagina de Fornecedores
