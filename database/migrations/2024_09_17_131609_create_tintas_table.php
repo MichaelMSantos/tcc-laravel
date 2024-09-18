@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tintas', function (Blueprint $table) {
-            $table->biginteger('codigo')->primary();
+            $table->id();
+            $table->biginteger('codigo')->unique();
             $table->string('marca', 200)->nullable();
             $table->integer('quantidade');
             $table->string('capacidade');
