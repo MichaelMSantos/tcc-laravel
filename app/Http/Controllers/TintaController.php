@@ -48,5 +48,13 @@ class TintaController extends Controller
         return back()->with('sucesso', 'Tinta atualizada com sucesso!');
     }
 
+    public function destroy($id)
+    {
+        $tinta = Tinta::findOrFail($id);
 
+        $tinta->delete();
+
+        return redirect()->route('tinta.index')->with('sucesso', 'Produto excluido com sucesso');
+    }
 }
+
