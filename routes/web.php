@@ -7,29 +7,32 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\TintaController;
 
 Route::get('/', function () {
-    return view('login');
+    return view('layouts.guest');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-});
+    return view('dashboard.dashboard');})->middleware('auth');
 
 
 // View da pagina de camisetas
-route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])->name('camiseta.index');
+route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])
+->name('camiseta.index')->middleware('auth');
+
 Route::post('/dashboard/estoque/camisetas', [CamisetaController::class, 'store']);
 Route::get('/dashboard/estoque/camisetas/edit/{id}', [CamisetaController::class, 'edit'])->name('camiseta.edit');
 Route::delete('/dashboard/estoque/camisetas/delete/{id}', [CamisetaController::class, 'destroy'])->name('camiseta.delete');
 Route::put('/dashboard/estoque/camisetas/update/{id}', [CamisetaController::class, 'update'])->name('camiseta.update');
 
 // View da pagina tecidos
-Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index']);
-Route::get('/dashboard/estoque/tecidos/edit/{id}', [TecidoController::class, 'edit']);
-
+Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index'])->name('tecido.index');
+Route::get('/dashboard/estoque/tecidos/edit/{id}', [TecidoController::class, 'edit'])->name('tecido.edit');
+Route::post('/dashboard/estoque/tecidos', [TecidoController::class, 'store']);
+Route::put('/dashboard/estoque/tecidos/update/{id}', [TecidoController::class, 'update'])->name('tecido.update');
+Route::delete('/dashboard/estoque/tecidos/delete/{id}', [TecidoController::class, 'destroy'])->name('tecido.delete');
 
 
 // View da pagina tintas 
-route::get('/dashboard/estoque/tintas', [TintaController::class, 'index'])->name('tinta.index');
+Route::get('/dashboard/estoque/tintas', [TintaController::class, 'index'])->name('tinta.index');
 Route::post('/dashboard/estoque/tintas', [TintaController::class, 'store']);
 Route::get('/dashboard/estoque/tintas/edit/{id}', action: [TintaController::class, 'edit'])->name('tinta.edit');
 // Route::delete('/dashboard/estoque/tintas/delete/{id}', [TintaController::class, 'destroy'])->name('tinta.delete');
@@ -52,3 +55,4 @@ Route::get('/dashboard/pouco-estoque', function () {
 Route::get('/dashboard/financeiro', function () {
     return view('dashboard.financeiro');
 });
+
