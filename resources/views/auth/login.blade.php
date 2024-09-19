@@ -72,6 +72,8 @@
                 @foreach ($errors->all() as $error)
                     toastr.error("{{ $error }}");
                 @endforeach
+            @elseif (session('deslogado'))
+                toastr.success("{{ session('deslogado') }}");
             @endif
         });
     </script>

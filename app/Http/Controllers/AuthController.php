@@ -25,7 +25,8 @@ class AuthController extends Controller
 
         // Tentativa de autenticação
         if (Auth::attempt(request()->only(['email', 'password']))) {
-            return redirect('/dashboard'); // Sucesso, redireciona para o dashboard
+
+            return redirect('/dashboard')->with('logado', 'Login efetuado com sucesso');
         }
 
         // Se a autenticação falhar, redireciona de volta com a mensagem de erro
@@ -35,6 +36,6 @@ class AuthController extends Controller
     public function logout(){
         Auth::logout();
 
-        return redirect('/');
+    return redirect('/')->with('deslogado', 'Sessão encerrada com sucesso');
     }
 }

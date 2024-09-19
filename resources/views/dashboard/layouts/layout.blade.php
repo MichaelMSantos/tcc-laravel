@@ -10,22 +10,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     {{-- CSS Styles --}}
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="/css/sidebar.css">
     <link rel="stylesheet" href="@yield('link')">
-
-    @if (Request::is('dashboard/estoque/camisetas'))
-        <link rel="stylesheet" href="/css/modal.css">
-    @elseif (Request::is('dashboard/estoque/tecidos'))
-        <link rel="stylesheet" href="/css/modal.css">
-    @elseif (Request::is('dashboard/estoque/tintas'))
-        <link rel="stylesheet" href="/css/modal.css">
-    @endif
+    <link rel="stylesheet" href="/css/modal.css">
 
     {{-- Bootstrap Icon Link --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -123,14 +117,45 @@
         </div>
     </main>
 
-    
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "timeOut": "6000",
+        };
+
+        $(document).ready(function() {
+            @if (session('logado'))
+                toastr.success("{{ session('logado') }}");
+            @endif
+        });
+    </script>
+
     {{-- Javascript --}}
     <script src="/js/sidebar.js"></script>
 
     {{-- Link JS CDN --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    {{-- Link JS CDN --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "timeOut": "6000",
+        };
+
+        $(document).ready(function() {
+            @if (session('logado'))
+                toastr.success("{{ session('logado') }}");
+            @endif
+        });
     </script>
+
 
 </body>
 
