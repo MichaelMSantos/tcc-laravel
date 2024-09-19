@@ -76,14 +76,14 @@
                         </a>
 
                         <a href="#" class="modal-trigger" data-bs-toggle="modal"
-                            data-bs-target="">
+                            data-bs-target="#delete-{{ $tinta->id }}">
                             <i class="bi bi-trash"></i>
                         </a>
                     </td>
                 </tr>
 
                 @include('dashboard.estoque.modal.tinta-edit', ['tinta' => $tinta])
-
+                @include('dashboard.estoque.modal.tinta-delete', ['tinta' => $tinta])
             @endforeach
         </tbody>
     </table>
