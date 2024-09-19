@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TecidoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -8,12 +9,15 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\TintaController;
 
 Route::get('/', function () {
-    return view('login');
+    return view('auth.login');
 });
+
+Route::post('/login', [AuthController::class, 'login'])->name('user.validate');
+Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
-});
+})->middleware('auth');
 
 
 // View da pagina de camisetas

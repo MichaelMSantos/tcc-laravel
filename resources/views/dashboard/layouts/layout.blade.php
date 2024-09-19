@@ -110,7 +110,7 @@
             </div>
             </ul>
             <div class="sidebar-footer">
-                <a href="/" class="sidebar-link">
+                <a href="/logout" class="sidebar-link">
                     <img src="/images/sidebar/logout.svg" alt="">
                     <span>log out</span>
                 </a>
