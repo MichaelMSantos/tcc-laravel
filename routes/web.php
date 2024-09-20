@@ -36,11 +36,18 @@ Route::put('/dashboard/estoque/camisetas/update/{id}', [CamisetaController::clas
     ->middleware('auth');
 
 // View da pagina tecidos
-Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index'])
+Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index'])->name('tecido.index')
     ->middleware('auth');
 Route::get('/dashboard/estoque/tecidos/edit/{id}', [TecidoController::class, 'edit'])
+    ->name('tecido.edit')
     ->middleware('auth');
-
+Route::post('/dashboard/estoque/tecidos', [TecidoController::class, 'store']);
+Route::delete('/dashboard/estoque/tecidos/delete/{id}', [TecidoController::class, 'destroy'])
+    ->name('tecido.delete')
+    ->middleware('auth');
+Route::put('/dashboard/estoque/tecidos/update/{id}', [TecidoController::class, 'update'])
+    ->name('tecido.update')
+    ->middleware('auth');
 
 
 // View da pagina tintas 
