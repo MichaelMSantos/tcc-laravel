@@ -51,13 +51,13 @@
                         </th>
                         @include('contatos')
 
-                        <td>
-                            <a href="{{ route('fornecedor.edit', $fornecedor->id) }}" data-bs-toggle="modal"
+                        <td class="acoes">
+                            <a href="{{ route('fornecedor.edit', $fornecedor->id) }}" class="acao" data-bs-toggle="modal"
                                 data-bs-target="#update-{{ $fornecedor->id }}">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
 
-                            <a href="#" class="modal-trigger" data-bs-toggle="modal"
+                            <a href="#" class="modal-trigger acao" data-bs-toggle="modal"
                                 data-bs-target="#delete-{{ $fornecedor->id }}">
                                 <i class="bi bi-trash"></i>
                             </a>
