@@ -44,27 +44,27 @@
             @foreach ($funcionarios as $funcionario)
                 <tr>
                     <th scope="row">{{ $funcionario->cpf}}</th>
-                    <th>{{ $funcionario->nome}}</th>
+                    <th>{{ $funcionario->name}}</th>
                     <th>{{ $funcionario->email}}</th>
-                    <td>
+                    <td class="acoes">
                             <a href="{{ route('funcionario.edit', $funcionario->id) }}" data-bs-toggle="modal"
-                                data-bs-target="#update-{{ $funcionario->id }}">
+                                data-bs-target="#update-{{ $funcionario->id }}" class="acao">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a href="#" class="modal-trigger" data-bs-toggle="modal"
+                            <a href="#" class="modal-trigger acao" data-bs-toggle="modal"
                                 data-bs-target="#delete-{{ $funcionario->id }}">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
                     </th>
                 </tr>
-                @include('dashboard.estoque.modal.funcionario-edit', ['funcionario' => $funcionario])
-                @include('dashboard.estoque.modal.funcionario-delete', ['funcionario' => $funcionario])
+                @include('modal.funcionario-edit', ['funcionario' => $funcionario])
+                @include('modal.funcionario-delete', ['funcionario' => $funcionario])
             @endforeach
         </tbody>
     </table>
 </div>
 
-@include('dashboard.estoque.modal.funcionario-create');
+@include('modal.funcionario-create');
 
 @endsection

@@ -57,13 +57,13 @@
                     </td>
                 </tr>
 
-                @include('dashboard.estoque.modal.fornecedor-edit', ['fornecedor' => $fornecedor])
-                @include('dashboard.estoque.modal.fornecedor-delete', ['fornecedor' => $fornecedor]) 
+                @include('modal.fornecedor-edit', ['fornecedor' => $fornecedor])
+                @include('modal.fornecedor-delete', ['fornecedor' => $fornecedor]) 
 
             @endforeach
         </tbody>
 
-        @include('dashboard.estoque.modal.fornecedor-create');
+        @include('modal.fornecedor-create');
     </table>
     <p class="subtitle">
         Mostrando 0 de 0 registros

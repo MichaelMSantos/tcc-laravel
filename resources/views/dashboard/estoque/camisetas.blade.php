@@ -72,20 +72,20 @@
                         <th>{{ $camiseta->cor }}</th>
                         <th>{{ $camiseta->quantidade }}</th>
                         <th>{{ $camiseta->categoria }}</th>
-                        <td>
+                        <td class="acoes">
                             <a href="{{ route('camiseta.edit', $camiseta->id) }}" data-bs-toggle="modal"
-                                data-bs-target="#update-{{ $camiseta->id }}">
+                                data-bs-target="#update-{{ $camiseta->id }}" class="acao">
                                 <i class="bi bi-pencil-square"></i>
                             </a>
-                            <a href="#" class="modal-trigger" data-bs-toggle="modal"
+                            <a href="#" class="modal-trigger acao" data-bs-toggle="modal"
                                 data-bs-target="#delete-{{ $camiseta->id }}">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
                     </tr>
 
-                    @include('dashboard.estoque.modal.camiseta-edit', ['camiseta' => $camiseta])
-                    @include('dashboard.estoque.modal.camiseta-delete', ['camiseta' => $camiseta])
+                    @include('modal.estoque.camiseta-edit', ['camiseta' => $camiseta])
+                    @include('modal.estoque.camiseta-delete', ['camiseta' => $camiseta])
 
                 @endforeach
             </tbody>
@@ -93,5 +93,5 @@
     </div>
 
     {{-- Modal  --}}
-    @include('dashboard.estoque.modal.camiseta-create')
+    @include('modal.estoque.camiseta-create')
 @endsection

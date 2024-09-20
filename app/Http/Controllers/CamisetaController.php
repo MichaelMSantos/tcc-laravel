@@ -46,7 +46,7 @@ class CamisetaController extends Controller
         Camiseta::findOrFail($request->id)->update($request->all());
 
 
-        return back()->with('sucesso', 'Camiseta atualizada com sucesso!');
+        return back()->with('editado', 'Camiseta atualizada com sucesso!');
     }
 
 
@@ -56,6 +56,6 @@ class CamisetaController extends Controller
 
         $camiseta->delete();
 
-        return redirect()->route('camiseta.index')->with('sucesso', 'Produto excluido com sucesso');
+        return redirect()->route('camiseta.index')->with('excluido', 'Camiseta excluida com sucesso!');
     }
 }

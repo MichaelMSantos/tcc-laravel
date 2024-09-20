@@ -82,8 +82,8 @@
                     </td>
                 </tr>
 
-                @include('dashboard.estoque.modal.tinta-edit', ['tinta' => $tinta])
-                @include('dashboard.estoque.modal.tinta-delete', ['tinta' => $tinta])
+                @include('modal.tinta-edit', ['tinta' => $tinta])
+                @include('modal.tinta-delete', ['tinta' => $tinta])
             @endforeach
         </tbody>
     </table>
