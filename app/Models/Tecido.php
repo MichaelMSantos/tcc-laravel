@@ -8,11 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Tecido extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'nome',
-        'medida',
-        'cor',
-        'quantidade',
-    ];
 }

@@ -46,7 +46,7 @@
         </div>
         <div class="button-group">
             <button id="filtrar">Filtrar</button>
-            <button id="novo" type="button" data-bs-toggle="modal" data-bs-target="#modalNovaCamiseta">Novo
+            <button id="novo" type="button" data-bs-toggle="modal" data-bs-target="#novoTecido">Novo
                 produto</button>
             <button id="exportar">Exportar</button>
         </div>
@@ -58,33 +58,35 @@
                 <th scope="col">Medidas</th>
                 <th scope="col">Cores</th>
                 <th scope="col">Quantidade</th>
-                <th scope="col">Modelo</th>
                 <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">00000</th>
-                <th>teste</th>
-                <th>G</th>
-                <th>teste</th>
-                <th>2</th>
-                <th><i class="bi bi-pencil-square"></i>
-                    <i class="bi bi-trash3"></i>
-                </th>
-            </tr>
-            <tr>
-                <th scope="row">00000</th>
-                <th>teste</th>
-                <th>G</th>
-                <th>teste</th>
-                <th>2</th>
-                <th><i class="bi bi-pencil-square"></i>
-                    <i class="bi bi-trash3"></i>
-                </th>
-            </tr>
+            @foreach ($tecidos as $tecido)
+                <tr>
+                    <th scope="row">{{ $tecido->codigo }}</th>
+                    <th>{{ $tecido->medida }}</th>
+                    <th>{{ $tecido->cor }}</th>
+                    <th>{{ $tecido->quantidade }}</th>
+                    <td>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#update-{{ $tecido->id }}">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+
+                        <a href="#" class="modal-trigger" data-bs-toggle="modal" data-bs-target="#delete-{{ $tecido->id }}">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+
+                @include('modal.estoque.tecido-edit', ['tecido' => $tecido])
+                @include('modal.estoque.tecido-delete', ['tecido' => $tecido])
+            @endforeach
         </tbody>
     </table>
 </div>
+
+{{-- Modal --}}
+@include('modal.estoque.tecido-create')
 
 @endsection
