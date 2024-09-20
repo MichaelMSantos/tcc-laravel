@@ -90,5 +90,5 @@
 </div>
 
 {{-- Modal --}}
-@include('estoque.modal.tinta-create')
+@include('modal.estoque.tinta-create')
 @endsection
