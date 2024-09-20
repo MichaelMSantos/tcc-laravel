@@ -25,14 +25,14 @@ class UserController extends Controller
 
         $funcionarios->save();
 
-        return back()->with('sucesso', 'funcionario registrada com sucesso');
+        return back()->with('sucesso', 'Funcionario registrada com sucesso');
     }
 
     public function edit($id)
     {
         $funcionario = User::where('cpf', $id)->firstOrFail();
 
-        return view('dashboard.estoque.modal.funcionario-edit', compact('funcionario'));
+        return view('modal.funcionario-edit', compact('funcionario'));
     }
 
     public function update(Request $request)
@@ -43,7 +43,7 @@ class UserController extends Controller
         User::findOrFail($request->id)->update($request->all());
 
 
-        return back()->with('sucesso', 'funcionario atualizada com sucesso!');
+        return back()->with('sucesso', 'Fucionario atualizada com sucesso!');
     }
 
     public function destroy($id)
@@ -52,7 +52,7 @@ class UserController extends Controller
 
         $funcionario->delete();
 
-        return redirect()->route('funcionarios.index')->with('sucesso', 'funcionario excluido com sucesso');
+        return redirect()->route('funcionarios.index')->with('sucesso', 'Funcionario excluido com sucesso');
     
 }
 

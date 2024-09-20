@@ -34,7 +34,7 @@ class TintaController extends Controller
     {
         $tinta = Tinta::where('codigo', $id)->firstOrFail();
 
-        return view('dashboard.estoque.modal.tinta-edit', compact('tinta'));
+        return view('modal.estoque.tinta-edit', compact('tinta'));
     }
 
     public function update(Request $request)
@@ -45,7 +45,7 @@ class TintaController extends Controller
         Tinta::findOrFail($request->id)->update($request->all());
 
 
-        return back()->with('sucesso', 'Tinta atualizada com sucesso!');
+        return back()->with('sucesso', 'Tintavalue:  atualizada com sucesso!');
     }
 
     public function destroy($id)

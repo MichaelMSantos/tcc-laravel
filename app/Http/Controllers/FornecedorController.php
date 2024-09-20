@@ -27,14 +27,20 @@ class FornecedorController extends Controller
 
       $fornecedores->save();
 
-      return back()->with('sucesso', 'fornecedor registrada com sucesso');
+      return back()->with('sucesso', 'Fornecedor registrada com sucesso');
    }
 
    public function edit($id)
    {
       $fornecedor = Fornecedor::where('nome', $id)->firstOrFail();
 
-      return view('dashboard.estoque.modal.fornecedor-edit', compact('fornecedor'));
+      return view('modal.fornecedor-edit', compact('fornecedor'));
+   }
+
+   public function show($id) {
+      $fornecedor = Fornecedor::where('nome', $id)->firstOrFail();
+      
+      return view('contatos', compact('fornecedor'));
    }
 
    public function update(Request $request)
@@ -45,7 +51,7 @@ class FornecedorController extends Controller
       Fornecedor::findOrFail($request->id)->update($request->all());
 
 
-      return back()->with('sucesso', 'fornecedor atualizada com sucesso!');
+      return back()->with('sucesso', 'Fornecedor atualizada com sucesso!');
    }
 
 
@@ -55,7 +61,7 @@ class FornecedorController extends Controller
 
       $fornecedor->delete();
 
-      return redirect()->route('fornecedor.index')->with('sucesso', 'funcionario excluido com sucesso');
+      return redirect()->route('fornecedor.index')->with('sucesso', 'Fornecedor excluido com sucesso!');
    }
 
 }

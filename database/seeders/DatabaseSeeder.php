@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Fornecedor;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,5 +23,15 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('secret'),
             'cpf'=> '123.234.244-54'
         ]);
+
+       Fornecedor::factory()->create([
+        'nome'=> 'Fornecedor1',
+        'telefone'=>'11 12345-1234',
+        'endereco'=>'Rua ABC',
+        'email' => 'fornecedor@teste.com',
+        'instagram' => 'www.instagram.com',
+        'linkedin' => 'br.linkedin.com/',
+        'facebook' => 'facebook.com',
+       ]);
     }
 }

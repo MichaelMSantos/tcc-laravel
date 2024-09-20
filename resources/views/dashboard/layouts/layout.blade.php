@@ -157,10 +157,6 @@
                 toastr.success("{{ session('logado') }}");
             @elseif (session('sucesso'))
                 toastr.success("{{ session('sucesso') }}")
-            @elseif (session('editado'))
-                toastr.success("{{ session('editado') }}");
-            @elseif (session('excluido'))
-                toastr.success("{{ session('excluido') }}")
             @endif
         });
     </script>

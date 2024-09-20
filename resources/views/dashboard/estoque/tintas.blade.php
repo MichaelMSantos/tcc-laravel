@@ -82,13 +82,13 @@
                     </td>
                 </tr>
 
-                @include('modal.tinta-edit', ['tinta' => $tinta])
-                @include('modal.tinta-delete', ['tinta' => $tinta])
+                @include('modal.estoque.tinta-edit', ['tinta' => $tinta])
+                @include('modal.estoque.tinta-delete', ['tinta' => $tinta])
             @endforeach
         </tbody>
     </table>
 </div>
 
 {{-- Modal --}}
-@include('dashboard.estoque.modal.tinta-create')
+@include('estoque.modal.tinta-create')
 @endsection

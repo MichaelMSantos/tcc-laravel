@@ -74,6 +74,8 @@ Route::delete('/dashboard/fornecedores/delete/{id}', [FornecedorController::clas
 Route::put('/dashboard/fornecedores/update/{id}', [FornecedorController::class, 'update'])
     ->name('fornecedor.update')
     ->middleware('auth');
+Route::get('/contatos/{id}', [FornecedorController::class, 'show'])
+    ->name('fornecedor.show');
 
 
 // VIew da pagina de funcionarios

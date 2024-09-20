@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nome', 200);
             $table->string('telefone', 20);
             $table->string('endereco', 200);
+            $table->string('email', 200);
             $table->string('instagram', 200)->nullable();
             $table->string('linkedin', 200)->nullable();
             $table->string('facebook', 200)->nullable();
