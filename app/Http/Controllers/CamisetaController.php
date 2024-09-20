@@ -6,6 +6,8 @@ use App\Models\Camiseta;
 
 use Illuminate\Http\Request;
 
+use App\Rules\UniqueCodigo;
+
 class CamisetaController extends Controller
 {
     public function index()
@@ -16,6 +18,16 @@ class CamisetaController extends Controller
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'codigo' => ['required', new UniqueCodigo], 
+            'modelo' => 'required',
+            'tamanho' => 'required',
+            'cor' => 'required',
+            'quantidade' => 'required|integer',
+            'categoria' => 'required'
+        ]);
+        
         $camiseta = new Camiseta;
 
         $camiseta->id = $request->id;
@@ -40,6 +52,14 @@ class CamisetaController extends Controller
 
     public function update(Request $request)
     {
+        $request->validate([
+            'codigo' => ['required', new UniqueCodigo], 
+            'modelo' => 'required',
+            'tamanho' => 'required',
+            'cor' => 'required',
+            'quantidade' => 'required|integer',
+            'categoria' => 'required'
+        ]);
 
         $camisetas = Camiseta::all();
 

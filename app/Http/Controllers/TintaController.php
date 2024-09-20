@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
+use App\Rules\UniqueCodigo;
 use App\Models\Tinta;
 
 class TintaController extends Controller
@@ -17,6 +17,16 @@ class TintaController extends Controller
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'codigo' => ['required', new UniqueCodigo],
+            'marca' => 'required',
+            'cor' => 'required',
+            'quantidade' => 'required|integer',
+            'capcidade' => 'required'
+        ]);
+
+
         $tintas = new Tinta;
 
         $tintas->codigo = $request->codigo;
@@ -40,6 +50,14 @@ class TintaController extends Controller
     public function update(Request $request)
     {
 
+        $request->validate([
+            'codigo' => ['required', new UniqueCodigo],
+            'marca' => 'required',
+            'cor' => 'required',
+            'quantidade' => 'required|integer',
+            'capcidade' => 'required'
+        ]);
+
         $tinta = Tinta::all();
 
         Tinta::findOrFail($request->id)->update($request->all());
@@ -57,4 +75,3 @@ class TintaController extends Controller
         return redirect()->route('tinta.index')->with('sucesso', 'Produto excluido com sucesso');
     }
 }
-

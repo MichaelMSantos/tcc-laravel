@@ -117,20 +117,6 @@
         </div>
     </main>
 
-    <script>
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true,
-            "timeOut": "6000",
-        };
-
-        $(document).ready(function() {
-            @if (session('logado'))
-                toastr.success("{{ session('logado') }}");
-            @endif
-        });
-    </script>
-
     {{-- Javascript --}}
     <script src="/js/sidebar.js"></script>
 
@@ -153,14 +139,21 @@
         };
 
         $(document).ready(function() {
+            // Para mensagens de sucesso
             @if (session('logado'))
                 toastr.success("{{ session('logado') }}");
             @elseif (session('sucesso'))
                 toastr.success("{{ session('sucesso') }}")
             @endif
+
+            // Para mensagens de erro de validação
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    toastr.error("{{ $error }}");
+                @endforeach
+            @endif
         });
     </script>
-
 
 </body>
 

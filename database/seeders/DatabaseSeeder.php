@@ -49,8 +49,10 @@ class DatabaseSeeder extends Seeder
             'codigo' => '12345',
             'modelo' => 'manga longa',
             'tamanho' => 'G',
+            'categoria' => 'Jovem',
             'cor' => 'Preto',
             'quantidade' => '30',
+            'fornecedor_id' => '1',
 
         ]);
 
