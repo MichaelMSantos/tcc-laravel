@@ -49,7 +49,7 @@
                                 <i class="bi bi-eye"></i>
                             </a>
                         </th>
-                        @include('contatos');
+                        @include('contatos')
 
                         <td>
                             <a href="{{ route('fornecedor.edit', $fornecedor->id) }}" data-bs-toggle="modal"

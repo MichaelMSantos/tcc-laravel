@@ -65,6 +65,6 @@
     </table>
 </div>
 
-@include('modal.funcionario-create');
+@include('modal.funcionario-create')
 
 @endsection

@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('tecidos', function (Blueprint $table) {
             $table->id();
             $table->biginteger('codigo')->unique();
-            $table->string('medidas', 200)->nullable();
+            $table->string('medida', 200)->nullable();
             $table->string('cor', 30);
             $table->integer('quantidade');
-            $table->string('modelo');
             $table->timestamps();
         });
     }

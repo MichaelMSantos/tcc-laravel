@@ -1,3 +1,5 @@
+/* Modal camisetas  */
+
 .input-content {
     display: flex;
     width: 100%;
@@ -10,15 +12,15 @@
     flex-direction: column;
 }
 
+#codigo, select, .input-group input {
+    padding: 0 .5em ;
+    border: 1px solid #838282 !important;
+    border-radius: 6px !important;
+}
+
 label {
     font-weight: 600;
     color: #444444;
-}
-#modelo, #quantidade,
-#categoria, #cor, 
-#tamanho, #codigo {
-    border: 1px solid #383838;
-    border-radius: 6px;
 }
 
 #quantidade {
@@ -36,7 +38,7 @@ label {
 
 #scanner {
     padding: 0 .4rem;
-    border: solid 1px #383838;
+    border: solid 2px #383838;
     border-radius: 6px;
     width: 25% !important;
 }

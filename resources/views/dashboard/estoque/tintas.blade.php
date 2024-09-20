@@ -69,13 +69,13 @@
                     <th>{{ $tinta->cor }}</th>
                     <th>{{ $tinta->quantidade }}</th>
                     <th>{{ $tinta->capacidade }}</th>
-                    <td>
-                        <a href="#" data-bs-toggle="modal"
+                    <td class="acoes">
+                        <a href="#" class="acao" data-bs-toggle="modal"
                             data-bs-target="#update-{{ $tinta->id }}">
                             <i class="bi bi-pencil-square"></i>
                         </a>
 
-                        <a href="#" class="modal-trigger" data-bs-toggle="modal"
+                        <a href="#" class="modal-trigger acao" data-bs-toggle="modal"
                             data-bs-target="#delete-{{ $tinta->id }}">
                             <i class="bi bi-trash"></i>
                         </a>
