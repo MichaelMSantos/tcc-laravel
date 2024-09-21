@@ -6,31 +6,41 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Fornecedor {{ $fornecedor->id}}</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Fornecedor {{ $fornecedor->id }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="nome">Nome</label>
+                    <label for="nome">Codigo</label>
                     <div class="input-content">
-                        <input type="text" name="nome" id="nome" value="{{ $fornecedor->id}}">
+                        <input type="text" name="nome" id="nome" value="{{ $fornecedor->id }}">
                         <span> ou </span>
                         <button type="button" id="scanner">Escanear</button>
                     </div>
                     <div class="input-content">
                         <div class="input-group">
                             <label for="telefone">Telefone</label>
-                            <input type="text" name="telefone" id="telefone" value="{{ $fornecedor->telefone}}">
+                            <input type="text" name="telefone" id="telefone" value="{{ $fornecedor->telefone }}">
                         </div>
-                        <div class="option-group">
-                            <div class="input-group">
-                                <label for="endereco">Endereço</label>
-                                <input name="endereco" id="endereco">
-                            </div>
-                            <div class="input-group">
-                                <label for="contato">Contato</label>
-                                <input name="contato" id="contato"></input>
-                            </div>
+                        <div class="input-group">
+                            <label for="linkedin">LinkedIn</label>
+                            <input name="linkedin" id="linkedin" value="{{ $fornecedor->linkedin }}">
                         </div>
+                    </div>
+                    <div class="input-group" style="margin-top: 10px">
+                        <label for="endereco">Endereço</label>
+                        <input name="endereco" id="endereco" value="{{ $fornecedor->endereco }}">
+                    </div>
+                    <div class="input-group" style="margin-top: 10px">
+                        <label for="email">Email</label>
+                        <input name="email" id="email" value="{{ $fornecedor->email }}">
+                    </div>
+                    <div class="input-group" style="margin-top: 10px">
+                        <label for="facebook">Facebook</label>
+                        <input name="facebook" id="facebook" value="{{ $fornecedor->facebook }}">
+                    </div>
+                    <div class="input-group" style="margin-top: 10px">
+                        <label for="instagram">Instagram</label>
+                        <input name="instagram" id="instagram" value="{{ $fornecedor->instagram }}">
                     </div>
                 </div>
                 <div class="modal-footer">

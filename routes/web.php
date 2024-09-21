@@ -20,8 +20,8 @@ Route::get('/dashboard', function () {
 })->middleware('auth');
 
 
-// View da pagina de camisetas
-route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])
+// rotas da pagina de camisetas
+Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])
     ->name('camiseta.index')
     ->middleware('auth');
 Route::post('/dashboard/estoque/camisetas', [CamisetaController::class, 'store']);
@@ -35,7 +35,7 @@ Route::put('/dashboard/estoque/camisetas/update/{id}', [CamisetaController::clas
     ->name('camiseta.update')
     ->middleware('auth');
 
-// View da pagina tecidos
+// rotas da pagina tecidos
 Route::get('/dashboard/estoque/tecidos', [TecidoController::class, 'index'])->name('tecido.index')
     ->middleware('auth');
 Route::get('/dashboard/estoque/tecidos/edit/{id}', [TecidoController::class, 'edit'])
@@ -50,8 +50,8 @@ Route::put('/dashboard/estoque/tecidos/update/{id}', [TecidoController::class, '
     ->middleware('auth');
 
 
-// View da pagina tintas 
-route::get('/dashboard/estoque/tintas', [TintaController::class, 'index'])
+// rotas da pagina tintas 
+Route::get('/dashboard/estoque/tintas', [TintaController::class, 'index'])
     ->name('tinta.index')
     ->middleware('auth');
 Route::post('/dashboard/estoque/tintas', [TintaController::class, 'store'])
@@ -67,9 +67,9 @@ Route::put('/dashboard/estoque/tintas/update/{id}', [TintaController::class, 'up
     ->middleware('auth');
 
 
-// View da Pagina de Fornecedores
-route::get('/dashboard/fornecedores', [FornecedorController::class, 'index'])
-    ->name('fornecedores.index')
+// rotas da Pagina de Fornecedores
+Route::get('/dashboard/fornecedores', [FornecedorController::class, 'index'])
+    ->name('fornecedor.index')
     ->middleware('auth');
 Route::post('/dashboard/fornecedores', [FornecedorController::class, 'store']);
 Route::get('/dashboard/fornecedores/edit/{id}', action: [FornecedorController::class, 'edit'])
@@ -85,8 +85,8 @@ Route::get('/contatos/{id}', [FornecedorController::class, 'show'])
     ->name('fornecedor.show');
 
 
-// VIew da pagina de funcionarios
-route::get('/dashboard/funcionarios', [UserController::class, 'index'])
+// rotas da pagina de funcionarios
+Route::get('/dashboard/funcionarios', [UserController::class, 'index'])
     ->name('funcionarios.index')
     ->middleware('auth');
 Route::post('/dashboard/funcionarios', [UserController::class, 'store']);

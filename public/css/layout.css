@@ -217,7 +217,7 @@ main {
     color: #000;
 }
 
-.acao:last-child {
+.acao:last-child{
     background-color: red;
     color: #fff;
     border: 1px solid rgb(146, 3, 3);

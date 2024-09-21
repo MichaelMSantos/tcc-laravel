@@ -34,7 +34,7 @@
                     <th scope="col">Telefone</th>
                     <th scope="col">Endereço</th>
                     <th scope="col">Contatos</th>
-                    <th scope="col">Açoes</th>
+                    <th scope="col" style="width: 15%">Açoes</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,7 +51,7 @@
                         </th>
                         @include('contatos')
 
-                        <td class="acoes">
+                        <th class="acoes">
                             <a href="{{ route('fornecedor.edit', $fornecedor->id) }}" class="acao" data-bs-toggle="modal"
                                 data-bs-target="#update-{{ $fornecedor->id }}">
                                 <i class="bi bi-pencil-square"></i>
@@ -61,7 +61,10 @@
                                 data-bs-target="#delete-{{ $fornecedor->id }}">
                                 <i class="bi bi-trash"></i>
                             </a>
-                        </td>
+                            <a href="#" class="acao" data-bs-toggle="modal" data-bs-target="#">
+                                <i class="bi bi-currency-dollar"></i>
+                            </a>
+                        </th>
                     </tr>
 
                     @include('modal.fornecedor-edit', ['fornecedor' => $fornecedor])
