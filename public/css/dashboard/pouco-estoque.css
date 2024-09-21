@@ -1,5 +1,10 @@
 .pouco-estoque {
     border-left: 3px solid #3b7ddd !important;
+    background-color: #e2e2e2af !important;
+}
+
+.pouco-estoque{
+    background-color: #e2e2e2af !important;
 }
 
 .table-responsive {

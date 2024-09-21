@@ -27,7 +27,7 @@
                 </button>
             </div>
         </div>
-        <table class="table">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -45,8 +45,8 @@
                         <th>{{ $fornecedor->endereco }}</th>
                         <th scope="row">
                             <a href="{{ route('fornecedor.show', $fornecedor->id) }}" data-bs-toggle="modal"
-                                data-bs-target="#contato-{{ $fornecedor->id }}">
-                                <i class="bi bi-eye"></i>
+                                data-bs-target="#contato-{{ $fornecedor->id }}" class="contatos">
+                                <i class="bi bi-eye"></i> <span>Visualizar</span>
                             </a>
                         </th>
                         @include('contatos')

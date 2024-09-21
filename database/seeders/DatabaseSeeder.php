@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
             'cor' => 'Branca',
             'quantidade' => '10',
             'capacidade' => '2L',
+            'fornecedor_id' => '1',
         ]);
 
         Camiseta::factory()->create([
@@ -61,6 +62,7 @@ class DatabaseSeeder extends Seeder
             'medida' => '2M',
             'cor' => 'Azul',
             'quantidade' => '10',
+            'fornecedor_id' => '1',
         ]);
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\TecidoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CamisetaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\TintaController;
 
@@ -15,10 +16,8 @@ Route::get('/', function () {
 });
 Route::post('/login', [AuthController::class, 'login'])->name('user.validate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-})->middleware('auth');
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 // rotas da pagina de camisetas
 Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])

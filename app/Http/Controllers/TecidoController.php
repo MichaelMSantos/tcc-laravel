@@ -18,7 +18,7 @@ class TecidoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'codigo' => ['required', new UniqueCodigo],
+            'codigo' => ['required', 'unique:tecidos,codigo,' . $request->id], 
             'medida' => 'required',
             'cor' => 'required',
             'quantidade' => 'required|integer'

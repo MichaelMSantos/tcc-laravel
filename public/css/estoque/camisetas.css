@@ -1,6 +1,8 @@
 .estoque, .camisetas {
     border-left: 3px solid #3b7ddd !important;
+    background-color: #e2e2e2af !important;
 }
+
 
 .cards {
     display: flex;

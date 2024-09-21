@@ -51,7 +51,7 @@ class TintaController extends Controller
     {
 
         $request->validate([
-            'codigo' => ['required', new UniqueCodigo],
+            'codigo' => ['required', 'unique:tintas,codigo,' . $request->id], 
             'marca' => 'required',
             'cor' => 'required',
             'quantidade' => 'required|integer',

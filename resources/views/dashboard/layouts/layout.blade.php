@@ -27,17 +27,28 @@
 
 <body>
     <main>
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
 
         {{-- Sidebar Structure --}}
-        <aside id="sidebar">
+        <aside id="sidebar" class="expand">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
-                    <i class="">
+                    {{-- <i class="">
                         <img src="/images/sidebar/menu.svg" alt="" class="menu">
-                    </i>
+                    </i> --}}
+                    <i class="bi bi-arrow-left"></i>
                 </button>
-                <div class="sidebar-logo">
-                    <a href="#">LOGO</a>
+                <div class="sidebar-logo" style="position: absolute">
+                    <a href="#">StampControl</a>
                 </div>
             </div>
             <ul class="sidebar-nav">

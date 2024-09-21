@@ -53,7 +53,7 @@ class CamisetaController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'codigo' => ['required', new UniqueCodigo], 
+            'codigo' => ['required', 'unique:camisetas,codigo,' . $request->id], 
             'modelo' => 'required',
             'tamanho' => 'required',
             'cor' => 'required',

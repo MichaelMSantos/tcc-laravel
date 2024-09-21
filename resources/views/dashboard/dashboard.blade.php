@@ -14,25 +14,25 @@
         <div class="card">
             <div class="card-title">Total de produtos</div>
             <div class="card-body">
-                20
+                {{ $totalRegistro }}
             </div>
         </div>
         <div class="card">
             <div class="card-title">Adições nos ultimos 7 dias</div>
             <div class="card-body">
-                20
+                {{$adicoesRecentes}}
             </div>
         </div>
         <div class="card">
             <div class="card-title">Sem estoque</div>
             <div class="card-body">
-                20
+                {{$semEstoqueTotal}}
             </div>
         </div>
         <div class="card">
             <div class="card-title">Fornecedores cadastrados</div>
             <div class="card-body">
-                20
+                {{$totalFornecedores = DB::table('fornecedores')->count();}}
             </div>
         </div>
     </div>
@@ -52,13 +52,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                        <td>teste</td>
-                    </tr>
+                    @if (count($recentes) > 0)
+                    @foreach ($recentes as $recent)
+                        <tr>
+                            <td>{{ $recent->codigo }}</td>
+                            <td style="text-transform: capitalize">
+                                <a href="/dashboard/estoque/{{ $recent->origem }}"> {{ $recent->origem }}</a>
+                            </td>
+                            <td>{{ $recent->quantidade }}</td>
+                            <td>{{ $recent->fornecedor }}</td>
+                            <td>{{ \Carbon\Carbon::parse($recent->created_at)->format('d/m/Y') }}</td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr><td colspan="6">Nenhum registro encontrado</td></tr>
+                @endif
                 </tbody>
             </table>
         </div>

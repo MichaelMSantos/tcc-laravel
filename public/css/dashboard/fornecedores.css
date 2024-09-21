@@ -1,5 +1,9 @@
 .fornecedores {
     border-left: 3px solid #3b7ddd !important;
+    background-color: #e2e2e2af !important;
+}
+.fornecedores:hover{
+    background-color: #e2e2e2af !important;
 }
 
 .table-responsive .title {
@@ -89,4 +93,13 @@ th {
     background-color: blue;
     color: #fff;
     border: 1px solid rgb(13, 13, 211);
+}
+
+.contatos {
+    font-size: 18px;
+}
+.contatos span {
+    font-size: 15px;
+    margin-left: 0;
+    font-weight: 500;
 }
