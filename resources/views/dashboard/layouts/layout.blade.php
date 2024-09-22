@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="light">
 
 <head>
     <meta charset="utf-8">
@@ -23,10 +23,17 @@
 
     {{-- Bootstrap Icon Link --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    {{-- script cdn --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+        integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
     <main>
+
+        {{-- SCRIPT VLibras --}}
         <div vw class="enabled">
             <div vw-access-button class="active"></div>
             <div vw-plugin-wrapper>
@@ -37,6 +44,11 @@
         <script>
             new window.VLibras.Widget('https://vlibras.gov.br/app');
         </script>
+
+        {{-- darkModeToggle --}}
+        <button class="darkModeSwitch" id="darkModeSwitch">
+            <i class="bi bi-moon" id="themeIcon"></i>
+        </button>
 
         {{-- Sidebar Structure --}}
         <aside id="sidebar" class="expand">
@@ -124,6 +136,8 @@
 
         {{-- Main Content --}}
         <div class="wrapper">
+            @yield('breadcrumb')
+            @stack('graficos')
             @yield('content')
         </div>
     </main>
@@ -140,7 +154,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="/js/toggleDarkMode.js"></script>
     <script>
         toastr.options = {
             "closeButton": true,

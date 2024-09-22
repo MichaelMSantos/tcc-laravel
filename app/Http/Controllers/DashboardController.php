@@ -10,7 +10,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // Consultas com JOIN na tabela fornecedores para obter o nome do fornecedor
         $recentes = DB::select("
             (SELECT 'tintas' AS origem, tintas.codigo, tintas.quantidade, tintas.created_at, fornecedores.nome AS fornecedor
             FROM tintas

@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CamisetaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FinanceiroController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\TintaController;
 
@@ -104,6 +105,5 @@ Route::get('/dashboard/pouco-estoque', function () {
     return view('dashboard.pouco-estoque');
 })->middleware('auth');
 
-Route::get('/dashboard/financeiro', function () {
-    return view('dashboard.financeiro');
-})->middleware('auth');
+Route::get('/dashboard/financeiro',[FinanceiroController::class, 'index'])
+->middleware('auth');

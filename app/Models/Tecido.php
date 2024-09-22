@@ -9,6 +9,7 @@ class Tecido extends Model
 {
     use HasFactory;
 
+    protected $table = 'tecidos';
     protected $primaryKey ='id';
 
     protected $fillable = [

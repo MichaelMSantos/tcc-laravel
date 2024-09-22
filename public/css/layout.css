@@ -240,3 +240,17 @@ main {
     color: #fff;
     border: 1px solid rgb(146, 3, 3);
 }
+
+.darkModeSwitch {
+    position: absolute;
+    top: 53%;
+    right: 10px;
+    background-color: #000;
+    z-index: 10000;
+    color: #fff;
+    padding: .3rem .65rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+}
+

@@ -41,7 +41,7 @@
             Estoques Recentes
         </p>
         <div class="table-group">
-            <table class="table">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">Código</th>
