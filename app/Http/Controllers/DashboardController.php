@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\Camiseta;
+use App\Models\Tecido;
+use App\Models\Tinta;
 
 class DashboardController extends Controller
 {
@@ -32,7 +35,7 @@ class DashboardController extends Controller
             LIMIT 3
         ");
 
-        $totalTintas= DB::table('tintas')->count();
+        $totalTintas = DB::table('tintas')->count();
         $totalCamisetas = DB::table('camisetas')->count();
         $totalTecidos = DB::table('tecidos')->count();
 
@@ -53,4 +56,56 @@ class DashboardController extends Controller
 
         return view('dashboard.dashboard', ['recentes' => $recentes, 'totalRegistro' => $totalRegitro, 'adicoesRecentes' => $adicoesRecentes, 'semEstoqueTotal' => $semEstoqueTotal]);
     }
+
+    public function buscarProduto($categoria)
+    {
+        switch ($categoria) {
+            case 'Camiseta':
+                $produtos = Camiseta::select('id', 'codigo', 'modelo', 'tamanho', 'quantidade', 'cor')->get();
+                break;
+            case 'Tecido':
+                $produtos = Tecido::select('id', 'codigo', 'cor', 'medida', 'quantidade')->get(); 
+                break;
+            case 'Tinta':
+                $produtos = Tinta::select('id', 'codigo', 'cor', 'capacidade', 'quantidade')->get(); 
+                break;
+            default:
+                return response()->json([], 404);
+        }
+
+        return response()->json($produtos);
+    }
+
+    public function envio(Request $request)
+    {
+        $validated = $request->validate([
+            'categoria' => 'required',
+            'produto_id' => 'required|integer',
+            'quantidade' => 'required|integer|min:1',
+        ]);
+
+        switch ($validated['categoria']) {
+            case 'Camiseta':
+                $produto = Camiseta::findOrFail($validated['produto_id']);
+                break;
+            case 'Tecido':
+                $produto = Tecido::findOrFail($validated['produto_id']);
+                break;
+            case 'Tinta':
+                $produto = Tinta::findOrFail($validated['produto_id']);
+                break;
+            default:
+                return back()->withErrors(['categoria' => 'Categoria inválida']);
+        }
+
+        if ($produto->quantidade < $validated['quantidade']) {
+            return back()->withErrors(['quantidade' => 'Quantidade insuficiente em estoque']);
+        }
+
+        $produto->quantidade -= $validated['quantidade'];
+        $produto->save();
+
+        return view('dashboard.dashboard')->with('success', 'Envio sucedido!');
+    }
+
 }

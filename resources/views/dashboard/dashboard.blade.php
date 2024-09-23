@@ -36,11 +36,11 @@
             </div>
         </div>
     </div>
-    <section class="recents table-responsive shadow-sm">
+    <section class="recents table-responsive">
         <p class="title">
             Estoques Recentes
         </p>
-        <div class="table-group">
+        <div class="table-group shadow-sm">
             <table class="table table-bordered">
                 <thead>
                     <tr>

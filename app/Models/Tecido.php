@@ -18,4 +18,8 @@ class Tecido extends Model
         'cor',
         'quantidade',
     ];
+    public function fornecedor()
+    {
+        return $this->belongsTo(Fornecedor::class);
+    }
 }

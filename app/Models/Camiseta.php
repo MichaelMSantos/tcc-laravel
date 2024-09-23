@@ -17,4 +17,9 @@ class Camiseta extends Model
     {
         return $this->morphMany(Historico::class, 'historicoable');
     }
+
+    public function fornecedor()
+    {
+        return $this->belongsTo(Fornecedor::class);
+    }
 }

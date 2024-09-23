@@ -39,6 +39,12 @@
                             <img src="/images/lock.svg" alt="">
                         </span>
                     </div>
+                    <div class="info">
+                        <div class="checkbox">
+                            <input type="checkbox" onclick="togglePassword()"> Mostrar senha
+                        </div>
+                        <p id="caps">Capslock ativado</p>
+                    </div>
                 </div>
 
                 <button type="submit">
@@ -51,6 +57,8 @@
             <img src="/images/login-illustrator.svg" alt="">
         </aside>
     </main>
+
+    <script src="/js/login.js"></script>
 
     <!-- jQuery e Toastr.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -67,7 +75,6 @@
             "timeOut": "6000",
         };
 
-        // Exibir os erros ao carregar o DOM
         $(document).ready(function() {
             @if ($errors->any())
                 @foreach ($errors->all() as $error)

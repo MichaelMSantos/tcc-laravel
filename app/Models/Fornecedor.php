@@ -21,4 +21,17 @@ class Fornecedor extends Model
         'linkedin',
         'facebook',
     ];
+
+    public function camisetas()
+    {
+        return $this->hasMany(Camiseta::class);
+    }
+    public function tecido()
+    {
+        return $this->hasMany(Tecido::class);
+    }
+    public function tinta()
+    {
+        return $this->hasMany(Tecido::class);
+    }
 }

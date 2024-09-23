@@ -30,7 +30,7 @@ class FinanceiroController extends Controller
         }
 
 
-        $entradas = Historico::with('historicoable')
+        $entradas = Historico::with('historicoable', 'historicoable.fornecedor')
         ->where('descricao', 'like', '%Entrada%') 
         ->get();
 
@@ -44,5 +44,18 @@ class FinanceiroController extends Controller
 
     
         return view('dashboard.financeiro', compact('labels', 'data', 'entradas', 'entradasPM', 'totalCamisetas', 'totalTecidos', 'totalTintas'));
+    }
+    
+    public function show($id) {
+        $entrada = Historico::findOrFail($id);
+
+        if ($entrada->historicoable) {
+            $detalhes = $entrada->historicoable;
+            $tipo = class_basename($entrada->historicoable_type);
+        } else {
+            return redirect()->back()->with('error', 'Registro não encontrado.');
+        }
+
+        return view('historico.show', compact('detalhes', 'tipo'));
     }
 }

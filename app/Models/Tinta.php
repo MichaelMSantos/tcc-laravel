@@ -19,4 +19,8 @@ class Tinta extends Model
         'quantidade',
         'capacidade',
     ];
+    public function fornecedor()
+    {
+        return $this->belongsTo(Fornecedor::class);
+    }
 }
