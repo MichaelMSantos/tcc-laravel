@@ -23,7 +23,7 @@ class TintaController extends Controller
             'marca' => 'required',
             'cor' => 'required',
             'quantidade' => 'required|integer',
-            'capcidade' => 'required'
+            'capacidade' => 'required'
         ]);
 
 
