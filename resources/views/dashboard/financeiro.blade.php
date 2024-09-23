@@ -116,7 +116,7 @@
     <div class="graficos">
         <div class="grafico-1">
             <div class="graphLabel">
-                Saida/Entrada de produtos
+                Comparativo de Entradas e Saídas
             </div>
             <canvas id="myChart"></canvas>
         </div>
@@ -131,44 +131,63 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        const ctx = document.getElementById('myChart');
-        const bbl = document.getElementById('categoriasChart');
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctx = document.getElementById('myChart');
+            const bbl = document.getElementById('categoriasChart');
 
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [
-                    'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro',
-                    'Outubro', 'Novembro', 'Dezembro'
-                ],
-                datasets: [{
-                    label: 'Entradas',
-                    data: [3, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            var entradasPorMes = @json($entradasPM);
+            var totalCamisetas = @json($totalCamisetas);
+            var totalTecidos = @json($totalTecidos);
+            var totalTintas = @json($totalTintas);
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [
+                        'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto',
+                        'Setembro',
+                        'Outubro', 'Novembro', 'Dezembro'
+                    ],
+                    datasets: [{
+                            label: 'Entradas por Mês',
+                            data: entradasPorMes,
+                            borderWidth: 1,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        },
+                        {
+                            label: 'Saídas por Mês',
+                            data: [0, 5, 3, 5, 3, 0, 2, 10, 6, 5, 2, 0],
+                            borderWidth: 1,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
+            });
 
-        var labels = @json($labels);
-        var data = @json($data);
+            var labels = @json($labels);
+            var data = @json($data);
 
-        new Chart(bbl, {
-            type: 'doughnut',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Registros',
-                    data: data,
-                    borderWidth: 1
-                }]
-            },
+            new Chart(bbl, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Registros',
+                        data: data,
+                        borderWidth: 1
+                    }]
+                },
+
+            });
 
         });
     </script>
