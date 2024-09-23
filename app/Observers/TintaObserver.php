@@ -13,8 +13,8 @@ class TintaObserver
     public function created(Tinta $tinta): void
     {
         Historico::create([
-            'tabela_alterada' => 'tintas',
-            'registro_id' => $tinta->id,
+            'historicoable_id' => $tinta->id,
+            'historicoable_type' => Tinta::class,
             'descricao' => "Entrada",
         ]);
     }

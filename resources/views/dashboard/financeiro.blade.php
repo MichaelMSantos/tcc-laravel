@@ -7,7 +7,7 @@
         aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Monitoramento    </li>
+            <li class="breadcrumb-item active" aria-current="page">Monitoramento </li>
         </ol>
     </nav>
 @endsection
@@ -41,17 +41,33 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">123</th>
-                    <th scope="row">22/09/2024</th>
-                    <th scope="row">
-                        <a href="#">
-                            <i class="bi bi-eye"></i> Visualizar
-                        </a>
-                    </th>
-                    <th scope="row">3</th>
-                    <th scope="row">Camisetas</th>
-                </tr>
+                @foreach ($entradas as $entrada)
+                    <tr>
+                        <th scope="row">
+                            @if ($entrada->historicoable)
+                                {{ $entrada->historicoable->codigo ?? $entrada->historicoable->id }}
+                            @else
+                                N/A
+                            @endif
+                        </th>
+                        <th scope="row">{{ $entrada->created_at->format('d/m/Y') }}</th>
+                        <th scope="row">
+                            <a href="#">
+                                <i class="bi bi-eye"></i> Visualizar
+                            </a>
+                        </th>
+                        <th scope="row">
+                            @if (isset($entrada->historicoable->quantidade))
+                                {{ $entrada->historicoable->quantidade }}
+                            @else
+                                Não disponível
+                            @endif
+                        </th>
+                        <th scope="row">
+                            {{ class_basename($entrada->historicoable_type) }}
+                        </th>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

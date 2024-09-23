@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Historico;
 
 class FinanceiroController extends Controller
 {
@@ -17,8 +18,12 @@ class FinanceiroController extends Controller
             $labels[] = $label;            
             $data[] = $model::count();   
         }
+
+        $entradas = Historico::with('historicoable')
+        ->where('descricao', 'like', '%Entrada%') 
+        ->get();
+
     
-        // Retorne a view 'chart' com as variáveis 'labels' e 'data'
-        return view('dashboard.financeiro', compact('labels', 'data'));
+        return view('dashboard.financeiro', compact('labels', 'data', 'entradas'));
     }
 }

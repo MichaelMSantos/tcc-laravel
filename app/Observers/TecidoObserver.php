@@ -13,8 +13,8 @@ class TecidoObserver
     public function created(Tecido $tecido): void
     {
         Historico::create([
-            'tabela_alterada' => 'tecidos',
-            'registro_id' => $tecido->id,
+            'historicoable_id' => $tecido->id,
+            'historicoable_type' => Tecido::class,
             'descricao' => "Entrada",
         ]);
     }

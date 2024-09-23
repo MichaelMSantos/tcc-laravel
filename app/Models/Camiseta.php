@@ -11,13 +11,10 @@ class Camiseta extends Model
     protected $table = 'camisetas';
     protected $primaryKey ='id';
     
-    protected $fillable = [
-        'codigo',        
-        'modelo',
-        'tamanho',
-        'cor',
-        'quantidade',
-        'categoria',
-    ];
+    protected $fillable = ['codigo', 'modelo', 'tamanho', 'cor', 'quantidade', 'categoria', 'fornecedor_id'];
 
+    public function historicos()
+    {
+        return $this->morphMany(Historico::class, 'historicoable');
+    }
 }

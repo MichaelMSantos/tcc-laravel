@@ -13,8 +13,8 @@ class CamisetaObserver
     public function created(Camiseta $camiseta): void
     {
         Historico::create([
-            'tabela_alterada' => 'camisetas',
-            'registro_id' => $camiseta->id,
+            'historicoable_id' => $camiseta->id,
+            'historicoable_type' => Camiseta::class,
             'descricao' => "Entrada",
         ]);
     }

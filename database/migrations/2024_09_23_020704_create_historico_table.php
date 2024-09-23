@@ -13,8 +13,8 @@ return new class extends Migration
     {
         schema::create('historicos', function (Blueprint $table) {
             $table->id();
-            $table->string('tabela_alterada');
-            $table->unsignedBigInteger('registro_id');
+            $table->unsignedBigInteger('historicoable_id');
+            $table->string('historicoable_type');
             $table->text('descricao');
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('historico');
+        Schema::dropIfExists('historicos');
     }
 };
