@@ -91,7 +91,7 @@
                 <li class="sidebar-item">
                     <a href="/dashboard/financeiro" class="sidebar-link financeiro">
                         <img src="/images/sidebar/material-symbols_finance-mode-rounded.svg" alt="">
-                        <span>Financeiro</span>
+                        <span>Monitoramento</span>
                     </a>
                 </li>
                 <li class="sidebar-item">

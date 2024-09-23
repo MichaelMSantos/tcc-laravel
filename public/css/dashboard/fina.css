@@ -8,7 +8,7 @@
 }
 
 .table-responsive {
-    margin-top: 2rem;
+    margin-top: 1rem;
     background-color: #ffff;
     padding: .875rem 2rem 2rem 2rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
@@ -116,7 +116,7 @@ th {
 }
 
 .grafico-2 {
-    flex: 0 0 36%; /* O gráfico 2 vai ocupar o restante 38% */
+    flex: 0 0 35.6%; /* O gráfico 2 vai ocupar o restante 38% */
 }
 
 /* Deixa os canvas responsivos e centralizados */
