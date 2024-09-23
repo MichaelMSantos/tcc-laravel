@@ -23,4 +23,14 @@ class Tinta extends Model
     {
         return $this->belongsTo(Fornecedor::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($tinta) {
+            
+            $tinta->historicos()->delete();
+        });
+    }
 }

@@ -203,7 +203,7 @@
                         },
                         {
                             label: 'Saídas por Mês',
-                            data: [0, 5, 3, 5, 3, 0, 2, 10, 6, 5, 2, 0],
+                            data: [0, 5, 3, 1, 3, 0, 2, 1, 6, 5, 2, 0],
                             borderWidth: 1,
                             borderColor: 'rgba(255, 99, 132, 1)',
                             backgroundColor: 'rgba(255, 99, 132, 0.2)',

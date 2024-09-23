@@ -22,4 +22,14 @@ class Tecido extends Model
     {
         return $this->belongsTo(Fornecedor::class);
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($tecido) {
+            
+            $tecido->historicos()->delete();
+        });
+    }
 }

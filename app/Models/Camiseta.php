@@ -9,8 +9,8 @@ class Camiseta extends Model
 {
     use HasFactory;
     protected $table = 'camisetas';
-    protected $primaryKey ='id';
-    
+    protected $primaryKey = 'id';
+
     protected $fillable = ['codigo', 'modelo', 'tamanho', 'cor', 'quantidade', 'categoria', 'fornecedor_id'];
 
     public function historicos()
@@ -21,5 +21,14 @@ class Camiseta extends Model
     public function fornecedor()
     {
         return $this->belongsTo(Fornecedor::class);
+    }
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($camiseta) {
+            
+            $camiseta->historicos()->delete();
+        });
     }
 }
