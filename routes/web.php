@@ -23,6 +23,10 @@ Route::get('/produtos/{categoria}', [DashboardController::class, 'buscarProduto'
 Route::post('/enviar', [DashboardController::class, 'envio'])->name('enviar.produto');
 
 
+Route::get('/dashboard/envios', function() {
+    return view('.dashboard.envios');
+});
+
 // rotas da pagina de camisetas
 Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])
     ->name('camiseta.index')
