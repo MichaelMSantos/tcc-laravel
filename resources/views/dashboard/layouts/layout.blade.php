@@ -119,7 +119,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link envio" data-bs-toggle="modal" data-bs-target="#modal-envio">
+                    <a href="/dashboard/envios" class="sidebar-link envio">
                         <img src="/images/sidebar/envelope.svg" alt="">
                         <span>Envio</span>
                     </a>
