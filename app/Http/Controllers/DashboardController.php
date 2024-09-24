@@ -115,4 +115,11 @@ class DashboardController extends Controller
         ]);
         return back()->with('sucesso', 'Produto enviado com sucesso!');
     }
+
+
+    // Pouco Estoque 
+
+    public function pouco_estoque(){
+        
+    }
 }
