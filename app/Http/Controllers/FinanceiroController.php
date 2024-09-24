@@ -8,7 +8,8 @@ use Carbon\Carbon;
 
 class FinanceiroController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $models = [
             'Tecidos' => \App\Models\Tecido::class,
             'Tintas' => \App\Models\Tinta::class,
@@ -23,30 +24,49 @@ class FinanceiroController extends Controller
         $data = [];
 
         $entradasPM = array_fill(0, 12, 0);
+        $saidasPM = array_fill(0, 12, 0);
 
         foreach ($models as $label => $model) {
-            $labels[] = $label;            
-            $data[] = $model::count();   
+            $labels[] = $label;
+            $data[] = $model::count();
         }
 
 
+        // Entradas
+
         $entradas = Historico::with('historicoable', 'historicoable.fornecedor')
-        ->where('descricao', 'like', '%Entrada%') 
-        ->get();
+            ->where('descricao', 'Entrada')
+            ->get();
 
         foreach ($entradas as $entrada) {
             if (isset($entrada->historicoable->quantidade)) {
-                $mes = Carbon::parse($entrada->created_at)->month; 
+                $mes = Carbon::parse($entrada->created_at)->month;
 
                 $entradasPM[$mes - 1] += $entrada->historicoable->quantidade;
             }
         }
 
-    
-        return view('dashboard.financeiro', compact('labels', 'data', 'entradas', 'entradasPM', 'totalCamisetas', 'totalTecidos', 'totalTintas'));
+
+        // Saidas
+
+        $saidas = Historico::with('historicoable')
+            ->where('descricao', 'Saída') 
+            ->get();
+
+            foreach ($saidas as $saida) {
+                // A diferença é que aqui a quantidade é registrada no histórico, então a quantidade da saída deve estar no registro do Historico
+                if (isset($saida->quantidade)) { 
+                    $mes = Carbon::parse($saida->created_at)->month; 
+                    $saidasPM[$mes - 1] += $saida->quantidade; // Usar a quantidade registrada no historico
+                }
+            }
+
+
+        return view('dashboard.financeiro', compact('labels', 'saidas', 'saidasPM', 'data', 'entradas', 'entradasPM', 'totalCamisetas', 'totalTecidos', 'totalTintas'));
     }
-    
-    public function show($id) {
+
+    public function show($id)
+    {
         $entrada = Historico::findOrFail($id);
 
         if ($entrada->historicoable) {

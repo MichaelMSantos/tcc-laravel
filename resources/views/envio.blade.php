@@ -1,4 +1,3 @@
-<!-- Modal com o formulário de envio -->
 <div class="modal fade" id="modal-envio" tabindex="-1" aria-labelledby="modalEnvioLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -7,9 +6,11 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-envio" method="POST" action="#">
+                <form id="form-envio" method="POST" action="{{ route('enviar.produto') }}">
                     @csrf
                     <div class="mb-3">
+                        <input type="hidden" id="produto-id" name="produto_id">
+
                         <label for="categoria" class="form-label">Categoria</label>
                         <select id="categoria" name="categoria" class="form-select" required>
                             <option value="" selected disabled>Escolha a Categoria</option>
@@ -20,8 +21,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="produto-codigo" class="form-label">Código do Produto</label>
-                        <input type="text" id="produto-codigo" name="produto_codigo" class="form-control" placeholder="Digite o código do produto" required>
-                        <ul id="sugestoes-produto" class="list-group"></ul> <!-- Aqui ficarão as sugestões -->
+                        <input type="text" id="produto-codigo" name="produto_codigo" class="form-control"
+                            placeholder="Digite o código do produto" required>
+                        <ul id="sugestoes-produto" class="list-group"></ul>
                     </div>
                     <div class="mb-3">
                         <label for="quantidade" class="form-label">Quantidade a Enviar</label>
@@ -48,7 +50,7 @@
         fetch(`/produtos/${categoria}`)
             .then(response => response.json())
             .then(data => {
-                produtos = data; 
+                produtos = data;
             });
     });
 
@@ -87,13 +89,38 @@
 
     function selecionarProduto(produto) {
 
+        document.getElementById('produto-id').value = produto.id;
         document.getElementById('produto-codigo').value = produto.codigo;
 
         document.getElementById('quantidade').placeholder = `Quantidade em estoque: ${produto.quantidade || 'N/A'}`;
 
-        // Limpar as sugestões
         document.getElementById('sugestoes-produto').innerHTML = '';
     }
+
+    document.getElementById('form-envio').addEventListener('submit', function(event) {
+        // event.preventDefault();
+
+        // const formData = new FormData(this);
+
+        // fetch(this.action, {
+        //         method: 'POST',
+        //         body: formData,
+        //         headers: {
+        //             'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+        //         }
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         if (data.success) {
+        //             window.location.reload();
+        //         } else if (data.error) {
+        //             alert(data.error);
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.error('Erro ao enviar o formulário:', error);
+        //     });
+    });
 </script>
 
 <style>
@@ -105,6 +132,7 @@
         width: 100%;
         background-color: white;
     }
+
     #sugestoes-produto li {
         cursor: pointer;
     }

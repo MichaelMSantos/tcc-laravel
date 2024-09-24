@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('historicoable_id');
             $table->string('historicoable_type');
             $table->text('descricao');
+            $table->integer('quantidade')->nullable();
             $table->timestamps();
         });
     }

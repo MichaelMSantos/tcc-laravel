@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Models\Camiseta;
 use App\Models\Tecido;
 use App\Models\Tinta;
+use App\Models\Historico;
 
 class DashboardController extends Controller
 {
@@ -64,10 +65,10 @@ class DashboardController extends Controller
                 $produtos = Camiseta::select('id', 'codigo', 'modelo', 'tamanho', 'quantidade', 'cor')->get();
                 break;
             case 'Tecido':
-                $produtos = Tecido::select('id', 'codigo', 'cor', 'medida', 'quantidade')->get(); 
+                $produtos = Tecido::select('id', 'codigo', 'cor', 'medida', 'quantidade')->get();
                 break;
             case 'Tinta':
-                $produtos = Tinta::select('id', 'codigo', 'cor', 'capacidade', 'quantidade')->get(); 
+                $produtos = Tinta::select('id', 'codigo', 'cor', 'capacidade', 'quantidade')->get();
                 break;
             default:
                 return response()->json([], 404);
@@ -105,7 +106,13 @@ class DashboardController extends Controller
         $produto->quantidade -= $validated['quantidade'];
         $produto->save();
 
-        return view('dashboard.dashboard')->with('success', 'Envio sucedido!');
+        Historico::create([
+            'historicoable_id' => $produto->id,
+            'historicoable_type' => get_class($produto),  
+            'descricao' => 'Saída',
+            'quantidade' => $validated['quantidade'],  
+            'created_at' => now(),  
+        ]);
+        return back()->with('sucesso', 'Produto enviado com sucesso!');
     }
-
 }

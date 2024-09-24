@@ -100,7 +100,7 @@
                                         @elseif ($tipo === 'Tinta')
                                             <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
                                             <p>Capacidade: {{ $detalhes->capacidade ?? 'N/A' }}</p>
-                                            <p>Quantidade: {{$detalhes->quantidade ?? 'N/A' }} </p>
+                                            <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }} </p>
                                             <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
                                         @endif
                                     @else
@@ -146,13 +146,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <th scope="row"></th>
-                    <th scope="row"></th>
-                    <th scope="row"></th>
-                    <th scope="row"></th>
-                </tr>
+                @foreach ($saidas as $saida)
+                    <tr>
+                        <th scope="row">
+                            @if ($saida->historicoable)
+                                {{ $saida->historicoable->codigo ?? $saida->historicoable->id }}
+                            @else
+                                N/A
+                            @endif
+                        </th>
+                        <th scope="row">{{ $saida->created_at->format('d/m/Y') }}</th>
+                        <th scope="row">
+                            <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#">
+                                <i class="bi bi-eye"></i> Visualizar
+                            </button>
+                        </th>
+                        <th scope="row">{{ $saida->quantidade }}</th>
+                        <th scope="row">{{ class_basename($entrada->historicoable_type) }}</th>
+                    </tr>
+                @endforeach
+
             </tbody>
         </table>
     </div>
@@ -185,6 +198,7 @@
             var totalCamisetas = @json($totalCamisetas);
             var totalTecidos = @json($totalTecidos);
             var totalTintas = @json($totalTintas);
+            var saidasPorMes = @json($saidasPM);
 
             new Chart(ctx, {
                 type: 'line',
@@ -203,7 +217,7 @@
                         },
                         {
                             label: 'Saídas por Mês',
-                            data: [0, 5, 3, 1, 3, 0, 2, 1, 6, 5, 2, 0],
+                            data: saidasPorMes,
                             borderWidth: 1,
                             borderColor: 'rgba(255, 99, 132, 1)',
                             backgroundColor: 'rgba(255, 99, 132, 0.2)',

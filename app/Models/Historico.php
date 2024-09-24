@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Historico extends Model
 {
     use HasFactory;
-    protected $fillable = ['descricao', 'historicoable_type', 'historicoable_id'];
+    protected $fillable = ['descricao', 'historicoable_type', 'historicoable_id', 'quantidade', 'created_at'];
 
     public function historicoable()
     {

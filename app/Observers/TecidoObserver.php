@@ -32,7 +32,8 @@ class TecidoObserver
      */
     public function deleted(Tecido $tecido): void
     {
-        //
+
+        
     }
 
     /**
