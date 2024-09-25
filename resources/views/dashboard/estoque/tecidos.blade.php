@@ -18,7 +18,7 @@
             Total em estoque
         </div>
         <div class="card-body">
-            20
+            {{$tecidos->count()}}
         </div>
     </div>
     <div class="card">
@@ -26,7 +26,7 @@
             Pouco estoque
         </div>
         <div class="card-body">
-            20
+            {{$count = DB::table('tecidos')->where('quantidade', '<', 6)->count()}}
         </div>
     </div>
     <div class="card">
@@ -34,7 +34,7 @@
             Sem estoque
         </div>
         <div class="card-body">
-            20
+            {{$esgotado = DB::table('tecidos')->where('quantidade', '<', 1)->count()}}
         </div>
     </div>
 </div>

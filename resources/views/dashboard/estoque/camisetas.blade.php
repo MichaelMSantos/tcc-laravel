@@ -26,7 +26,7 @@
                 Pouco estoque
             </div>
             <div class="card-body">
-                {{ $countCamiseta = DB::table('camisetas')->where('quantidade', '<=', 20)->count() }}
+                {{ $countCamiseta = DB::table('camisetas')->where('quantidade', '<=', 5)->count() }}
             </div>
         </div>
         <div class="card">
