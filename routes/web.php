@@ -108,9 +108,7 @@ Route::put('/dashboard/funcionarios/update/{id}', [UserController::class, 'updat
     ->middleware('auth');
 
 
-Route::get('/dashboard/pouco-estoque', function () {
-    return view('dashboard.pouco-estoque');
-})->middleware('auth');
+Route::get('/dashboard/pouco-estoque', )->middleware('auth');
 
 
 // Route Monitarmento
