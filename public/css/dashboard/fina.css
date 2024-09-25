@@ -129,4 +129,43 @@ th {
     margin: auto; 
 }
 
+/* Modo Escuro */
+
+[data-bs-theme="dark"] .table-responsive{
+    background-color: #212529;
+}
+
+[data-bs-theme="dark"] .title{
+color:  rgb(110 168 253);
+
+}
+
+[data-bs-theme="dark"] th{
+    color: #fff !important;
+}
+
+[data-bs-theme="dark"] #novo{
+    background-color: transparent;
+}
+
+[data-bs-theme="dark"] #exportar{
+    background-color: transparent;
+}
+
+[data-bs-theme="dark"] canvas{
+    background-color: #212529;
+}
+
+[data-bs-theme="dark"] .grafico-1{
+    background-color: #212529;
+}
+
+
+[data-bs-theme="dark"] .grafico-2{
+    background-color: #212529;
+}
+
+
+
+
 

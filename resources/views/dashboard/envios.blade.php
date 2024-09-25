@@ -1,9 +1,6 @@
 @extends('dashboard.layouts.layout')
 @section('title', 'Dashboard')
-
-
-@extends('dashboard.layouts.layout')
-@section('title', 'Fornecedores')
+9
 @section('link', '/css/dashboard/fornecedores.css')
 
 @section('content')
