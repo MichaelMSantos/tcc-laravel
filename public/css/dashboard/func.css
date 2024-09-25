@@ -91,6 +91,33 @@ th {
     color: #686868 !important;
 }
 
+/* Modo Escuro */
+
+[data-bs-theme="dark"] .table-responsive{
+    background-color: #212529;
+}
+
+[data-bs-theme="dark"] .title{
+color:  rgb(110 168 253);
+
+}
+
+[data-bs-theme="dark"] th{
+    color: #fff !important;
+}
+
+[data-bs-theme="dark"] #novo{
+    background-color: transparent;
+}
+
+[data-bs-theme="dark"] #exportar{
+    background-color: transparent;
+}
+
+[data-bs-theme="dark"] .subtitle{
+    color: #fff;
+}
+
 
 [data-bs-theme="dark"] .title {
     color: rgb(139 185 254);
@@ -110,4 +137,5 @@ th {
 [data-bs-theme="dark"] .administradores:hover {
     background-color: #2b2b2baf !important;
 }
+
 

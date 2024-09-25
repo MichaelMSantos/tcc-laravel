@@ -1,8 +1,9 @@
-
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 * {
     transition: 0.3s ease !important;
 }
+
 ::after,
 ::before {
     box-sizing: border-box;
@@ -49,13 +50,14 @@ li {
     color: #Fff;
     padding: .1rem .5rem;
     z-index: 1000;
-    
+
 }
 
 #sidebar:not(.expand) .toggle-btn {
     margin-left: 45px;
     rotate: 180deg;
 }
+
 /* .toggle-btn i {
     font-size: 1.5rem;
     color: #000000;
@@ -101,7 +103,7 @@ a.sidebar-link {
     border-left: 3px solid transparent;
     display: flex;
     align-items: center;
-    
+
 }
 
 .sidebar-link i {
@@ -113,6 +115,7 @@ a.sidebar-link:hover {
     background-color: rgba(249, 249, 249, 0.075);
     border-left: 3px solid #3b7ddd;
 }
+
 #sidebar:not(.expand) a.sidebar-link:hover img {
     margin-left: 6px;
 }
@@ -120,6 +123,7 @@ a.sidebar-link:hover {
 a.sidebar-link:hover img {
     margin-left: 12px;
 }
+
 .sidebar-item {
     position: relative;
 }
@@ -165,20 +169,21 @@ a.sidebar-link:hover img {
     transition: all .3s ease-out;
 }
 
-img{
+img {
     margin-left: 6px;
 }
 
-hr{
+hr {
     width: 40%;
     margin-top: 0;
 }
-.divisor{
+
+.divisor {
     display: flex;
     justify-content: center;
 }
 
-span{
+span {
     margin-left: 1rem;
 }
 
@@ -187,13 +192,13 @@ span{
     border: none;
     width: 100%;
     font-size: 26px;
-    padding: 0 21px ;
+    padding: 0 21px;
 }
 
 .checkbox label {
     cursor: pointer;
     display: flex;
-    align-items:center;
+    align-items: center;
     margin: 0 !important;
 }
 
@@ -204,7 +209,7 @@ span{
 
 main {
     display: flex;
-    background-color: rgb(243 244 246); 
+    background-color: rgb(243 244 246);
     height: 100vh;
     overflow-y: hidden;
 }
@@ -235,7 +240,7 @@ main {
     color: #000;
 }
 
-.acao:last-child{
+.acao:last-child {
     background-color: red;
     color: #fff;
     border: 1px solid rgb(146, 3, 3);
@@ -259,6 +264,44 @@ main {
     padding-left: 12.6px !important;
 }
 
+[data-bs-theme="dark"] main {
+    background-color: #121212;
+}
+
+[data-bs-theme="dark"] .title {
+    color: rgb(110 168 253);
+}
+
+[data-bs-theme="dark"] .table-group {
+    background-color: #212529;
+}
+
+[data-bs-theme="dark"] #sidebar {
+
+    background-color: #212529;
+}
+
+
+[data-bs-theme="dark"] span {
+
+    color: #fff;
+}
+
+[data-bs-theme="dark"] img {
+    filter: invert(1);
+}
+
+[data-bs-theme="dark"] .card-content {
+    background-color: #212529;
+}
+
+[data-bs-theme="dark"] .card-content span {
+    color: rgb(110 168 253);
+}
+
+[data-bs-theme="dark"] .sidebar-logo a {
+    color: #fff;
+=======
 
 /* Dark Mode */
 
@@ -268,8 +311,4 @@ main {
 
 [data-bs-theme="dark"] a.sidebar-link img {
     filter: invert(1);
-}
-
-[data-bs-theme="dark"] main {
-    background-color: #121212;
 }

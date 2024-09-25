@@ -4,7 +4,7 @@
 }
 
 .home:hover {
-    background-color: #e2e2e2af ;
+    background-color: #e2e2e2af;
 }
 .cards {
     display: flex;
@@ -101,7 +101,6 @@ td {
     font-size: 18px;
     font-weight: 600    ;
 }
-
 
 
 [data-bs-theme="dark"] .card {
