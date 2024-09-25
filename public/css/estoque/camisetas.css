@@ -14,7 +14,8 @@
 .card {
     height: 8.75rem;
     width: 18rem;
-    box-shadow: 0px 10px 20px -4px rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
 }
 
 .card:nth-child(1){
@@ -112,4 +113,11 @@ color:  rgb(110 168 253);
 
 [data-bs-theme="dark"] #exportar{
     background-color: transparent;
+}
+[data-bs-theme="dark"] .card,
+[data-bs-theme="dark"] .table-responsive,
+[data-bs-theme="dark"] .table{
+    background-color: #1e1e1e;
+    --bs-table-bg: #1e1e1e;
+
 }

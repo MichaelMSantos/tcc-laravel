@@ -108,11 +108,37 @@ class DashboardController extends Controller
 
         Historico::create([
             'historicoable_id' => $produto->id,
-            'historicoable_type' => get_class($produto),  
+            'historicoable_type' => get_class($produto),
             'descricao' => 'Saída',
-            'quantidade' => $validated['quantidade'],  
-            'created_at' => now(),  
+            'quantidade' => $validated['quantidade'],
+            'created_at' => now(),
         ]);
         return back()->with('sucesso', 'Produto enviado com sucesso!');
+    }
+
+
+    // Pouco Estoque 
+
+    public function pouco_estoque()
+    {
+        $esgotado = DB::select(
+            "
+        (SELECT 'tintas' AS origem, tintas.codigo, tintas.quantidade, tintas.created_at, fornecedores.nome AS fornecedor
+            FROM tintas
+            JOIN fornecedores ON tintas.fornecedor_id = fornecedores.id 
+            WHERE tintas.quantidade = 0)
+            UNION ALL
+            (SELECT 'camisetas' AS origem, camisetas.codigo, camisetas.quantidade, camisetas.created_at, fornecedores.nome AS fornecedor
+            FROM camisetas
+            JOIN fornecedores ON camisetas.fornecedor_id = fornecedores.id
+            WHERE camisetas.quantidade = 0)
+            UNION ALL
+            (SELECT 'tecidos' AS origem, tecidos.codigo, tecidos.quantidade, tecidos.created_at, fornecedores.nome AS fornecedor
+            FROM tecidos
+            JOIN fornecedores ON tecidos.fornecedor_id = fornecedores.id
+            WHERE tecidos.quantidade = 0)"
+        );
+
+        return view('dashboard.pouco-estoque', ['esgotado' => $esgotado]);
     }
 }

@@ -45,7 +45,7 @@
             Tecidos
         </div>
         <div class="button-group">
-            <button id="filtrar">Filtrar</button>
+            {{-- <button id="filtrar">Filtrar</button> --}}
             <button id="novo" type="button" data-bs-toggle="modal" data-bs-target="#novoTecido">Novo
                 produto</button>
             <button id="exportar">Exportar</button>
