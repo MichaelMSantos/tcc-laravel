@@ -13,13 +13,8 @@
 
     <div class="table-responsive">
         <div class="table-header">
-            <div class="table-desc">
-                <div class="title">
-                    Pouco Estoque
-                </div>
-                <p class="subtitle">
-                    Resgistros de vendas feitas por clientes
-                </p>
+            <div class="title">
+                Pouco Estoque
             </div>
             <div class="action">
                 <div class="search-box">
@@ -50,8 +45,5 @@
                 </tr>
             </tbody>
         </table>
-        <p class="subtitle">
-            Mostrando 0 de 0 registros
-        </p>
     </div>
 @endsection

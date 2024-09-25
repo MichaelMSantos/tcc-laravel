@@ -202,13 +202,13 @@ span{
     margin-top: 0 !important;
 }
 
-
 main {
     display: flex;
     background-color: rgb(243 244 246); 
     height: 100vh;
     overflow-y: hidden;
 }
+
 .wrapper{
     padding: .6rem 2rem;
     width: 100%;
@@ -257,4 +257,19 @@ main {
 
 .envio {
     padding-left: 12.6px !important;
+}
+
+
+/* Dark Mode */
+
+[data-bs-theme="dark"] #sidebar {
+    background-color: #1e1e1e;
+}
+
+[data-bs-theme="dark"] a.sidebar-link img {
+    filter: invert(1);
+}
+
+[data-bs-theme="dark"] main {
+    background-color: #121212;
 }
