@@ -77,6 +77,7 @@ th {
     padding: 0 .7rem;
     border-radius: 20px;
     font-weight: 600;
+    background-color: transparent;
 }
 
 .table {
@@ -102,4 +103,30 @@ th {
     font-size: 15px;
     margin-left: 0;
     font-weight: 500;
+}
+
+[data-bs-theme="dark"] .title {
+    color: rgb(139 185 254);
+}
+
+[data-bs-theme="dark"] .table-responsive,
+[data-bs-theme="dark"] .table {
+    background-color: #1e1e1e !important;
+    --bs-table-bg: #1e1e1e;
+}
+[data-bs-theme="dark"] .table {
+    border: 1px solid #494949 !important;
+}
+
+[data-bs-theme="dark"] th {
+    color: #adadad !important;
+}
+
+/* [data-bs-theme="dark"] th {
+    color: #fff !important;
+} */
+
+[data-bs-theme="dark"] .administradores,
+[data-bs-theme="dark"] .administradores:hover {
+    background-color: #2b2b2baf !important;
 }
