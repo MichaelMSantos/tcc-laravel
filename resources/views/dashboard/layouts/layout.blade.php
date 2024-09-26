@@ -127,7 +127,7 @@
             </li>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
-                    <img src="/images/sidebar/backup.svg" alt="">
+                    <img src="/images/sidebar/backup.svg" alt="" class="backup-img">
                     <span>Backup</span>
                 </a>
             </li>
@@ -137,7 +137,7 @@
             </ul>
             <div class="sidebar-footer">
                 <a href="/logout" class="sidebar-link">
-                    <img src="/images/sidebar/logout.svg" alt="">
+                    <img src="/images/sidebar/logout.svg" alt="" class="logout-img">
                     <span>log out</span>
                 </a>
             </div>

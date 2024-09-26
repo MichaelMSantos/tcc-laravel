@@ -113,3 +113,13 @@ td {
     background-color: #2b2b2baf;
 }
 
+[data-bs-theme="dark"] .card-content {
+    border: none;
+    background-color: #1e1e1e;
+}
+
+[data-bs-theme="dark"] .table-group,
+[data-bs-theme="dark"] .table {
+    background-color: #1e1e1e !important;
+    --bs-table-bg: #1e1e1e;
+}

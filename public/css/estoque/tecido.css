@@ -3,8 +3,6 @@
     background-color: #e2e2e2af !important;
 }
 
-
-
 .cards {
     display: flex;
     gap: .8rem;
@@ -19,15 +17,15 @@
 }
 
 .card:nth-child(1){
-    border-left: 3px solid blue;
+    border-left: 3px solid blue !important;
 }
 
 .card:nth-child(2){
-    border-left: 3px solid #dbdb02;
+    border-left: 3px solid #dbdb02 !important;
 }
 
 .card:nth-child(3){
-    border-left: 3px solid red;
+    border-left: 3px solid red !important;
 }
 
 .card-title {
@@ -93,8 +91,15 @@ th {
 
 /* Modo Escuro */ 
 
-[data-bs-theme="dark"] .table-responsive{
-    background-color: #212529;
+[data-bs-theme="dark"] .table-responsive,
+[data-bs-theme="dark"] .table {
+    background-color: #1e1e1e !important;
+    --bs-table-bg: #1e1e1e;
+}
+
+[data-bs-theme="dark"] .card {
+    background-color: #1e1e1e;
+    border: none;
 }
 
 [data-bs-theme="dark"] .title{
@@ -114,3 +119,7 @@ color:  rgb(110 168 253);
     background-color: transparent;
 }
 
+[data-bs-theme="dark"] .estoque,
+[data-bs-theme="dark"] .tecidos {
+    background-color: #2b2b2baf !important;
+}

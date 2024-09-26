@@ -53,7 +53,11 @@
                             </a>
                         </th>
                         <th>{{$item->quantidade}}</th>
-                        <th>Fazer Solicitacao</th>
+                        <th>
+                            <a href="#" data-bs-toggle="modal">
+                                Fazer solicitação
+                            </a>
+                        </th>
                     </tr>
 
                     @include('modal.detalhes')

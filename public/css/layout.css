@@ -264,6 +264,10 @@ main {
     padding-left: 12.6px !important;
 }
 
+
+[data-bs-theme="dark"] #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+color: #fff;
+}
 [data-bs-theme="dark"] main {
     background-color: #121212;
 }
@@ -277,19 +281,16 @@ main {
 }
 
 [data-bs-theme="dark"] #sidebar {
-
+    color: #fff;
     background-color: #212529;
 }
 
 
-[data-bs-theme="dark"] span {
+[data-bs-theme="dark"] a.sidebar-link{
 
     color: #fff;
 }
 
-[data-bs-theme="dark"] img {
-    filter: invert(1);
-}
 
 [data-bs-theme="dark"] .card-content {
     background-color: #212529;
@@ -301,8 +302,7 @@ main {
 
 [data-bs-theme="dark"] .sidebar-logo a {
     color: #fff;
-=======
-
+}
 /* Dark Mode */
 
 [data-bs-theme="dark"] #sidebar {
@@ -311,4 +311,9 @@ main {
 
 [data-bs-theme="dark"] a.sidebar-link img {
     filter: invert(1);
+}
+
+[data-bs-theme="dark"] .logout-img,
+[data-bs-theme="dark"] .backup-img  {
+    filter: invert(0) !important;
 }

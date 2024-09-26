@@ -1,8 +1,8 @@
-.fornecedores {
+.envio {
     border-left: 3px solid #3b7ddd !important;
     background-color: #e2e2e2af !important;
 }
-.fornecedores:hover{
+.envio:hover{
     background-color: #e2e2e2af !important;
 }
 
@@ -154,7 +154,7 @@ color:  rgb(110 168 253);
     color: #fff !important;
 } */
 
-[data-bs-theme="dark"] .fornecedores,
-[data-bs-theme="dark"] .fornecedores:hover {
+[data-bs-theme="dark"] .envio,
+[data-bs-theme="dark"] .envio:hover {
     background-color: #2b2b2baf !important;
 }

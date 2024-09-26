@@ -6,9 +6,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-envio" method="POST" action="#">
+                <form id="form-envio" method="POST" action="{{ route('enviar.produto') }}">
                     @csrf
                     <div class="mb-3">
+                        <input type="hidden" id="produto-id" name="produto_id">
                         <label for="categoria" class="form-label">Categoria</label>
                         <select id="categoria" name="categoria" class="form-select" required>
                             <option value="" selected disabled>Escolha a Categoria</option>
@@ -19,7 +20,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="produto-codigo" class="form-label">Código do Produto</label>
-                        <input type="text" id="produto-codigo" name="produto_codigo" class="form-control" placeholder="Digite o código do produto" required>
+                        <input type="text" id="produto-codigo" name="produto_codigo" class="form-control"
+                            placeholder="Digite o código do produto" required>
                         <ul id="sugestoes-produto" class="list-group"></ul> <!-- Aqui ficarão as sugestões -->
                     </div>
                     <div class="mb-3">
@@ -43,7 +45,7 @@
         fetch(`/produtos/${categoria}`)
             .then(response => response.json())
             .then(data => {
-                produtos = data; 
+                produtos = data;
             });
     });
     document.getElementById('produto-codigo').addEventListener('input', function() {
@@ -70,10 +72,12 @@
             sugestoesLista.appendChild(item);
         });
     });
+
     function selecionarProduto(produto) {
+        document.getElementById('produto-id').value = produto.id;
         document.getElementById('produto-codigo').value = produto.codigo;
         document.getElementById('quantidade').placeholder = `Quantidade em estoque: ${produto.quantidade || 'N/A'}`;
-        // Limpar as sugestões
+
         document.getElementById('sugestoes-produto').innerHTML = '';
     }
 </script>
@@ -86,6 +90,7 @@
         width: 100%;
         background-color: white;
     }
+
     #sugestoes-produto li {
         cursor: pointer;
     }

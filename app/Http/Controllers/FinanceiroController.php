@@ -36,6 +36,7 @@ class FinanceiroController extends Controller
 
         $entradas = Historico::with('historicoable', 'historicoable.fornecedor')
             ->where('descricao', 'Entrada')
+            ->orderByDesc('created_at')
             ->get();
 
         foreach ($entradas as $entrada) {
@@ -51,13 +52,14 @@ class FinanceiroController extends Controller
 
         $saidas = Historico::with('historicoable')
             ->where('descricao', 'Saída') 
+            ->orderByDesc('created_at')
             ->get();
 
             foreach ($saidas as $saida) {
-                // A diferença é que aqui a quantidade é registrada no histórico, então a quantidade da saída deve estar no registro do Historico
+
                 if (isset($saida->quantidade)) { 
                     $mes = Carbon::parse($saida->created_at)->month; 
-                    $saidasPM[$mes - 1] += $saida->quantidade; // Usar a quantidade registrada no historico
+                    $saidasPM[$mes - 1] += $saida->quantidade;
                 }
             }
 

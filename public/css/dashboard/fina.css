@@ -131,8 +131,10 @@ th {
 
 /* Modo Escuro */
 
-[data-bs-theme="dark"] .table-responsive{
-    background-color: #212529;
+[data-bs-theme="dark"] .table-responsive,
+[data-bs-theme="dark"] .table {
+    background-color: #1e1e1e !important;
+    --bs-table-bg: #1e1e1e;
 }
 
 [data-bs-theme="dark"] .title{
@@ -153,19 +155,22 @@ color:  rgb(110 168 253);
 }
 
 [data-bs-theme="dark"] canvas{
-    background-color: #212529;
+    background-color: #1e1e1e;
 }
 
 [data-bs-theme="dark"] .grafico-1{
-    background-color: #212529;
+    background-color: #1e1e1e;
 }
 
 
 [data-bs-theme="dark"] .grafico-2{
-    background-color: #212529;
+    background-color: #1e1e1e;
 }
 
-
+[data-bs-theme="dark"] .financeiro,
+[data-bs-theme="dark"] .financeiro:hover {
+    background-color: #2b2b2baf !important;
+}
 
 
 

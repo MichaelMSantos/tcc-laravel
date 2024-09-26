@@ -142,4 +142,16 @@ class DashboardController extends Controller
         
         return view('dashboard.pouco-estoque', ['poucoestoque' => $poucoestoque]);
     }
+
+    public function solicitacao(Request $request) {
+        
+        $request->validate([
+            'categoria' => 'required',
+            'produto_id' => 'required',
+            'quantidade' =>'required|integer'
+        ]);
+
+        
+
+    }
 }

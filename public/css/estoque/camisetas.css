@@ -121,3 +121,9 @@ color:  rgb(110 168 253);
     --bs-table-bg: #1e1e1e;
 
 }
+
+
+[data-bs-theme="dark"] .estoque,
+[data-bs-theme="dark"] .camisetas {
+    background-color: #2b2b2baf !important;
+}

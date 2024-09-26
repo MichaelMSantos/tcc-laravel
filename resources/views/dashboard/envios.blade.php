@@ -1,7 +1,6 @@
 @extends('dashboard.layouts.layout')
 @section('title', 'Dashboard')
-9
-@section('link', '/css/dashboard/fornecedores.css')
+@section('link', '/css/dashboard/envios.css')
 
 @section('content')
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
@@ -23,7 +22,7 @@
                 </span>
                 <input type="text" name="search" id="search" placeholder="Pesquisar fornecedor">
             </div>
-            <button id="novo" data-bs-toggle="modal" data-bs-target="#novoFornecedor">
+            <button id="novo" data-bs-toggle="modal" data-bs-target="#modal-envio">
                 Novo envio
             </button>
         </div>
@@ -52,4 +51,6 @@
         Mostrando 0 de 0 registros
     </p>
 </div>
+
+@include('envio')
 @endsection

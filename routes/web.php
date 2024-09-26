@@ -19,13 +19,13 @@ Route::post('/login', [AuthController::class, 'login'])->name('user.validate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('/produtos/{categoria}', [DashboardController::class, 'buscarProduto']);
-Route::post('/enviar', [DashboardController::class, 'envio'])->name('enviar.produto');
+Route::get('/produtos/{categoria}', [DashboardController::class, 'buscarProduto'])->middleware('auth');
+Route::post('/enviar', [DashboardController::class, 'envio'])->name('enviar.produto')->middleware('auth');
 
 
-Route::get('/dashboard/envios', function() {
+Route::get('/dashboard/envios', function () {
     return view('.dashboard.envios');
-});
+})->middleware('auth');
 
 // rotas da pagina de camisetas
 Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])
@@ -112,9 +112,9 @@ Route::get('/dashboard/pouco-estoque', [DashboardController::class, 'pouco_estoq
 
 
 // Route Monitarmento
-Route::get('/dashboard/financeiro',[FinanceiroController::class, 'index'])
-->middleware('auth');
+Route::get('/dashboard/financeiro', [FinanceiroController::class, 'index'])
+    ->middleware('auth');
 
 
 Route::get('/dashboard/show/{id}', [FinanceiroController::class, 'show'])->name('historico.show')
-->middleware('auth');
+    ->middleware('auth');
