@@ -212,7 +212,7 @@ class DashboardController extends Controller
 
             $historico->delete();
 
-            return back()->with('sucesso', 'Produto devolvido com sucesso e histórico revertido.');
+            return back()->with('sucesso', 'Produto devolvido ao estoque');
         }
     }
 }
