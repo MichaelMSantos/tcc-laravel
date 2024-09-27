@@ -59,11 +59,7 @@
                             </button>
                         </th>
                         <th scope="row">
-                            @if (isset($entrada->historicoable->quantidade))
-                                {{ $entrada->historicoable->quantidade }}
-                            @else
-                                Não disponível
-                            @endif
+                            {{$entrada->quantidade}}
                         </th>
                         <th scope="row">
                             {{ class_basename($entrada->historicoable_type) }}
@@ -163,7 +159,7 @@
                             </button>
                         </th>
                         <th scope="row">{{ $saida->quantidade }}</th>
-                        <th scope="row">{{ class_basename($entrada->historicoable_type) }}</th>
+                        <th scope="row">{{ class_basename($saida->historicoable_type) }}</th>
                     </tr>
 
                     <!-- Modal -->

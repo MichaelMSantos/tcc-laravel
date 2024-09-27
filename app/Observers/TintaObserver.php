@@ -15,6 +15,7 @@ class TintaObserver
         Historico::create([
             'historicoable_id' => $tinta->id,
             'historicoable_type' => Tinta::class,
+            'quantidade'=>$tinta->quantidade,
             'descricao' => "Entrada",
         ]);
     }

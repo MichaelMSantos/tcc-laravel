@@ -15,6 +15,7 @@ class CamisetaObserver
         Historico::create([
             'historicoable_id' => $camiseta->id,
             'historicoable_type' => Camiseta::class,
+            'quantidade'=> $camiseta->quantidade,
             'descricao' => "Entrada",
         ]);
     }

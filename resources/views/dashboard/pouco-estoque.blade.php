@@ -54,7 +54,7 @@
                         </th>
                         <th>{{ $item->quantidade }}</th>
                         <th>
-                            <a href="#" data-bs-toggle="modal" data-origem="{{ $item->origem }}"
+                            <a href="#solicitacao" data-bs-toggle="modal" data-origem="{{ $item->origem }}"
                                 data-codigo="{{ $item->codigo }}" data-fornecedor="{{ $item->fornecedor }}">
                                 Fazer solicitação
                             </a>

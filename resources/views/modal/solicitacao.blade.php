@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="solicitacaoForm">
+                <form id="solicitacaoForm" method="POST" action="{{ route('fazer.solicitacao') }}">
                     @csrf
                     <p><strong>Produto:</strong> <span id="solicitacaoOrigem"></span></p>
                     <p><strong>Código:</strong> <span id="solicitacaoCodigo"></span></p>
@@ -14,8 +14,7 @@
 
                     <div class="mb-3">
                         <label for="quantidadeSolicitada" class="form-label">Quantidade a solicitar</label>
-                        <input type="number" class="form-control" id="quantidadeSolicitada" name="quantidadeSolicitada"
-                            required>
+                        <input type="number" class="form-control" id="quantidadeSolicitada" name="quantidadeSolicitada" required>
                     </div>
 
                     <input type="hidden" id="produtoCodigo" name="produtoCodigo">
@@ -32,7 +31,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var solicitacaoModal = document.getElementById('solicitacaoModal');
+        var solicitacaoModal = document.getElementById('solicitacao');
 
         solicitacaoModal.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget;
@@ -58,7 +57,7 @@
             var quantidadeSolicitada = document.getElementById('quantidadeSolicitada').value;
 
             if (quantidadeSolicitada && quantidadeSolicitada > 0) {
-                // Aqui você pode fazer um AJAX para enviar a solicitação para o servidor
+                // Envia o formulário
                 form.submit();
             } else {
                 alert('Por favor, insira uma quantidade válida.');

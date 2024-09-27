@@ -15,6 +15,7 @@ class TecidoObserver
         Historico::create([
             'historicoable_id' => $tecido->id,
             'historicoable_type' => Tecido::class,
+            'quantidade'=>$tecido->quantidade,
             'descricao' => "Entrada",
         ]);
     }

@@ -21,12 +21,12 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/produtos/{categoria}', [DashboardController::class, 'buscarProduto'])->middleware('auth');
 Route::post('/enviar', [DashboardController::class, 'enviar'])->name('enviar.produto')->middleware('auth');
-Route::post('/fazer-solicitacao', action: [DashboardController::class, 'fazerSolicitacao'])->name('fazer.solicitacao');
+Route::post('/solicitacao', action: [DashboardController::class, 'solicitacao'])->name('fazer.solicitacao');
 
 
-Route::get('/dashboard/envios', function () {
-    return view('.dashboard.envios');
-})->middleware('auth');
+Route::get('/dashboard/envios', [DashboardController::class, 'envios'])->middleware('auth');
+Route::delete('/historico/{historico}/devolver', [DashboardController::class, 'devolucao'])->name('devolver');
+
 
 // rotas da pagina de camisetas
 Route::get('/dashboard/estoque/camisetas', [CamisetaController::class, 'index'])

@@ -117,14 +117,15 @@ class DashboardController extends Controller
     }
 
 
-    public function envio()
+    public function envios()
     {
         $saidas = Historico::with('historicoable')
             ->where('descricao', 'Saída')
             ->orderByDesc('created_at')
             ->get();
-    }
 
+        return view('dashboard.envios', compact('saidas'));
+    }
 
     // Pouco Estoque 
 
@@ -154,23 +155,64 @@ class DashboardController extends Controller
 
     public function solicitacao(Request $request)
     {
-
         $codigo = $request->input('produtoCodigo');
         $origem = $request->input('produtoOrigem');
         $quantidadeSolicitada = $request->input('quantidadeSolicitada');
 
-        // Lógica para complementar a quantidade do produto no banco de dados
+        $produto = null;
+        $historicoDescricao = 'Solicitação';
+
         if ($origem == 'tintas') {
-            // Exemplo para tintas
             DB::table('tintas')->where('codigo', $codigo)->increment('quantidade', $quantidadeSolicitada);
+            $produto = DB::table('tintas')->where('codigo', $codigo)->first(); // Capturar o produto
         } elseif ($origem == 'camisetas') {
-            // Exemplo para camisetas
             DB::table('camisetas')->where('codigo', $codigo)->increment('quantidade', $quantidadeSolicitada);
+            $produto = DB::table('camisetas')->where('codigo', $codigo)->first();
         } elseif ($origem == 'tecidos') {
-            // Exemplo para tecidos
             DB::table('tecidos')->where('codigo', $codigo)->increment('quantidade', $quantidadeSolicitada);
+            $produto = DB::table('tecidos')->where('codigo', $codigo)->first();
+        }
+        if ($produto) {
+            Historico::create([
+                'historicoable_id' => $produto->id,
+                'historicoable_type' => $origem == 'tintas' ? 'App\Models\Tinta' : ($origem == 'camisetas' ? 'App\Models\Camiseta' : 'App\Models\Tecido'),
+                'descricao' => $historicoDescricao,
+                'quantidade' => $quantidadeSolicitada,
+                'created_at' => now(),
+            ]);
         }
 
         return redirect()->back()->with('sucesso', 'Solicitação realizada com sucesso!');
+    }
+
+    public function devolucao($historicoable_id)
+    {
+        $historico = Historico::findOrFail($historicoable_id);
+
+        if ($historico->descricao !== 'Saída') {
+            return back()->withErrors(['erro' => 'Apenas saídas podem ser devolvidas.']);
+        }
+
+        $produto = null;
+        switch (class_basename($historico->historicoable_type)) {
+            case 'Camiseta':
+                $produto = Camiseta::findOrFail($historico->historicoable_id);
+                break;
+            case 'Tecido':
+                $produto = Tecido::findOrFail($historico->historicoable_id);
+                break;
+            case 'Tinta':
+                $produto = Tinta::findOrFail($historico->historicoable_id);
+                break;
+        }
+
+        if ($produto) {
+            $produto->quantidade += $historico->quantidade;
+            $produto->save();
+
+            $historico->delete();
+
+            return back()->with('sucesso', 'Produto devolvido com sucesso e histórico revertido.');
+        }
     }
 }
