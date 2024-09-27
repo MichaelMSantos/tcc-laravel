@@ -126,6 +126,12 @@
             </ul>
             </li>
             <li class="sidebar-item">
+                <a href="/dashboard/profile" class="sidebar-link">
+                    <img src="/images/sidebar/person.svg" alt="" class="person-img">
+                    <span>Ola admin</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
                     <img src="/images/sidebar/backup.svg" alt="" class="backup-img">
                     <span>Backup</span>
