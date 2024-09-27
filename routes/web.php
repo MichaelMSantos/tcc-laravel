@@ -119,3 +119,7 @@ Route::get('/dashboard/financeiro', [FinanceiroController::class, 'index'])
 
 Route::get('/dashboard/show/{id}', [FinanceiroController::class, 'show'])->name('historico.show')
     ->middleware('auth');
+
+    Route::get('/dashboard/profile', function () {
+        return view('.dashboard.profile');
+    })->middleware('auth');

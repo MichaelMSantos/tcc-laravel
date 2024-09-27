@@ -264,6 +264,7 @@ main {
     padding-left: 12.6px !important;
 }
 
+/* Modo Escuro */
 
 [data-bs-theme="dark"] #sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
 color: #fff;
