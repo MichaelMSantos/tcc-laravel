@@ -20,7 +20,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/produtos/{categoria}', [DashboardController::class, 'buscarProduto'])->middleware('auth');
-Route::post('/enviar', [DashboardController::class, 'envio'])->name('enviar.produto')->middleware('auth');
+Route::post('/enviar', [DashboardController::class, 'enviar'])->name('enviar.produto')->middleware('auth');
+Route::post('/fazer-solicitacao', action: [DashboardController::class, 'fazerSolicitacao'])->name('fazer.solicitacao');
 
 
 Route::get('/dashboard/envios', function () {

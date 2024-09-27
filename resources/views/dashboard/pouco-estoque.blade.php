@@ -40,10 +40,10 @@
                 @foreach ($poucoestoque as $item)
                     <tr>
                         <th scope="row" style="text-transform:capitalize;">
-                            {{$item->origem}}
+                            {{ $item->origem }}
                         </th>
                         <th style="display: flex; justify-content:space-between">
-                            {{$item->especifico1}}
+                            {{ $item->especifico1 }}
                             <a href="#" data-bs-toggle="modal" data-bs-target="#detalheModal"
                                 data-origem="{{ $item->origem }}" data-codigo="{{ $item->codigo }}"
                                 data-quantidade="{{ $item->quantidade }}" data-fornecedor="{{ $item->fornecedor }}"
@@ -52,14 +52,15 @@
                                 <i class="bi bi-eye"></i>
                             </a>
                         </th>
-                        <th>{{$item->quantidade}}</th>
+                        <th>{{ $item->quantidade }}</th>
                         <th>
-                            <a href="#" data-bs-toggle="modal">
+                            <a href="#" data-bs-toggle="modal" data-origem="{{ $item->origem }}"
+                                data-codigo="{{ $item->codigo }}" data-fornecedor="{{ $item->fornecedor }}">
                                 Fazer solicitação
                             </a>
                         </th>
                     </tr>
-
+                    @include('modal.solicitacao')
                     @include('modal.detalhes')
                 @endforeach
             </tbody>

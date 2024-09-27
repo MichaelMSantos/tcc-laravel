@@ -77,7 +77,7 @@ class DashboardController extends Controller
         return response()->json($produtos);
     }
 
-    public function envio(Request $request)
+    public function enviar(Request $request)
     {
         $validated = $request->validate([
             'categoria' => 'required',
@@ -117,6 +117,15 @@ class DashboardController extends Controller
     }
 
 
+    public function envio()
+    {
+        $saidas = Historico::with('historicoable')
+            ->where('descricao', 'Saída')
+            ->orderByDesc('created_at')
+            ->get();
+    }
+
+
     // Pouco Estoque 
 
     public function pouco_estoque()
@@ -139,19 +148,29 @@ class DashboardController extends Controller
                 WHERE tecidos.quantidade < 6)
             "
         );
-        
+
         return view('dashboard.pouco-estoque', ['poucoestoque' => $poucoestoque]);
     }
 
-    public function solicitacao(Request $request) {
-        
-        $request->validate([
-            'categoria' => 'required',
-            'produto_id' => 'required',
-            'quantidade' =>'required|integer'
-        ]);
+    public function solicitacao(Request $request)
+    {
 
-        
+        $codigo = $request->input('produtoCodigo');
+        $origem = $request->input('produtoOrigem');
+        $quantidadeSolicitada = $request->input('quantidadeSolicitada');
 
+        // Lógica para complementar a quantidade do produto no banco de dados
+        if ($origem == 'tintas') {
+            // Exemplo para tintas
+            DB::table('tintas')->where('codigo', $codigo)->increment('quantidade', $quantidadeSolicitada);
+        } elseif ($origem == 'camisetas') {
+            // Exemplo para camisetas
+            DB::table('camisetas')->where('codigo', $codigo)->increment('quantidade', $quantidadeSolicitada);
+        } elseif ($origem == 'tecidos') {
+            // Exemplo para tecidos
+            DB::table('tecidos')->where('codigo', $codigo)->increment('quantidade', $quantidadeSolicitada);
+        }
+
+        return redirect()->back()->with('sucesso', 'Solicitação realizada com sucesso!');
     }
 }
