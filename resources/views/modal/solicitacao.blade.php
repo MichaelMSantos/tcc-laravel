@@ -14,7 +14,8 @@
 
                     <div class="mb-3">
                         <label for="quantidadeSolicitada" class="form-label">Quantidade a solicitar</label>
-                        <input type="number" class="form-control" id="quantidadeSolicitada" name="quantidadeSolicitada" required>
+                        <input type="number" class="form-control" id="quantidadeSolicitada" name="quantidadeSolicitada"
+                            required>
                     </div>
 
                     <input type="hidden" id="produtoCodigo" name="produtoCodigo">
@@ -29,39 +30,4 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var solicitacaoModal = document.getElementById('solicitacao');
-
-        solicitacaoModal.addEventListener('show.bs.modal', function(event) {
-            var button = event.relatedTarget;
-
-            // Extrair dados do produto
-            var origem = button.getAttribute('data-origem');
-            var codigo = button.getAttribute('data-codigo');
-            var fornecedor = button.getAttribute('data-fornecedor');
-
-            // Preencher o modal com os dados
-            document.getElementById('solicitacaoOrigem').textContent = origem;
-            document.getElementById('solicitacaoCodigo').textContent = codigo;
-            document.getElementById('solicitacaoFornecedor').textContent = fornecedor;
-
-            // Preencher os campos ocultos para enviar os dados
-            document.getElementById('produtoCodigo').value = codigo;
-            document.getElementById('produtoOrigem').value = origem;
-        });
-
-        // Lidar com o envio da solicitação
-        document.getElementById('confirmarSolicitacao').addEventListener('click', function() {
-            var form = document.getElementById('solicitacaoForm');
-            var quantidadeSolicitada = document.getElementById('quantidadeSolicitada').value;
-
-            if (quantidadeSolicitada && quantidadeSolicitada > 0) {
-                // Envia o formulário
-                form.submit();
-            } else {
-                alert('Por favor, insira uma quantidade válida.');
-            }
-        });
-    });
-</script>
+<script src="/js/solicitacao.js"></script>

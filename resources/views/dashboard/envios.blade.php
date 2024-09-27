@@ -7,7 +7,7 @@
         aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Fornecedores</li>
+            <li class="breadcrumb-item active" aria-current="page">Envios</li>
         </ol>
     </nav>
     <div class="table-responsive">
@@ -20,10 +20,10 @@
                     <span class="icon">
                         <i class="bi bi-search"></i>
                     </span>
-                    <input type="text" name="search" id="search" placeholder="Pesquisar fornecedor">
+                    <input type="text" name="search" id="search" placeholder="Pesquisar por código">
                 </div>
                 <button id="novo" data-bs-toggle="modal" data-bs-target="#modal-envio">
-                    Novo envio
+                    Enviar Produto
                 </button>
             </div>
         </div>
@@ -60,7 +60,7 @@
                                 onsubmit="return confirm('Tem certeza que deseja reverter esse envio?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Devolver</button>
+                                <button type="submit" class="btn btn-danger">Devolução</button>
                             </form>
                         </th>
                     </tr>

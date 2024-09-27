@@ -25,7 +25,13 @@
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="@yield('link')">
-    <link rel="stylesheet" href="/css/modal.css">
+
+    @if (Route::is('funcionarios.index'))
+        <link rel="stylesheet" href="{{ asset('css/funcModal.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
+    @endif
+
 
     {{-- Bootstrap Icon Link --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -128,7 +134,7 @@
             <li class="sidebar-item">
                 <a href="/dashboard/profile" class="sidebar-link">
                     <img src="/images/sidebar/person.svg" alt="" class="person-img">
-                    <span>Ola admin</span>
+                    <span>Perfil</span>
                 </a>
             </li>
             <li class="sidebar-item">

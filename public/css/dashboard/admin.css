@@ -26,7 +26,7 @@
     background-color: #fff;
     border: none;
     padding: 32px;
-    width: 60rem;
+    width: 80%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -42,15 +42,15 @@
 }
 
 .formulario input {
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
     border: solid;
     border-width: 1px;
-    border-color: rgb(38, 38, 40);
-    border-radius: 10px;
-    width: 32rem;
+    border-color: rgb(187, 187, 187);
+    border-radius: 5px;
+    width: 95%;
     height: 2.25rem;
     padding-left: 3px;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    /* box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); */
 
 }
 
@@ -86,7 +86,7 @@ input{
 /* Modo Escuro */
 
 [data-bs-theme="dark"] .card{
-    background-color: #212529;
+    background-color: #1e1e1e;
     color: #fff;
 }
 
@@ -97,4 +97,9 @@ input{
 
 [data-bs-theme="dark"] h2 p{
     color: #fff;
+}
+
+[data-bs-theme="dark"] .formulario input {
+    background-color: #1e1e1e;
+    border-color: rgb(66, 66, 66);;
 }

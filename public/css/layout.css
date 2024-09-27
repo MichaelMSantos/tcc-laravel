@@ -112,7 +112,7 @@ a.sidebar-link {
 }
 
 a.sidebar-link:hover {
-    background-color: rgba(249, 249, 249, 0.075);
+    background-color: #e2e2e2af !important;
     border-left: 3px solid #3b7ddd;
 }
 

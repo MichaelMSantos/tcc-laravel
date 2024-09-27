@@ -1,5 +1,10 @@
 /* Modal camisetas  */
-
+.modal-body {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    gap: .9rem;
+}
 .input-content {
     display: flex;
     width: 100%;
@@ -10,6 +15,7 @@
 .input-group {
     display: flex;
     flex-direction: column;
+    width: 90%;
 }
 
 #codigo, select, .input-group input {
