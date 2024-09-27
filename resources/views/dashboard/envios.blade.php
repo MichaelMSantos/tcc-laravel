@@ -7,7 +7,7 @@
     aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Fornecedores</li>
+        <li class="breadcrumb-item active" aria-current="page">Enivo</li>
     </ol>
 </nav>
 <div class="table-responsive">
