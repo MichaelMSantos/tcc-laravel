@@ -128,3 +128,28 @@ input[type="checkbox"] {
     font-weight: 600;
     color: red;
 }
+
+@media screen and (max-width: 1280px) {
+    form section img {
+        width: 150px;
+    }
+    aside {
+        width: 50%;
+    }
+    form {
+        width: 50%;
+    }
+    
+}
+@media screen and (max-width: 728px) {
+    aside {
+        display: none;
+    }
+    form section img {
+        width: 40%;
+    }
+    form {
+        width: 100%;
+    }
+    
+}
