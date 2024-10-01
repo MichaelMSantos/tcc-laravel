@@ -131,25 +131,23 @@ class DashboardController extends Controller
 
     public function pouco_estoque()
     {
-        $poucoestoque = DB::select(
-            "
+        $poucoestoque = DB::select("
             (SELECT 'tintas' AS origem, tintas.codigo, tintas.quantidade, fornecedores.nome AS fornecedor, tintas.marca AS especifico1, tintas.cor AS especifico2, tintas.capacidade AS especifico3, NULL AS especifico4
                 FROM tintas
-                JOIN fornecedores ON tintas.fornecedor_id = fornecedores.id 
+                LEFT JOIN fornecedores ON tintas.fornecedor_id = fornecedores.id 
                 WHERE tintas.quantidade < 6)
             UNION ALL
             (SELECT 'camisetas' AS origem, camisetas.codigo, camisetas.quantidade, fornecedores.nome AS fornecedor, camisetas.modelo AS especifico1, camisetas.cor AS especifico2, camisetas.tamanho AS especifico3, NULL AS especifico4
                 FROM camisetas
-                JOIN fornecedores ON camisetas.fornecedor_id = fornecedores.id
+                LEFT JOIN fornecedores ON camisetas.fornecedor_id = fornecedores.id
                 WHERE camisetas.quantidade < 6)
             UNION ALL
             (SELECT 'tecidos' AS origem, tecidos.codigo, tecidos.quantidade, fornecedores.nome AS fornecedor, tecidos.medida AS especifico1, tecidos.cor AS especifico2, NULL AS especifico3, NULL AS especifico4
                 FROM tecidos
-                JOIN fornecedores ON tecidos.fornecedor_id = fornecedores.id
+                LEFT JOIN fornecedores ON tecidos.fornecedor_id = fornecedores.id
                 WHERE tecidos.quantidade < 6)
-            "
-        );
-
+        ");
+        // dd($poucoestoque);
         return view('dashboard.pouco-estoque', ['poucoestoque' => $poucoestoque]);
     }
 
