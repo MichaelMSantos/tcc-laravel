@@ -16,9 +16,6 @@
             <div class="title">
                 Funcionarios
             </div>
-            <p class="subtitle">
-                Registro de funcionarios cadastrados no sistema.
-            </p>
         </div>
         <div class="action">
             <div class="search-box">

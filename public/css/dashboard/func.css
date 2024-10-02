@@ -3,8 +3,8 @@
     background-color: #e2e2e2af !important;
 }
 
-.administradores:hover{
-    background-color: #e2e2e2af ;
+.administradores:hover {
+    background-color: #e2e2e2af;
 }
 
 .table-responsive {
@@ -34,7 +34,7 @@
 
 .subtitle {
     margin: 0 !important;
-    font-size: 13px;    
+    font-size: 13px;
 }
 
 .action {
@@ -59,6 +59,7 @@
     display: flex;
     margin-right: .4rem;
 }
+
 #search {
     width: 100%;
     padding: 0 .6rem;
@@ -93,28 +94,28 @@ th {
 
 /* Modo Escuro */
 
-[data-bs-theme="dark"] .table-responsive{
+[data-bs-theme="dark"] .table-responsive {
     background-color: #212529;
 }
 
-[data-bs-theme="dark"] .title{
-color:  rgb(110 168 253);
+[data-bs-theme="dark"] .title {
+    color: rgb(110 168 253);
 
 }
 
-[data-bs-theme="dark"] th{
+[data-bs-theme="dark"] th {
     color: #fff !important;
 }
 
-[data-bs-theme="dark"] #novo{
+[data-bs-theme="dark"] #novo {
     background-color: transparent;
 }
 
-[data-bs-theme="dark"] #exportar{
+[data-bs-theme="dark"] #exportar {
     background-color: transparent;
 }
 
-[data-bs-theme="dark"] .subtitle{
+[data-bs-theme="dark"] .subtitle {
     color: #fff;
 }
 
@@ -138,4 +139,24 @@ color:  rgb(110 168 253);
     background-color: #2b2b2baf !important;
 }
 
+/* Responsivo */
 
+.table-responsive {
+    margin-top: 2rem;
+    background-color: #ffff;
+    padding: 1.5rem 2rem;
+    /* Aumentei o padding superior e inferior */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    overflow-x: auto;
+    /* Garante que a tabela seja rolável em telas pequenas */
+}
+
+@media screen and (max-width: 770px) {
+
+    .search-box {
+        width: 10rem;
+        margin-right: 1;
+
+    }
+}

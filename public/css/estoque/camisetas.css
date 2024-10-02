@@ -127,3 +127,21 @@ color:  rgb(110 168 253);
 [data-bs-theme="dark"] .camisetas {
     background-color: #2b2b2baf !important;
 }
+
+/* Responsivo */
+
+@media screen and (max-width: 1280px) {
+
+    
+}
+@media screen and (max-width: 769px) {
+.cards {
+    flex-direction: column;
+}
+
+.cards a {
+    display: flex;
+    justify-content: center;
+}
+
+}
