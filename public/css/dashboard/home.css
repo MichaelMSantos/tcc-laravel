@@ -10,6 +10,7 @@
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+
 }
 
 
@@ -122,4 +123,23 @@ td {
 [data-bs-theme="dark"] .table {
     background-color: #1e1e1e !important;
     --bs-table-bg: #1e1e1e;
+}
+
+
+/* Responsivo */
+
+@media screen and (max-width: 1280px) {
+
+    
+}
+@media screen and (max-width: 769px) {
+.cards {
+    flex-direction: column;
+}
+
+.cards a {
+    display: flex;
+    justify-content: center;
+}
+
 }

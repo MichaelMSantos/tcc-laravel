@@ -62,7 +62,7 @@
         </button>
 
         {{-- Sidebar Structure --}}
-        <aside id="sidebar" class="expand">
+        <aside id="sidebar" class="">
             <div class="d-flex">
                 <button class="toggle-btn" type="button">
                     {{-- <i class="">
