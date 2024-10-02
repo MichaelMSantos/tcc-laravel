@@ -173,6 +173,31 @@ td {
 
     .acesso-rapido .cards {
         display: grid;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        
+    }
+
+    .card-content {
+        height: 9.5rem;
+        width: 11.2rem;
+    }
+
+    .card-content img {
+        width: 3.7rem;
+        height: 3.7rem;
+        transition: 0.4s all ease-in-out;
+    }
+
+    .card-content:hover img {
+        height: 4.3rem;
+        width: 4.3rem;
+    }
+
+    .card-content span {
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 20px;
     }
 }
