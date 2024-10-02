@@ -10,9 +10,7 @@
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
-
 }
-
 
 .card {
     height: 8.75rem;
@@ -22,13 +20,12 @@
 }
 
 .card-title {
-    padding: .875rem;
+    padding: 0.875rem;
     font-size: 13px;
 }
 
 .card-body {
     font-size: 32px;
-    
 }
 
 .recents {
@@ -56,7 +53,7 @@ table {
     margin-bottom: 0 !important;
 }
 
-thead tr>th {
+thead tr > th {
     color: #797a7a;
     font-size: 16px;
 }
@@ -82,14 +79,15 @@ td {
     cursor: pointer;
 }
 
-.card-content img, .card-content span {
+.card-content img,
+.card-content span {
     margin: 0;
 }
 
 .card-content img {
     width: 6rem;
     height: 6rem;
-    transition: .4s all ease-in-out;
+    transition: 0.4s all ease-in-out;
 }
 
 .card-content:hover img {
@@ -97,17 +95,16 @@ td {
     width: 6.9rem;
 }
 .card-content span {
-    margin-top: .7rem;
+    margin-top: 0.7rem;
     color: #17374e;
     font-size: 18px;
-    font-weight: 600    ;
+    font-weight: 600;
 }
-
 
 [data-bs-theme="dark"] .card {
     border: none;
     background-color: #1e1e1e !important;
-} 
+}
 
 [data-bs-theme="dark"] .home,
 [data-bs-theme="dark"] .home:hover {
@@ -125,21 +122,57 @@ td {
     --bs-table-bg: #1e1e1e;
 }
 
-
 /* Responsivo */
 
-@media screen and (max-width: 1280px) {
-
-    
+@media screen and (max-width: 1180px) {
+    .acesso-rapido .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }
+
 @media screen and (max-width: 769px) {
-.cards {
-    flex-direction: column;
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-gap: 1rem;
+    }
+
+    .card {
+        width: 15rem;
+    }
+
+    .acesso-rapido {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .acesso-rapido .cards a {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .acesso-rapido .cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
-.cards a {
-    display: flex;
-    justify-content: center;
-}
+@media screen and (max-width: 668px) {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-gap: 1rem;
+    }
 
+    .card {
+        width: 100%;
+    }
+
+    .acesso-rapido .cards {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 }
