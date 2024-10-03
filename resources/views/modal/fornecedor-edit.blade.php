@@ -10,11 +10,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="nome">Codigo</label>
-                    <div class="input-content">
-                        <input type="text" name="nome" id="nome" value="{{ $fornecedor->id }}">
-                        <span> ou </span>
-                        <button type="button" id="scanner">Escanear</button>
+                    <div class="input-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" name="nome" id="nome" value="{{ $fornecedor->nome }}">
                     </div>
                     <div class="input-content">
                         <div class="input-group">

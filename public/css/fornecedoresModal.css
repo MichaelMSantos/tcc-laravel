@@ -1,0 +1,30 @@
+/* Modal camisetas  */
+.modal-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: .9rem;
+}
+.input-content {
+    display: flex;
+    width: 100%;
+    gap: .3rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#nome, .input-group input {
+    padding: 0 .5em ;
+    border: 1px solid #838282 !important;
+    border-radius: 6px !important;
+    height: 2rem;
+    width: 100%;
+}
+
+label {
+    font-weight: 600;
+    color: #444444;
+}

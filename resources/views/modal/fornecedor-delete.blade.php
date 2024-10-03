@@ -11,7 +11,7 @@
                 <form class="col s12" action="{{ route('fornecedor.delete', $fornecedor->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <p>Certeza que deseja excluir a fornecedor de código {{ $fornecedor->id}}?</p>
+                    <p>Certeza que deseja excluir o fornecedor: {{ $fornecedor->nome}}?</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-danger">Excluir</button>

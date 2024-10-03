@@ -28,6 +28,8 @@
 
     @if (Route::is('funcionarios.index'))
         <link rel="stylesheet" href="{{ asset('css/funcModal.css') }}">
+    @elseif (Route::is('fornecedor.index'))
+        <link rel="stylesheet" href="{{ asset('css/fornecedoresModal.css') }}">
     @else
         <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
     @endif
