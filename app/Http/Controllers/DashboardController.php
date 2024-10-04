@@ -12,6 +12,8 @@ use App\Models\Historico;
 
 class DashboardController extends Controller
 {
+
+    // index
     public function index()
     {
         $recentes = DB::select("
@@ -58,6 +60,8 @@ class DashboardController extends Controller
         return view('dashboard.dashboard', ['recentes' => $recentes, 'totalRegistro' => $totalRegitro, 'adicoesRecentes' => $adicoesRecentes, 'semEstoqueTotal' => $semEstoqueTotal]);
     }
 
+
+
     public function buscarProduto($categoria)
     {
         switch ($categoria) {
@@ -77,6 +81,8 @@ class DashboardController extends Controller
         return response()->json($produtos);
     }
 
+
+    // para enviar produto
     public function enviar(Request $request)
     {
         $validated = $request->validate([
@@ -117,6 +123,8 @@ class DashboardController extends Controller
     }
 
 
+
+    // exibir envios
     public function envios()
     {
         $saidas = Historico::with('historicoable')

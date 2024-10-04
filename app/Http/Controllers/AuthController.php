@@ -23,13 +23,11 @@ class AuthController extends Controller
             ]
         )->validate();
 
-        // Tentativa de autenticação
         if (Auth::attempt(request()->only(['email', 'password']))) {
 
             return redirect('/dashboard')->with('logado', 'Login efetuado com sucesso');
         }
 
-        // Se a autenticação falhar, redireciona de volta com a mensagem de erro
         return redirect()->back()->withErrors(['email' => 'Credenciais inválidas']);
     }
 

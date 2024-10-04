@@ -10,12 +10,16 @@ use App\Rules\UniqueCodigo;
 
 class CamisetaController extends Controller
 {
+
+    // Index
     public function index()
     {
         $camisetas = Camiseta::all();
         return view('dashboard.estoque.camisetas', compact('camisetas'));
     }
 
+
+    // Insert
     public function store(Request $request)
     {
 
@@ -43,6 +47,8 @@ class CamisetaController extends Controller
         return back()->with('sucesso', 'Camiseta registrada com sucesso');
     }
 
+
+    // Edit
     public function edit($id)
     {
         $camiseta = Camiseta::where('codigo', $id)->firstOrFail();
@@ -50,6 +56,8 @@ class CamisetaController extends Controller
         return view('modal.estoque.camiseta-edit', compact('camiseta'));
     }
 
+
+    // Update
     public function update(Request $request)
     {
         $request->validate([
@@ -70,6 +78,7 @@ class CamisetaController extends Controller
     }
 
 
+    // Delete
     public function destroy($id)
     {
         $camiseta = Camiseta::findOrFail($id);

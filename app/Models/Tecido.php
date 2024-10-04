@@ -18,6 +18,11 @@ class Tecido extends Model
         'cor',
         'quantidade',
     ];
+
+    public function historicos() {
+        return $this->morphMany(Historico::class, 'historicoable');
+    }
+    
     public function fornecedor()
     {
         return $this->belongsTo(Fornecedor::class);

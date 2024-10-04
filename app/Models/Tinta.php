@@ -19,6 +19,11 @@ class Tinta extends Model
         'quantidade',
         'capacidade',
     ];
+
+    public function historicos() {
+        return $this->morphMany(Historico::class, 'historicoable');
+    }
+    
     public function fornecedor()
     {
         return $this->belongsTo(Fornecedor::class);
