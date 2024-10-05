@@ -41,6 +41,13 @@
     {{-- script cdn --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('bsTheme') || 'light';
+            document.documentElement.setAttribute('data-bs-theme', savedTheme);
+        })();
+    </script>
+
 </head>
 
 <body>

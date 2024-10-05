@@ -12,7 +12,7 @@
     </nav>
 @endsection
 @section('content')
-    <div class="table-responsive">
+    <div class="table-group">
         <div class="table-header">
             <div class="table-desc">
                 <div class="title">
@@ -30,90 +30,93 @@
             </div>
         </div>
 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Codigo</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Seção</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($entradas as $entrada)
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <th scope="row">
-                            @if ($entrada->historicoable)
-                                {{ $entrada->historicoable->codigo ?? $entrada->historicoable->id }}
-                            @else
-                                N/A
-                            @endif
-                        </th>
-                        <th scope="row">{{ $entrada->created_at->format('d/m/Y') }}</th>
-                        <th scope="row">
-                            <!-- Acionador do Modal -->
-                            <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                                data-bs-target="#produto-{{ $entrada->id }}">
-                                <i class="bi bi-eye"></i> Visualizar
-                            </button>
-                        </th>
-                        <th scope="row">
-                            {{$entrada->quantidade}}
-                        </th>
-                        <th scope="row">
-                            {{ class_basename($entrada->historicoable_type) }}
-                        </th>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Seção</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach ($entradas as $entrada)
+                        <tr>
+                            <th scope="row">
+                                @if ($entrada->historicoable)
+                                    {{ $entrada->historicoable->codigo ?? $entrada->historicoable->id }}
+                                @else
+                                    N/A
+                                @endif
+                            </th>
+                            <th scope="row">{{ $entrada->created_at->format('d/m/Y') }}</th>
+                            <th scope="row">
+                                <!-- Acionador do Modal -->
+                                <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                                    data-bs-target="#produto-{{ $entrada->id }}">
+                                    <i class="bi bi-eye"></i> Visualizar
+                                </button>
+                            </th>
+                            <th scope="row">
+                                {{ $entrada->quantidade }}
+                            </th>
+                            <th scope="row">
+                                {{ class_basename($entrada->historicoable_type) }}
+                            </th>
+                        </tr>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="produto-{{ $entrada->id }}" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Detalhes do Produto</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    @if ($entrada->historicoable)
-                                        @php
-                                            $detalhes = $entrada->historicoable;
-                                            $tipo = class_basename($entrada->historicoable_type);
-                                        @endphp
-                                        <p>Código: {{ $detalhes->codigo ?? 'N/A' }} </p>
-                                        @if ($tipo === 'Camiseta')
-                                            <p>Tamanho: {{ $detalhes->tamanho ?? 'N/A' }}</p>
-                                            <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
-                                            <p>Categoria: {{ $detalhes->categoria ?? 'N/A' }}</p>
-                                            <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }}</p>
-                                            <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
-                                        @elseif ($tipo === 'Tecido')
-                                            <p>Medida: {{ $detalhes->medida ?? 'N/A' }}</p>
-                                            <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
-                                            <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }}</p>
-                                            <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
-                                        @elseif ($tipo === 'Tinta')
-                                            <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
-                                            <p>Capacidade: {{ $detalhes->capacidade ?? 'N/A' }}</p>
-                                            <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }} </p>
-                                            <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
+                        <!-- Modal -->
+                        <div class="modal fade" id="produto-{{ $entrada->id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Detalhes do Produto</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @if ($entrada->historicoable)
+                                            @php
+                                                $detalhes = $entrada->historicoable;
+                                                $tipo = class_basename($entrada->historicoable_type);
+                                            @endphp
+                                            <p>Código: {{ $detalhes->codigo ?? 'N/A' }} </p>
+                                            @if ($tipo === 'Camiseta')
+                                                <p>Tamanho: {{ $detalhes->tamanho ?? 'N/A' }}</p>
+                                                <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
+                                                <p>Categoria: {{ $detalhes->categoria ?? 'N/A' }}</p>
+                                                <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }}</p>
+                                                <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
+                                            @elseif ($tipo === 'Tecido')
+                                                <p>Medida: {{ $detalhes->medida ?? 'N/A' }}</p>
+                                                <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
+                                                <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }}</p>
+                                                <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
+                                            @elseif ($tipo === 'Tinta')
+                                                <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
+                                                <p>Capacidade: {{ $detalhes->capacidade ?? 'N/A' }}</p>
+                                                <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }} </p>
+                                                <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
+                                            @endif
+                                        @else
+                                            <p>N/A</p>
                                         @endif
-                                    @else
-                                        <p>N/A</p>
-                                    @endif
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Fechar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </tbody>
-        </table>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div class="table-responsive">
+    <div class="table-group">
         <div class="table-header">
             <div class="table-desc">
                 <div class="title">
@@ -131,84 +134,87 @@
             </div>
         </div>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Codigo</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Seção</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($saidas as $saida)
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
                     <tr>
-                        <th scope="row">
-                            @if ($saida->historicoable)
-                                {{ $saida->historicoable->codigo ?? $saida->historicoable->id }}
-                            @else
-                                N/A
-                            @endif
-                        </th>
-                        <th scope="row">{{ $saida->created_at->format('d/m/Y') }}</th>
-                        <th scope="row">
-                            <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                                data-bs-target="#produto-{{$saida->id}}">
-                                <i class="bi bi-eye"></i> Visualizar
-                            </button>
-                        </th>
-                        <th scope="row">{{ $saida->quantidade }}</th>
-                        <th scope="row">{{ class_basename($saida->historicoable_type) }}</th>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Seção</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach ($saidas as $saida)
+                        <tr>
+                            <th scope="row">
+                                @if ($saida->historicoable)
+                                    {{ $saida->historicoable->codigo ?? $saida->historicoable->id }}
+                                @else
+                                    N/A
+                                @endif
+                            </th>
+                            <th scope="row">{{ $saida->created_at->format('d/m/Y') }}</th>
+                            <th scope="row">
+                                <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                                    data-bs-target="#produto-{{ $saida->id }}">
+                                    <i class="bi bi-eye"></i> Visualizar
+                                </button>
+                            </th>
+                            <th scope="row">{{ $saida->quantidade }}</th>
+                            <th scope="row">{{ class_basename($saida->historicoable_type) }}</th>
+                        </tr>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="produto-{{ $saida->id }}" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Detalhes do Produto</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    @if ($saida->historicoable)
-                                        @php
-                                            $detalhes = $saida->historicoable;
-                                            $tipo = class_basename($saida->historicoable_type);
-                                        @endphp
-                                        <p>Código: {{ $detalhes->codigo ?? 'N/A' }} </p>
-                                        @if ($tipo === 'Camiseta')
-                                            <p>Tamanho: {{ $detalhes->tamanho ?? 'N/A' }}</p>
-                                            <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
-                                            <p>Categoria: {{ $detalhes->categoria ?? 'N/A' }}</p>
-                                            <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }}</p>
-                                            <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
-                                        @elseif ($tipo === 'Tecido')
-                                            <p>Medida: {{ $detalhes->medida ?? 'N/A' }}</p>
-                                            <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
-                                            <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }}</p>
-                                            <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
-                                        @elseif ($tipo === 'Tinta')
-                                            <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
-                                            <p>Capacidade: {{ $detalhes->capacidade ?? 'N/A' }}</p>
-                                            <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }} </p>
-                                            <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
+                        <!-- Modal -->
+                        <div class="modal fade" id="produto-{{ $saida->id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Detalhes do Produto</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @if ($saida->historicoable)
+                                            @php
+                                                $detalhes = $saida->historicoable;
+                                                $tipo = class_basename($saida->historicoable_type);
+                                            @endphp
+                                            <p>Código: {{ $detalhes->codigo ?? 'N/A' }} </p>
+                                            @if ($tipo === 'Camiseta')
+                                                <p>Tamanho: {{ $detalhes->tamanho ?? 'N/A' }}</p>
+                                                <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
+                                                <p>Categoria: {{ $detalhes->categoria ?? 'N/A' }}</p>
+                                                <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }}</p>
+                                                <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
+                                            @elseif ($tipo === 'Tecido')
+                                                <p>Medida: {{ $detalhes->medida ?? 'N/A' }}</p>
+                                                <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
+                                                <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }}</p>
+                                                <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
+                                            @elseif ($tipo === 'Tinta')
+                                                <p>Cor: {{ $detalhes->cor ?? 'N/A' }}</p>
+                                                <p>Capacidade: {{ $detalhes->capacidade ?? 'N/A' }}</p>
+                                                <p>Quantidade: {{ $detalhes->quantidade ?? 'N/A' }} </p>
+                                                <p>Fornecedor: {{ $detalhes->fornecedor->nome ?? 'N/A' }}</p>
+                                            @endif
+                                        @else
+                                            <p>N/A</p>
                                         @endif
-                                    @else
-                                        <p>N/A</p>
-                                    @endif
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Fechar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
 
@@ -266,6 +272,8 @@
                     ]
                 },
                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
                     scales: {
                         y: {
                             beginAtZero: true

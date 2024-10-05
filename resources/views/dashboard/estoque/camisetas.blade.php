@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="table-responsive">
+    <div class="table-group">
         <div class="table-header">
             <div class="title">
                 Camisetas
@@ -48,48 +48,56 @@
                 {{-- <button id="filtrar">Filtrar</button> --}}
                 <button id="novo" type="button" data-bs-toggle="modal" data-bs-target="#modalNovaCamiseta">Novo
                     produto</button>
-                <button id="exportar">Exportar</button>
+                <button id="exportar">
+                    <a href="/camisetas/pdf" target="_blank" style="text-decoration: none; color: red;">
+                        Exportar
+                    </a>
+                </button>
             </div>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Código</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Tamanho</th>
-                    <th scope="col">Cor</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($camisetas as $camiseta)
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
                     <tr>
-                        <th scope="row">{{ $camiseta->codigo }}</th>
-                        <th>{{ $camiseta->modelo }}</th>
-                        <th>{{ $camiseta->tamanho }}</th>
-                        <th>{{ $camiseta->cor }}</th>
-                        <th>{{ $camiseta->quantidade }}</th>
-                        <th>{{ $camiseta->categoria }}</th>
-                        <td class="acoes">
-                            <a href="{{ route('camiseta.edit', $camiseta->id) }}" data-bs-toggle="modal"
-                                data-bs-target="#update-{{ $camiseta->id }}" class="acao">
-                                <i class="bi bi-pencil-square"></i>
-                            </a>
-                            <a href="#" class="modal-trigger acao" data-bs-toggle="modal"
-                                data-bs-target="#delete-{{ $camiseta->id }}">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </td>
+                        <th scope="col">Código</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Tamanho</th>
+                        <th scope="col">Cor</th>
+                        <th scope="col">Quantidade</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Ações</th>
                     </tr>
+                </thead>
+                <tbody>
+                    @foreach ($camisetas as $camiseta)
+                        <tr>
+                            <th scope="row">{{ $camiseta->codigo }}</th>
+                            <th>{{ $camiseta->modelo }}</th>
+                            <th>{{ $camiseta->tamanho }}</th>
+                            <th>{{ $camiseta->cor }}</th>
+                            <th>{{ $camiseta->quantidade }}</th>
+                            <th>{{ $camiseta->categoria }}</th>
+                            <td class="acoes">
+                                <a href="{{ route('camiseta.edit', $camiseta->id) }}" data-bs-toggle="modal"
+                                    data-bs-target="#update-{{ $camiseta->id }}" class="acao">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+                                <a href="#" class="modal-trigger acao" data-bs-toggle="modal"
+                                    data-bs-target="#delete-{{ $camiseta->id }}">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                                <a href="{{ route('camiseta.pdf', $camiseta->codigo) }}" class="acao">
+                                    <i class="bi bi-filetype-pdf"></i>
+                                </a>
+                            </td>
+                        </tr>
 
-                    @include('modal.estoque.camiseta-edit', ['camiseta' => $camiseta])
-                    @include('modal.estoque.camiseta-delete', ['camiseta' => $camiseta])
-
-                @endforeach
-            </tbody>
-        </table>
+                        @include('modal.estoque.camiseta-edit', ['camiseta' => $camiseta])
+                        @include('modal.estoque.camiseta-delete', ['camiseta' => $camiseta])
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
     {{-- Modal  --}}

@@ -20,55 +20,61 @@
         <div class="card">
             <div class="card-title">Adições nos ultimos 7 dias</div>
             <div class="card-body">
-                {{$adicoesRecentes}}
+                {{ $adicoesRecentes }}
             </div>
         </div>
         <div class="card">
             <div class="card-title">Sem estoque</div>
             <div class="card-body">
-                {{$semEstoqueTotal}}
+                {{ $semEstoqueTotal }}
             </div>
         </div>
         <div class="card">
             <div class="card-title">Fornecedores cadastrados</div>
             <div class="card-body">
-                {{$totalFornecedores = DB::table('fornecedores')->count();}}
+                {{ $totalFornecedores = DB::table('fornecedores')->count() }}
             </div>
         </div>
     </div>
-    <section class="recents table-responsive">
+    <section class="recents">
         <p class="title">
             Estoques Recentes
         </p>
         <div class="table-group shadow-sm">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Código</th>
-                        <th scope="col">Seção</th>
-                        <th scope="col">Qtd</th>
-                        <th scope="col">Fornecedor</th>
-                        <th scope="col">Data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (count($recentes) > 0)
-                    @foreach ($recentes as $recent)
+            <a href="/dashboard/exportar-pdf" class="pdf-link" target="_blank">
+                <button id="exportar">Exportar</button></a>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td>{{ $recent->codigo }}</td>
-                            <td style="text-transform: capitalize">
-                                <a href="/dashboard/estoque/{{ $recent->origem }}"> {{ $recent->origem }}</a>
-                            </td>
-                            <td>{{ $recent->quantidade }}</td>
-                            <td>{{ $recent->fornecedor }}</td>
-                            <td>{{ \Carbon\Carbon::parse($recent->created_at)->format('d/m/Y') }}</td>
+                            <th scope="col">Código</th>
+                            <th scope="col">Seção</th>
+                            <th scope="col">Qtd</th>
+                            <th scope="col">Fornecedor</th>
+                            <th scope="col">Data</th>
                         </tr>
-                    @endforeach
-                @else
-                    <tr><td colspan="6">Nenhum registro encontrado</td></tr>
-                @endif
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @if (count($recentes) > 0)
+                            @foreach ($recentes as $recent)
+                                <tr>
+                                    <td>{{ $recent->codigo }}</td>
+                                    <td style="text-transform: capitalize">
+                                        <a href="/dashboard/estoque/{{ $recent->origem }}"> {{ $recent->origem }}</a>
+                                    </td>
+                                    <td>{{ $recent->quantidade }}</td>
+                                    <td>{{ $recent->fornecedor }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($recent->created_at)->format('d/m/Y') }}</td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="6">Nenhum registro encontrado</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
     <div class="acesso-rapido">
@@ -101,6 +107,5 @@
                 </div>
             </a>
         </div>
-    </div>
     </div>
 @endsection

@@ -37,7 +37,7 @@
     font-size: 32px;   
 }
 
-.table-responsive {
+.table-group {
     margin-top: 2rem;
     background-color: #ffff;
     padding: .875rem 2rem 2rem 2rem;
@@ -74,7 +74,7 @@
     border: 2px solid black;
     color: black;
 }
-.table-responsive .title {
+.table-group .title {
     padding-top: .8rem;
     font-size: 21px;
     font-weight: 600;
@@ -91,7 +91,7 @@ th {
 
 /* Modo Escuro */ 
 
-[data-bs-theme="dark"] .table-responsive,
+[data-bs-theme="dark"] .table-group,
 [data-bs-theme="dark"] .table {
     background-color: #1e1e1e !important;
     --bs-table-bg: #1e1e1e;
@@ -138,6 +138,19 @@ color:  rgb(110 168 253);
 .cards a {
     display: flex;
     justify-content: center;
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+}
+.button-group button {
+    font-size: 14px;
+}
+
+.table-header {
+    flex-direction: column;
 }
 
 }

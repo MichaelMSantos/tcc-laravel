@@ -122,6 +122,21 @@ td {
     --bs-table-bg: #1e1e1e;
 }
 
+.pdf-link {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+#exportar {
+    border: 2px solid red;
+    color: red;
+    font-weight: 600;
+    padding: 0 10px;
+    border-radius: 10px;
+    background-color: transparent;
+}
 /* Responsivo */
 
 @media screen and (max-width: 1180px) {

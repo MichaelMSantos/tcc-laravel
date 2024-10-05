@@ -8,7 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FinanceiroController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\TintaController;
-
+use App\Models\Camiseta;
 use Illuminate\Support\Facades\Route;
 
 
@@ -149,3 +149,11 @@ Route::get('/dashboard/show/{id}', [FinanceiroController::class, 'show'])->name(
 Route::get('/dashboard/profile', function () {
     return view('.dashboard.profile');
 })->middleware('auth');
+
+
+// PDFs 
+
+Route::get('/dashboard/exportar-pdf', [DashboardController::class, 'pdfHome'])->name('dashboard.exportarPdf');
+
+Route::get('/camisetas/pdf', [CamisetaController::class, 'pdfGeral']);
+Route::get('/camisetas/pdf/{codigo}', [CamisetaController::class, 'unicoPdf'])->name('camiseta.pdf');

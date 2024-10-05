@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 
 use App\Rules\UniqueCodigo;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class CamisetaController extends Controller
 {
 
     // Index
-    public function index()
+    public function index() 
     {
         $camisetas = Camiseta::all();
         return view('dashboard.estoque.camisetas', compact('camisetas'));
@@ -77,7 +79,6 @@ class CamisetaController extends Controller
         return back()->with('sucesso', 'Camiseta atualizada com sucesso!');
     }
 
-
     // Delete
     public function destroy($id)
     {
@@ -87,4 +88,24 @@ class CamisetaController extends Controller
 
         return redirect()->route('camiseta.index')->with('sucesso', 'Camiseta excluida com sucesso!');
     }
+
+    public function pdfGeral() {
+        $camisetas = Camiseta::all();
+        
+        $pdf = PDF::loadView('relatorios.camiseta-geral_pdf', [
+            'camisetas' => $camisetas,
+        ]);
+
+        return $pdf->stream('camiseta-relatorio.pdf');
+    }
+
+    public function unicoPdf($codigo) {
+        $camiseta = Camiseta::where('codigo', $codigo)->firstOrFail();
+
+        $pdf = PDF::loadView('relatorios.camiseta',
+        ['camiseta'=> $camiseta]);
+
+        return $pdf->stream('camiseta-relatorio.pdf');
+    }
+
 }

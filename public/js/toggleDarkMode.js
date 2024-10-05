@@ -14,6 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('bsTheme', newTheme);
 
         themeIcon.className = newTheme === 'light' ? 'bi bi-moon' : 'bi bi-sun';
-
     });
 });
+                      
