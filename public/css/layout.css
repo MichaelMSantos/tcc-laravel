@@ -344,3 +344,7 @@ color: #fff;
         margin-left: 90%;
     }
 }
+
+.drawingBuffer  {
+    display: none;
+}

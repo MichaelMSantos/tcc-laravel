@@ -79,7 +79,7 @@
                                     data-bs-target="#delete-{{ $tecido->id }}">
                                     <i class="bi bi-trash"></i>
                                 </a>
-                                <a href="#">
+                                <a href="#" class="acao">
                                     <i class="bi bi-filetype-pdf"></i>
                                 </a>
                             </td>

@@ -194,7 +194,8 @@ Responsive
     }
 
     .action {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        align-items: end;
         gap: 6px;
     }
 

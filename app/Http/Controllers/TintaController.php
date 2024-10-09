@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Rules\UniqueCodigo;
 use App\Models\Tinta;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 class TintaController extends Controller
 {
     public function index()
@@ -73,5 +75,24 @@ class TintaController extends Controller
         $tinta->delete();
 
         return redirect()->route('tinta.index')->with('sucesso', 'Produto excluido com sucesso');
+    }
+
+    public function pdfGeral() {
+        $camisetas = Tinta::all();
+        
+        $pdf = PDF::loadView('relatorios.camiseta-geral_pdf', [
+            'camisetas' => $camisetas,
+        ]);
+
+        return $pdf->stream('camiseta-relatorio.pdf');
+    }
+
+    public function unicoPdf($codigo) {
+        $tecido = Tinta::where('codigo', $codigo)->firstOrFail();
+
+        $pdf = PDF::loadView('relatorios.camiseta',
+        ['tecido'=> $tecido]);
+
+        return $pdf->stream('camiseta-relatorio.pdf');
     }
 }

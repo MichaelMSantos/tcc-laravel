@@ -80,6 +80,9 @@
                                     data-bs-target="#delete-{{ $tinta->id }}">
                                     <i class="bi bi-trash"></i>
                                 </a>
+                                <a href="#" class="acao">
+                                    <i class="bi bi-filetype-pdf"></i>
+                                </a>
                             </td>
                         </tr>
 

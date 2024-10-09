@@ -13,7 +13,10 @@
                     <div class="input-content">
                         <input type="text" name="codigo" id="codigo">
                         <span> ou </span>
-                        <button type="button" id="scanner">Escanear</button>
+                        <button type="button" id="scanner" style="display: block">Escanear</button>
+                        <div id="cam" style="height: 150px; width:150px; display:none">
+                            skdasodkiajwdawdiwa
+                        </div>
                     </div>
                     <div class="input-content">
                         <div class="input-group">
@@ -64,3 +67,31 @@
         </div>
     </div>
 </form>
+<script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
+<script>
+  document.getElementById('scanner').addEventListener('click', function () {
+            Quagga.init({
+                inputStream: {
+                    name: "Live",
+                    type: "LiveStream",
+                    target: document.querySelector('#cam')           
+                decoder: {
+                    readers: ["code_128_reader"] 
+                }
+            }, function (err) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log("Inicialização concluída. Pronto para começar.");
+                document.getElementById('cam').style.display = 'block';
+                Quagga.start();                        
+            });
+        });
+
+        Quagga.onDetected(function (data) {
+            console.log(data);
+            // document.querySelector('#resultado').innerHTML = data.codeResult.code;
+            alert(data.codeResult.code);
+        });
+</script>
