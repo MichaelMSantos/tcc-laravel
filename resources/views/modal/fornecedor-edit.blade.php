@@ -20,8 +20,8 @@
                             <input type="text" name="telefone" id="telefone" value="{{ $fornecedor->telefone }}">
                         </div>
                         <div class="input-group">
-                            <label for="linkedin">LinkedIn</label>
-                            <input name="linkedin" id="linkedin" value="{{ $fornecedor->linkedin }}">
+                            <label for="whatsapp">Whatsapp</label>
+                            <input name="whatsapp" id="whatsapp" value="{{ $fornecedor->whatsapp }}">
                         </div>
                     </div>
                     <div class="input-group" style="margin-top: 10px">
@@ -31,14 +31,6 @@
                     <div class="input-group" style="margin-top: 10px">
                         <label for="email">Email</label>
                         <input name="email" id="email" value="{{ $fornecedor->email }}">
-                    </div>
-                    <div class="input-group" style="margin-top: 10px">
-                        <label for="facebook">Facebook</label>
-                        <input name="facebook" id="facebook" value="{{ $fornecedor->facebook }}">
-                    </div>
-                    <div class="input-group" style="margin-top: 10px">
-                        <label for="instagram">Instagram</label>
-                        <input name="instagram" id="instagram" value="{{ $fornecedor->instagram }}">
                     </div>
                 </div>
                 <div class="modal-footer">

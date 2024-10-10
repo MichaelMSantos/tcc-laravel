@@ -19,8 +19,8 @@
                             <input type="text" name="telefone" id="telefone">
                         </div>
                         <div class="input-group">
-                            <label for="linkedin">LinkedIn</label>
-                            <input name="linkedin" id="linkedin">
+                            <label for="whatsapp">Whatsapp</label>
+                            <input name="whatsapp" id="whatsapp">
                         </div>
                     </div>
                     <div class="input-group" style="margin-top: 10px">
@@ -30,14 +30,6 @@
                     <div class="input-group" style="margin-top: 10px">
                         <label for="email">Email</label>
                         <input name="email" id="email">
-                    </div>
-                    <div class="input-group" style="margin-top: 10px">
-                        <label for="facebook">Facebook</label>
-                        <input name="facebook" id="facebook">
-                    </div>
-                    <div class="input-group" style="margin-top: 10px">
-                        <label for="instagram">Instagram</label>
-                        <input name="instagram" id="instagram">
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -24,6 +24,7 @@ class FornecedorController extends Controller
       $fornecedores->telefone = $request->telefone;
       $fornecedores->endereco = $request->endereco;
       $fornecedores->contato = $request->contato;
+      $fornecedores->whatsapp = $request->whatsapp;
 
       $fornecedores->save();
 
@@ -39,7 +40,7 @@ class FornecedorController extends Controller
 
    public function show($id) {
       $fornecedor = Fornecedor::where('nome', $id)->firstOrFail();
-      
+
       return view('contatos', compact('fornecedor'));
    }
 
