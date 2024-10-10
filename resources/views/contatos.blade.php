@@ -6,9 +6,7 @@
             </div>
             <div class="modal-body">
                 <p>Email: {{ $fornecedor->email }}</p>
-                <p>Instagram: <a href="https://www.{{ $fornecedor->instagram }}">{{ $fornecedor->instagram }}</a></p>
-                <p>Linkedin: <a href="https://br.{{ $fornecedor->linkedin }}"> {{$fornecedor->linkedin}}</a></p>
-                <p>Facebook: <a href="{{$fornecedor->facebook}}">Link</a></p>
+                <p>Whatsapp: <a href="https://www. {{$fornecedor->whatsapp}} "></a>{{$fornecedor->whatsapp}}</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>

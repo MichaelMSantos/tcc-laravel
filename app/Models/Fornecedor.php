@@ -17,9 +17,7 @@ class Fornecedor extends Model
         'email',
         'endereco',
         'email',
-        'instagram',
-        'linkedin',
-        'facebook',
+        'whatsapp',
     ];
 
     public function camisetas()
@@ -32,6 +30,6 @@ class Fornecedor extends Model
     }
     public function tinta()
     {
-        return $this->hasMany(Tecido::class);
+        return $this->hasMany(Tinta::class);
     }
 }
