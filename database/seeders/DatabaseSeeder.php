@@ -32,9 +32,7 @@ class DatabaseSeeder extends Seeder
             'telefone' => '11 12345-1234',
             'endereco' => 'Rua ABC',
             'email' => 'fornecedor@teste.com',
-            'instagram' => 'www.instagram.com',
-            'linkedin' => 'br.linkedin.com/',
-            'facebook' => 'facebook.com',
+            'whatsapp' => '1922393332',
         ]);
 
         Tinta::factory()->create([
