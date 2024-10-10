@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <label for="codigo">Codigo</label>
                     <div class="input-content">
-                        <input type="text" name="codigo" id="codigo">
+                        <input type="text" name="codigo" id="codigo"> 
                         <span> ou </span>
                         <button type="button" id="scanner" style="display: block">Escanear</button>
                         <div id="cam" style="height: 150px; width:150px; display:none">
