@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Envio;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -171,6 +172,14 @@ class DashboardController extends Controller
             'quantidade' => $validated['quantidade'],
             'created_at' => now(),
         ]);
+
+        Envio::create([
+            'produto_id' => $produto->id,
+            'produto_type' => get_class($produto),
+            'quantidade' => $validated['quantidade'],
+            // 'destinatario' => $validated['destinatario'],
+        ]);
+
         return back()->with('sucesso', 'Produto enviado com sucesso!');
     }
 
@@ -187,14 +196,14 @@ class DashboardController extends Controller
         return view('dashboard.envios', compact('saidas'));
     }
 
-    // Pouco Estoque 
+    // Pouco Estoque
 
     public function pouco_estoque()
     {
         $poucoestoque = DB::select("
             (SELECT 'tintas' AS origem, tintas.codigo, tintas.quantidade, fornecedores.nome AS fornecedor, tintas.marca AS especifico1, tintas.cor AS especifico2, tintas.capacidade AS especifico3, NULL AS especifico4
                 FROM tintas
-                LEFT JOIN fornecedores ON tintas.fornecedor_id = fornecedores.id 
+                LEFT JOIN fornecedores ON tintas.fornecedor_id = fornecedores.id
                 WHERE tintas.quantidade < 6)
             UNION ALL
             (SELECT 'camisetas' AS origem, camisetas.codigo, camisetas.quantidade, fornecedores.nome AS fornecedor, camisetas.modelo AS especifico1, camisetas.cor AS especifico2, camisetas.tamanho AS especifico3, NULL AS especifico4
@@ -247,9 +256,9 @@ class DashboardController extends Controller
     {
         $historico = Historico::findOrFail($historicoable_id);
 
-        if ($historico->descricao !== 'Saída') {
-            return back()->withErrors(['erro' => 'Apenas saídas podem ser devolvidas.']);
-        }
+        // if ($historico->descricao !== 'Saída') {
+        //     return back()->withErrors(['erro' => 'Apenas saídas podem ser devolvidas.']);
+        // }
 
         $produto = null;
         switch (class_basename($historico->historicoable_type)) {
@@ -269,6 +278,16 @@ class DashboardController extends Controller
             $produto->save();
 
             $historico->delete();
+
+            $envio = Envio::where('produto_id', $produto->id)
+                ->where('produto_type', get_class($produto))
+                ->where('quantidade', $historico->quantidade)
+                ->first();
+
+
+            if ($envio) {
+                $envio->delete();
+            }
 
             return back()->with('sucesso', 'Produto devolvido ao estoque');
         }

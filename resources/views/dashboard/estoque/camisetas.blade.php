@@ -86,7 +86,7 @@
                                     data-bs-target="#delete-{{ $camiseta->id }}">
                                     <i class="bi bi-trash"></i>
                                 </a>
-                                <a href="{{ route('camiseta.pdf', $camiseta->codigo) }}" class="acao">
+                                <a href="{{ route('camiseta.pdf', $camiseta->codigo) }}" target="_blank" class="acao">
                                     <i class="bi bi-filetype-pdf"></i>
                                 </a>
                             </td>

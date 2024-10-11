@@ -11,7 +11,7 @@ class FornecedorController extends Controller
 {
    public function index()
    {
-      $fornecedor = Fornecedor::all();
+      $fornecedor = Fornecedor::paginate('5');
 
       return view('dashboard.fornecedores', ['fornecedores' => $fornecedor]);
    }

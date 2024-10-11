@@ -5,7 +5,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Fornecedor {{ $fornecedor->id }}</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -14,10 +14,6 @@
                         <input type="text" name="nome" id="nome"">
                     </div>
                     <div class="input-content">
-                        <div class="input-group">
-                            <label for="telefone">Telefone</label>
-                            <input type="text" name="telefone" id="telefone">
-                        </div>
                         <div class="input-group">
                             <label for="whatsapp">Whatsapp</label>
                             <input name="whatsapp" id="whatsapp">

@@ -31,9 +31,9 @@
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Telefone</th>
+                    <th scope="col">Número</th>
                     <th scope="col">Endereço</th>
-                    <th scope="col">Contatos</th>
+                    <th scope="col">Email</th>
                     <th scope="col" style="width: 15%">Açoes</th>
                 </tr>
             </thead>
@@ -41,13 +41,14 @@
                 @foreach ($fornecedores as $fornecedor)
                     <tr>
                         <th scope="row">{{ $fornecedor->nome }}</th>
-                        <th>{{ $fornecedor->telefone }}</th>
+                        <th>{{ $fornecedor->whatsapp }}</th>
                         <th>{{ $fornecedor->endereco }}</th>
                         <th scope="row">
-                            <a href="{{ route('fornecedor.show', $fornecedor->id) }}" data-bs-toggle="modal"
+                            {{-- <a href="{{ route('fornecedor.show', $fornecedor->id) }}" data-bs-toggle="modal"
                                 data-bs-target="#contato-{{ $fornecedor->id }}" class="contatos">
                                 <i class="bi bi-eye"></i> <span>Visualizar</span>
-                            </a>
+                            </a> --}}
+                            {{ $fornecedor->email }}
                         </th>
                         @include('contatos')
 
@@ -75,7 +76,7 @@
             @include('modal.fornecedor-create')
         </table>
         <p class="subtitle">
-            Mostrando 0 de 0 registros
+            Mostrando {{ $fornecedores->firstItem() }} a {{ $fornecedores->lastItem() }} de {{ $fornecedores->total() }} registros
         </p>
     </div>
 @endsection
