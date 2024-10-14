@@ -20,7 +20,7 @@ class AuthController extends Controller
                 'email' => ['required', 'email'],
                 'password' => ['required']
             ]
-        )->validate();
+        )->validate(); 
 
         if (Auth::attempt(request()->only(['email', 'password']))) {
 
