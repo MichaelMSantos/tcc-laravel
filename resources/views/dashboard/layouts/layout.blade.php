@@ -24,6 +24,7 @@
     {{-- CSS Styles --}}
     <link rel="stylesheet" href="/global.css">
     <link rel="stylesheet" href="/css/layout.css">
+    @yield('styles')
     <link rel="stylesheet" href="@yield('link')">
 
     @if (Route::is('funcionarios.index'))
