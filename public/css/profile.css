@@ -19,9 +19,13 @@
     color: white !important;
 }
 
+.input {
+    color: rgb(212 212 216);
+}
 [data-bs-theme="dark"] input {
     background-color: rgb(23 23 23);
     border: 1px solid rgb(23 23 23) !important;
+    color: #ababab;
 }
 
 

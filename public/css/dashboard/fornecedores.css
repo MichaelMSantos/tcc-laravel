@@ -107,7 +107,7 @@ th {
 
 /* Modo Escuro */
 
-[data-bs-theme="dark"] .table-responsive{
+[data-bs-theme="dark"] .table-group{
     background-color: #212529;
 }
 

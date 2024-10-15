@@ -94,7 +94,7 @@ th {
 
 /* Modo Escuro */
 
-[data-bs-theme="dark"] .table-responsive {
+[data-bs-theme="dark"] .table-group {
     background-color: #212529;
 }
 
@@ -124,7 +124,7 @@ th {
     color: rgb(139 185 254);
 }
 
-[data-bs-theme="dark"] .table-responsive,
+[data-bs-theme="dark"] .table-group,
 [data-bs-theme="dark"] .table {
     background-color: #1e1e1e !important;
     --bs-table-bg: #1e1e1e;
@@ -145,26 +145,26 @@ th {
         .table-header {
             flex-direction: column;
         }
-    
+
         .action {
             align-items: end;
             gap: 6px;
             flex-direction:  column-reverse;
         }
-    
+
         .search-box {
             width: 100%;
             margin: 0;
         }
-    
+
         #search {
             margin: 0;
         }
-    
+
         .icon {
             margin: 0;
         }
-    
+
         #novo {
             width: 12rem;
         }

@@ -107,7 +107,7 @@ th {
 
 /* Modo Escuro */
 
-[data-bs-theme="dark"] .table-responsive{
+[data-bs-theme="dark"] .table-group{
     background-color: #212529;
 }
 
@@ -137,7 +137,7 @@ color:  rgb(110 168 253);
     color: rgb(139 185 254);
 }
 
-[data-bs-theme="dark"] .table-responsive,
+[data-bs-theme="dark"] .table-group,
 [data-bs-theme="dark"] .table {
     background-color: #1e1e1e !important;
     --bs-table-bg: #1e1e1e;

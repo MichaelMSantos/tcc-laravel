@@ -27,7 +27,7 @@
                 </button>
             </div>
         </div>
-        <table-responsive>
+        <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -68,7 +68,7 @@
                     @endforeach
                 </tbody>
             </table>
-        </table-responsive>
+        </div>
         <p class="subtitle">
             Mostrando 0 de 0 registros
         </p>
