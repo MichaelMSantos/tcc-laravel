@@ -6,7 +6,7 @@
     background-color: #e2e2e2af !important;
 }
 
-.table-responsive .title {
+.table-group .title {
     padding-top: .8rem;
     font-size: 21px;
     font-weight: 600;
@@ -22,7 +22,7 @@ th {
     color: #686868 !important;
 }
 
-.table-responsive {
+.table-group {
     margin-top: 2rem;
     background-color: #ffff;
     padding: .875rem 2rem 2rem 2rem;
@@ -157,4 +157,36 @@ color:  rgb(110 168 253);
 [data-bs-theme="dark"] .envio,
 [data-bs-theme="dark"] .envio:hover {
     background-color: #2b2b2baf !important;
+}
+
+
+@media screen and (max-width: 769px) {
+    .table-header {
+        flex-direction: column;
+    }
+
+    .actions {
+        align-items: flex-end;
+        gap: 6px;
+        flex-direction:column-reverse;
+    }
+
+    .search-box {
+        width: 100%;
+        height: 2.3rem;
+        margin: 0;
+    }
+
+    #search {
+        margin: 0;
+    }
+
+    .icon {
+        margin: 0;
+    }
+
+    #novo {
+        width: 12rem;
+        height: 2rem;
+    }
 }
