@@ -7,7 +7,7 @@
     background-color: #e2e2e2af !important;
 }
 
-.table-responsive {
+.table-group {
     margin-top: 2rem;
     background-color: #ffff;
     padding: 0.875rem 2rem 2rem 2rem;
@@ -92,7 +92,7 @@ th {
 
 /* Modo Escuro */
 
-[data-bs-theme="dark"] .table-responsive,
+[data-bs-theme="dark"] .table-group,
 [data-bs-theme="dark"] .table {
     background-color: #1e1e1e !important;
     --bs-table-bg: #1e1e1e;
