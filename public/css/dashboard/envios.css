@@ -116,10 +116,9 @@ color:  rgb(110 168 253);
 
 }
 
-[data-bs-theme="dark"] th{
+[data-bs-theme="dark"] label {
     color: #fff !important;
 }
-
 [data-bs-theme="dark"] #novo{
     background-color: transparent;
 }
@@ -146,8 +145,8 @@ color:  rgb(110 168 253);
     border: 1px solid #494949 !important;
 }
 
-[data-bs-theme="dark"] th {
-    color: #adadad !important;
+[data-bs-theme="dark"] label {
+    color: #fff !important;
 }
 
 /* [data-bs-theme="dark"] th {

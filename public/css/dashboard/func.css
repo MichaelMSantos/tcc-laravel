@@ -107,6 +107,10 @@ th {
     color: #fff !important;
 }
 
+[data-bs-theme="dark"] label {
+    color: #fff !important;
+}
+
 [data-bs-theme="dark"] #novo {
     background-color: transparent;
 }
@@ -141,31 +145,31 @@ th {
 
 
 
-    @media screen and (max-width: 769px) {
-        .table-header {
-            flex-direction: column;
-        }
-
-        .action {
-            align-items: end;
-            gap: 6px;
-            flex-direction:  column-reverse;
-        }
-
-        .search-box {
-            width: 100%;
-            margin: 0;
-        }
-
-        #search {
-            margin: 0;
-        }
-
-        .icon {
-            margin: 0;
-        }
-
-        #novo {
-            width: 12rem;
-        }
+@media screen and (max-width: 769px) {
+    .table-header {
+        flex-direction: column;
     }
+
+    .action {
+        align-items: end;
+        gap: 6px;
+        flex-direction: column-reverse;
+    }
+
+    .search-box {
+        width: 100%;
+        margin: 0;
+    }
+
+    #search {
+        margin: 0;
+    }
+
+    .icon {
+        margin: 0;
+    }
+
+    #novo {
+        width: 12rem;
+    }
+}
