@@ -10,13 +10,13 @@
                 </div>
                 <div class="modal-body">
                     <label for="codigo">Codigo</label>
-                    <div class="input-content">
-                        <input type="text" name="codigo" id="codigo"> 
-                        <span> ou </span>
-                        <button type="button" id="scanner" style="display: block">Escanear</button>
-                        <div id="cam" style="height: 150px; width:150px; display:none">
-                            skdasodkiajwdawdiwa
+                    <div class="input-content" style="margin-bottom: 2.1rem">
+                        <div style="width: 60%">
+                            <input type="text" name="codigo" id="codigo" style="width: 100%">
+                        <p style="font-size: 12px; position: absolute; width: 60%; font-weight: 600 ">Deixe o campo vazio para gerar um código aleatório</p>
                         </div>
+                        <span style="margin-left: 0"> ou </span>
+                        <button type="button" id="scanner" style="display: block">Escanear</button>
                     </div>
                     <div class="input-content">
                         <div class="input-group">
@@ -74,9 +74,9 @@
                 inputStream: {
                     name: "Live",
                     type: "LiveStream",
-                    target: document.querySelector('#cam')           
+                    target: document.querySelector('#cam')
                 decoder: {
-                    readers: ["code_128_reader"] 
+                    readers: ["code_128_reader"]
                 }
             }, function (err) {
                 if (err) {
@@ -85,7 +85,7 @@
                 }
                 console.log("Inicialização concluída. Pronto para começar.");
                 document.getElementById('cam').style.display = 'block';
-                Quagga.start();                        
+                Quagga.start();
             });
         });
 

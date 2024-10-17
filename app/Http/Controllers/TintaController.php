@@ -8,6 +8,8 @@ use App\Rules\UniqueCodigo;
 use App\Models\Tinta;
 
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class TintaController extends Controller
 {
@@ -21,25 +23,58 @@ class TintaController extends Controller
     {
 
         $request->validate([
-            'codigo' => ['required', new UniqueCodigo],
+            'codigo' => ['nullable', new UniqueCodigo],
             'marca' => 'required',
             'cor' => 'required',
             'quantidade' => 'required|integer',
             'capacidade' => 'required'
         ]);
 
+        if (empty($request->codigo)) {
+            $number = mt_rand(1000000000, 9999999999);
+
+            while ($this->productCodeExists($number)) {
+                $number = mt_rand(1000000000, 9999999999);
+            }
+
+            $codigo = $number;
+        } else {
+            $codigo = $request->codigo;
+
+            if ($this->productCodeExists($codigo)) {
+                return back()->withErrors(['codigo' => 'O código já existe. Escolha outro.']);
+            }
+        }
+
 
         $tintas = new Tinta;
 
-        $tintas->codigo = $request->codigo;
+        $tintas->codigo = $codigo;
         $tintas->marca = $request->marca;
         $tintas->cor = $request->cor;
         $tintas->quantidade = $request->quantidade;
         $tintas->capacidade = $request->capacidade;
 
-        $tintas->save();
+        $barcodeUrl = "https://barcode.tec-it.com/barcode.ashx?data={$tintas->codigo}&code=Code128&translate-esc=on&filetype=png";
+
+        $response = Http::get($barcodeUrl);
+
+        if ($response->successful()) {
+            $path = 'barcodes/' . $tintas->codigo . '.png';
+
+            Storage::disk('public')->put($path, $response->body());
+
+
+            $tintas->barcode_image = $path;
+            $tintas->save();
+        }
 
         return back()->with('sucesso', 'Tinta registrada com sucesso');
+    }
+
+    public function productCodeExists($number)
+    {
+        return Tinta::where('codigo', $number)->exists();
     }
 
     public function edit($id)
@@ -53,7 +88,7 @@ class TintaController extends Controller
     {
 
         $request->validate([
-            'codigo' => ['required', 'unique:tintas,codigo,' . $request->id], 
+            'codigo' => ['required', 'unique:tintas,codigo,' . $request->id],
             'marca' => 'required',
             'cor' => 'required',
             'quantidade' => 'required|integer',
@@ -77,9 +112,10 @@ class TintaController extends Controller
         return redirect()->route('tinta.index')->with('sucesso', 'Produto excluido com sucesso');
     }
 
-    public function pdfGeral() {
+    public function pdfGeral()
+    {
         $camisetas = Tinta::all();
-        
+
         $pdf = PDF::loadView('relatorios.camiseta-geral_pdf', [
             'camisetas' => $camisetas,
         ]);
@@ -87,11 +123,14 @@ class TintaController extends Controller
         return $pdf->stream('camiseta-relatorio.pdf');
     }
 
-    public function unicoPdf($codigo) {
+    public function unicoPdf($codigo)
+    {
         $tecido = Tinta::where('codigo', $codigo)->firstOrFail();
 
-        $pdf = PDF::loadView('relatorios.camiseta',
-        ['tecido'=> $tecido]);
+        $pdf = PDF::loadView(
+            'relatorios.camiseta',
+            ['tecido' => $tecido]
+        );
 
         return $pdf->stream('camiseta-relatorio.pdf');
     }

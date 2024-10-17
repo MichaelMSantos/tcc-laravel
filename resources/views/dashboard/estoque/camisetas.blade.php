@@ -89,11 +89,18 @@
                                 <a href="{{ route('camiseta.pdf', $camiseta->codigo) }}" target="_blank" class="acao">
                                     <i class="bi bi-filetype-pdf"></i>
                                 </a>
+                                <a href="#" class="modal-trigger acao" data-bs-toggle="modal"
+                                    data-bs-target="#detalhe-{{ $camiseta->id }}">
+                                    <i class="bi bi-upc"></i>
+                                </a>
                             </td>
                         </tr>
 
+                        {{-- <img id="barcode-img-{{ $camiseta->codigo }}"
+                            src="{{ asset('storage/barcodes/' . $camiseta->codigo . '.png') }}" alt="Barcode"> --}}
                         @include('modal.estoque.camiseta-edit', ['camiseta' => $camiseta])
                         @include('modal.estoque.camiseta-delete', ['camiseta' => $camiseta])
+                        @include('modal.barcode', ['item' => $camiseta])
                     @endforeach
                 </tbody>
             </table>

@@ -19,6 +19,7 @@
                 $table->string('cor', 30)->nullable();
                 $table->integer('quantidade')->nullable();
                 $table->string('categoria')->nullable();
+                $table->string('barcode_image')->nullable();
                 $table->unsignedBigInteger('fornecedor_id')->nullable();
 
                 $table->foreign('fornecedor_id')->references('id')->on('fornecedores')->onDelete('cascade');

@@ -52,7 +52,6 @@ class DatabaseSeeder extends Seeder
             'cor' => 'Preto',
             'quantidade' => '30',
             'fornecedor_id' => '1',
-
         ]);
 
         Tecido::factory()->create([

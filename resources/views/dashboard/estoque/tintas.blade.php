@@ -82,12 +82,16 @@
                                 </a>
                                 <a href="#" class="acao">
                                     <i class="bi bi-filetype-pdf"></i>
-                                </a>
+                                </a><a href="#" class="modal-trigger acao" data-bs-toggle="modal"
+                                data-bs-target="#detalhe-{{ $tinta->id }}">
+                                <i class="bi bi-upc"></i>
+                            </a>
                             </td>
                         </tr>
 
                         @include('modal.estoque.tinta-edit', ['tinta' => $tinta])
                         @include('modal.estoque.tinta-delete', ['tinta' => $tinta])
+                        @include('modal.barcode', ['item' => $tinta])
                     @endforeach
                 </tbody>
             </table>
