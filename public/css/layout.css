@@ -247,7 +247,7 @@ main {
 }
 
 .acao:last-child {
-    color: rgb(167, 4, 4);
+    color: #fff;
     font-size: 20px;
     border: 1px rgb(167, 4, 4) solid;
 }
