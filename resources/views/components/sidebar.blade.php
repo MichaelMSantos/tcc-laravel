@@ -69,7 +69,7 @@
     </li>
     <li class="sidebar-item">
         <a href="{{ route('profile.show') }}" class="sidebar-link">
-            <img src="/images/sidebar/person.svg" alt="" class="person-img">
+            <img src="/images/sidebar/person.svg" alt="" class="person-img truncate">
             <span>
                 {{ Auth::user()->name }}
             </span>

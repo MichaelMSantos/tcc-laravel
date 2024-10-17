@@ -9,12 +9,14 @@ use Illuminate\Http\Request;
 use App\Rules\UniqueCodigo;
 
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class CamisetaController extends Controller
 {
 
     // Index
-    public function index() 
+    public function index()
     {
         $camisetas = Camiseta::all();
         return view('dashboard.estoque.camisetas', compact('camisetas'));
@@ -24,20 +26,35 @@ class CamisetaController extends Controller
     // Insert
     public function store(Request $request)
     {
-
         $request->validate([
-            'codigo' => ['required', new UniqueCodigo], 
+            'codigo' => ['nullable', new UniqueCodigo],
             'modelo' => 'required',
             'tamanho' => 'required',
             'cor' => 'required',
             'quantidade' => 'required|integer',
             'categoria' => 'required'
         ]);
-        
+
+        if (empty($request->codigo)) {
+            $number = mt_rand(1000000000, 9999999999);
+
+            while ($this->productCodeExists($number)) {
+                $number = mt_rand(1000000000, 9999999999);
+            }
+
+            $codigo = $number;
+        } else {
+            $codigo = $request->codigo;
+
+            if ($this->productCodeExists($codigo)) {
+                return back()->withErrors(['codigo' => 'O código já existe. Escolha outro.']);
+            }
+        }
+
         $camiseta = new Camiseta;
 
         $camiseta->id = $request->id;
-        $camiseta->codigo = $request->codigo;
+        $camiseta->codigo = $codigo;
         $camiseta->modelo = $request->modelo;
         $camiseta->tamanho = $request->tamanho;
         $camiseta->cor = $request->cor;
@@ -46,8 +63,28 @@ class CamisetaController extends Controller
 
         $camiseta->save();
 
-        return back()->with('sucesso', 'Camiseta registrada com sucesso');
+        $barcodeUrl = "https://barcode.tec-it.com/barcode.ashx?data={$camiseta->codigo}&code=Code128&translate-esc=on&filetype=png";
+
+        $response = Http::get($barcodeUrl);
+
+        if ($response->successful()) {
+            $path = 'barcodes/' . $camiseta->codigo . '.png';
+
+            Storage::disk('public')->put($path, $response->body());
+
+
+            $camiseta->barcode_image = $path;
+            $camiseta->save();
+        }
+
+        return back()->with('sucesso', 'Camiseta registrada com sucesso.');
     }
+
+    public function productCodeExists($number)
+    {
+        return Camiseta::where('codigo', $number)->exists();
+    }
+
 
 
     // Edit
@@ -63,7 +100,7 @@ class CamisetaController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            'codigo' => ['required', 'unique:camisetas,codigo,' . $request->id], 
+            'codigo' => ['required', 'unique:camisetas,codigo,' . $request->id],
             'modelo' => 'required',
             'tamanho' => 'required',
             'cor' => 'required',
@@ -84,14 +121,22 @@ class CamisetaController extends Controller
     {
         $camiseta = Camiseta::findOrFail($id);
 
+        $path = 'barcodes/' . $camiseta->codigo . '.png';
+
+        if (Storage::disk('public')->exists($path)) {
+
+            Storage::disk('public')->delete($path);
+        }
+
         $camiseta->delete();
 
         return redirect()->route('camiseta.index')->with('sucesso', 'Camiseta excluida com sucesso!');
     }
 
-    public function pdfGeral() {
+    public function pdfGeral()
+    {
         $camisetas = Camiseta::all();
-        
+
         $pdf = PDF::loadView('relatorios.camiseta-geral_pdf', [
             'camisetas' => $camisetas,
         ]);
@@ -99,13 +144,15 @@ class CamisetaController extends Controller
         return $pdf->stream('camiseta-relatorio.pdf');
     }
 
-    public function unicoPdf($codigo) {
+    public function unicoPdf($codigo)
+    {
         $camiseta = Camiseta::where('codigo', $codigo)->firstOrFail();
 
-        $pdf = PDF::loadView('relatorios.camiseta',
-        ['camiseta'=> $camiseta]);
+        $pdf = PDF::loadView(
+            'relatorios.camiseta',
+            ['camiseta' => $camiseta]
+        );
 
         return $pdf->stream('camiseta-relatorio.pdf');
     }
-
 }

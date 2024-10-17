@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tecido;
 use Illuminate\Http\Request;
 use App\Rules\UniqueCodigo;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 
 class TecidoController extends Controller
 {
@@ -18,23 +20,56 @@ class TecidoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'codigo' => ['required', 'unique:tecidos,codigo,' . $request->id], 
+            'codigo' => ['nullable', new UniqueCodigo],
             'medida' => 'required',
             'cor' => 'required',
             'quantidade' => 'required|integer'
         ]);
 
+        if (empty($request->codigo)) {
+            $number = mt_rand(1000000000, 9999999999);
+
+            while ($this->productCodeExists($number)) {
+                $number = mt_rand(1000000000, 9999999999);
+            }
+
+            $codigo = $number;
+        } else {
+            $codigo = $request->codigo;
+
+            if ($this->productCodeExists($codigo)) {
+                return back()->withErrors(['codigo' => 'O código já existe. Escolha outro.']);
+            }
+        }
+
         $tecidos = new Tecido();
 
         $tecidos->id = $request->id;
-        $tecidos->codigo = $request->codigo;
+        $tecidos->codigo = $codigo;
         $tecidos->medida = $request->medida;
         $tecidos->cor = $request->cor;
         $tecidos->quantidade = $request->quantidade;
 
-        $tecidos->save();
+        $barcodeUrl = "https://barcode.tec-it.com/barcode.ashx?data={$tecidos->codigo}&code=Code128&translate-esc=on&filetype=png";
+
+        $response = Http::get($barcodeUrl);
+
+        if ($response->successful()) {
+            $path = 'barcodes/' . $tecidos->codigo . '.png';
+
+            Storage::disk('public')->put($path, $response->body());
+
+
+            $tecidos->barcode_image = $path;
+            $tecidos->save();
+        }
 
         return back()->with('sucesso', 'Tecido registrado com sucesso');
+    }
+
+    public function productCodeExists($number)
+    {
+        return Tecido::where('codigo', $number)->exists();
     }
 
     public function edit($id)

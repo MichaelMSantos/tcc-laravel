@@ -82,11 +82,16 @@
                                 <a href="#" class="acao">
                                     <i class="bi bi-filetype-pdf"></i>
                                 </a>
+                                <a href="#" class="modal-trigger acao" data-bs-toggle="modal"
+                                    data-bs-target="#detalhe-{{ $tecido->id }}">
+                                    <i class="bi bi-upc"></i>
+                                </a>
                             </td>
                         </tr>
 
                         @include('modal.estoque.tecido-edit', ['tecido' => $tecido])
                         @include('modal.estoque.tecido-delete', ['tecido' => $tecido])
+                        @include('modal.barcode', ['item' => $tecido])
                     @endforeach
                 </tbody>
             </table>

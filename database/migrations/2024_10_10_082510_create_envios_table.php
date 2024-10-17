@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('envios', function (Blueprint $table) {
             $table->id();
-            $table->morphs('produto');  // Cria as colunas produto_id e produto_type
+            $table->morphs('produto');  
             $table->integer('quantidade');
             // $table->string('destinatario');
             $table->timestamps();
