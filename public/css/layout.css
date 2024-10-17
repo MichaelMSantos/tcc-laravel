@@ -222,6 +222,9 @@ main {
 
 
 .acao {
+    color: red;
+    background-color: transparent;
+    border: 1px solid red;
     border-radius: 5px;
     font-size: 18px;
     padding: 0 5px;
@@ -247,9 +250,9 @@ main {
 }
 
 .acao:last-child {
-    color: rgb(167, 4, 4);
+    color: #fff;
     font-size: 20px;
-    border: 1px rgb(167, 4, 4) solid;
+    border: 1px rgb(255, 255, 255) solid;
 }
 
 .darkModeSwitch {

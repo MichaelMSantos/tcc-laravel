@@ -128,6 +128,10 @@ color:  rgb(110 168 253);
     background-color: #2b2b2baf !important;
 }
 
+[data-bs-theme="dark"] label {
+    color: #fff !important;
+}
+
 /* Responsivo */
 
 @media screen and (max-width: 1280px) {
