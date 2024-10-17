@@ -37,9 +37,10 @@ label {
     gap: .7rem;
 }
 
-#scanner {
+#open-camera {
     padding: 0 .4rem;
     border: solid 2px #383838;
     border-radius: 6px;
     width: 25% !important;
+    background-color: transparent;
 }

@@ -329,8 +329,8 @@ color: #fff;
 }
 
 @media screen and (max-width: 1280px) {
-    
-    
+
+
 }
 @media screen and (max-width: 769px) {
     #sidebar.expand {
@@ -350,4 +350,27 @@ color: #fff;
 
 .drawingBuffer  {
     display: none;
+}
+
+video {
+    width: 300px;
+}
+
+#scanner-line {
+    position: absolute;
+    top: 0;
+    height: 3px;
+    background-color: red;
+    z-index: 10;
+    width: 300px;
+    animation: scan 2s infinite alternate;
+}
+@keyframes scan {
+    0% {
+        top: 10%;
+    }
+
+    100% {
+        top: 90%;
+    }
 }
