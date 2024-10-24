@@ -20,7 +20,6 @@ class ResetUserPassword implements ResetsUserPasswords
     {
         Validator::make($input, [
             'password' => $this->passwordRules(),
-            'g-recaptcha-response' => 'recaptcha',
         ])->validate();
 
         $user->forceFill([

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -20,7 +20,7 @@ class AuthController extends Controller
                 'email' => ['required', 'email'],
                 'password' => ['required']
             ]
-        )->validate(); 
+        )->validate();
 
         if (Auth::attempt(request()->only(['email', 'password']))) {
 
@@ -30,9 +30,10 @@ class AuthController extends Controller
         return redirect()->back()->withErrors(['email' => 'Credenciais inválidas']);
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
 
-    return redirect('/')->with('deslogado', 'Sessão encerrada com sucesso');
+        return redirect('/')->with('deslogado', 'Sessão encerrada com sucesso');
     }
 }

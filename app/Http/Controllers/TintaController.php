@@ -15,8 +15,8 @@ class TintaController extends Controller
 {
     public function index()
     {
-        $tintas = Tinta::all();
-        return view('dashboard.estoque.tintas', compact('tintas'));
+        $tintas = Tinta::paginate(5);
+        return view('estoque.tinta.index', compact('tintas'));
     }
 
     public function store(Request $request)
@@ -81,7 +81,7 @@ class TintaController extends Controller
     {
         $tinta = Tinta::where('codigo', $id)->firstOrFail();
 
-        return view('modal.estoque.tinta-edit', compact('tinta'));
+        return view('estoque.tinta.tinta-update', compact('tinta'));
     }
 
     public function update(Request $request)
@@ -100,7 +100,7 @@ class TintaController extends Controller
         Tinta::findOrFail($request->id)->update($request->all());
 
 
-        return back()->with('sucesso', 'Tintavalue:  atualizada com sucesso!');
+        return back()->with('sucesso', 'Tinta atualizada com sucesso!');
     }
 
     public function destroy($id)
@@ -109,7 +109,7 @@ class TintaController extends Controller
 
         $tinta->delete();
 
-        return redirect()->route('tinta.index')->with('sucesso', 'Produto excluido com sucesso');
+        return back()->with('sucesso', 'Produto excluido com sucesso');
     }
 
     public function pdfGeral()

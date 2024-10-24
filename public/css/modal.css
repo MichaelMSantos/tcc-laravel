@@ -1,4 +1,4 @@
-/* Modal camisetas  */
+
 
 .input-content {
     display: flex;
@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-#codigo, select, .input-group input {
+#codigo, select, .input-group input, #email {
     padding: 0 .5em ;
     border: 1px solid #838282 !important;
     border-radius: 6px !important;
@@ -28,8 +28,8 @@ label {
     width: 100%;
 }
 
-#codigo {
-    width: 60%;
+#codigo, #email {
+    width: 100%;
 }
 
 .option-group {
@@ -37,10 +37,10 @@ label {
     gap: .7rem;
 }
 
-#open-camera {
+/* #open-camera {
     padding: 0 .4rem;
     border: solid 2px #383838;
     border-radius: 6px;
     width: 25% !important;
     background-color: transparent;
-}
+} */
