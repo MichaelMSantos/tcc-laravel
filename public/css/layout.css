@@ -183,7 +183,7 @@ hr {
     justify-content: center;
 }
 
-span {
+.sidebar-link span {
     margin-left: 1rem;
 }
 
@@ -250,9 +250,9 @@ main {
 }
 
 .acao:last-child {
-    color: #fff;
+    color: black;
     font-size: 20px;
-    border: 1px rgb(255, 255, 255) solid;
+    border: 1px black solid;
 }
 
 .darkModeSwitch {

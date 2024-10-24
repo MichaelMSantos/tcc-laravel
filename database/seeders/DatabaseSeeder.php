@@ -35,31 +35,31 @@ class DatabaseSeeder extends Seeder
             'whatsapp' => '1922393332',
         ]);
 
-        Tinta::factory()->create([
-            'codigo' => '123456',
-            'marca' => 'teste',
-            'cor' => 'Branca',
-            'quantidade' => '10',
-            'capacidade' => '2L',
-            'fornecedor_id' => '1',
-        ]);
+        // Tinta::factory()->create([
+        //     'codigo' => '123456',
+        //     'marca' => 'teste',
+        //     'cor' => 'Branca',
+        //     'quantidade' => '10',
+        //     'capacidade' => '2L',
+        //     'fornecedor_id' => '1',
+        // ]);
 
-        Camiseta::factory()->create([
-            'codigo' => '12345',
-            'modelo' => 'manga longa',
-            'tamanho' => 'G',
-            'categoria' => 'Jovem',
-            'cor' => 'Preto',
-            'quantidade' => '30',
-            'fornecedor_id' => '1',
-        ]);
+        // Camiseta::factory()->create([
+        //     'codigo' => '12345',
+        //     'modelo' => 'manga longa',
+        //     'tamanho' => 'G',
+        //     'categoria' => 'Jovem',
+        //     'cor' => 'Preto',
+        //     'quantidade' => '30',
+        //     'fornecedor_id' => '1',
+        // ]);
 
-        Tecido::factory()->create([
-            'codigo' => '12346',
-            'medida' => '2M',
-            'cor' => 'Azul',
-            'quantidade' => '10',
-            'fornecedor_id' => '1',
-        ]);
+        // Tecido::factory()->create([
+        //     'codigo' => '12346',
+        //     'medida' => '2M',
+        //     'cor' => 'Azul',
+        //     'quantidade' => '10',
+        //     'fornecedor_id' => '1',
+        // ]);
     }
 }

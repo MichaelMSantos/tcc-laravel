@@ -3,24 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Camiseta;
-
-use Illuminate\Http\Request;
-
 use App\Rules\UniqueCodigo;
-
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class CamisetaController extends Controller
 {
-
-    // Index
     public function index()
-    {
-        $camisetas = Camiseta::all();
-        return view('dashboard.estoque.camisetas', compact('camisetas'));
-    }
+{
+    $camisetas = Camiseta::paginate(5);
+    return view('estoque.camiseta.index', compact('camisetas'));
+}
+
 
 
     // Insert
@@ -85,15 +81,6 @@ class CamisetaController extends Controller
         return Camiseta::where('codigo', $number)->exists();
     }
 
-
-
-    // Edit
-    public function edit($id)
-    {
-        $camiseta = Camiseta::where('codigo', $id)->firstOrFail();
-
-        return view('modal.estoque.camiseta-edit', compact('camiseta'));
-    }
 
 
     // Update

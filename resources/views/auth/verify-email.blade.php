@@ -1,7 +1,7 @@
-<x-recuperacao-layout>
-    <x-authentication-card>
+<x-guest-layout>
+    <x-ui.authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <x-ui.authentication-card-logo />
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
@@ -19,9 +19,9 @@
                 @csrf
 
                 <div>
-                    <x-button type="submit">
+                    <x-ui.button type="submit">
                         {{ __('Resend Verification Email') }}
-                    </x-button>
+                    </x-ui.button>
                 </div>
             </form>
 
@@ -41,5 +41,5 @@
                 </form>
             </div>
         </div>
-    </x-authentication-card>
-</x-recuperacao-layout>
+    </x-ui.authentication-card>
+</x-guest-layout>

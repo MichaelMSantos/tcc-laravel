@@ -7,11 +7,11 @@
 }
 
 
-.form-card {
+.form-card, .profile-footer  {
     background-color: white;
 }
 
-[data-bs-theme="dark"] .form-card, [data-bs-theme="dark"] .footer-card  {
+[data-bs-theme="dark"] .form-card, [data-bs-theme="dark"] .profile-footer  {
     background-color: #1e1e1e;
 }
 
@@ -19,15 +19,16 @@
     color: white !important;
 }
 
-.input {
-    color: rgb(212 212 216);
-}
 [data-bs-theme="dark"] input {
     background-color: rgb(23 23 23);
     border: 1px solid rgb(23 23 23) !important;
     color: #ababab;
 }
 
+input {
+    height: 2.2rem !important;
+    border: 1px solid grey !important;
+}
 
 .session-icon, .session-device {
     color: rgb(107 114 128);
@@ -42,3 +43,730 @@
     color: white !important;
     font-weight: 500;
 }
+
+
+
+.section-profile {
+    max-width: 80rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.profile-card {
+    margin-top: 2.5rem !important;
+}
+
+@media (min-width: 640px) {
+    .section-profile {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .profile-card {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-profile {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+
+.bg-gray-50 {
+    background-color: rgb(249 250 251);
+}
+
+.mt-5 {
+    margin-top: 1.25rem;
+}
+
+
+.text-lg {
+     font-size: 1.125rem;
+}
+.font-medium {
+    font-weight: 500;
+}
+.text-gray-900{
+    color: #1F2937;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.col-span-1 {
+    grid-column: span 1;
+}
+
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+
+.text-gray-600 {
+    color: #4b5563;
+}
+
+
+.shadow {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.gap-6 {
+    gap: 1.5rem;
+}
+
+.col-span-6 {
+    grid-column: span 6 / span 6;
+}
+
+.block {
+    display: block;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+
+.text-gray-700 {
+    color: #4a5568;
+}
+
+.border-gray-300 {
+    border-color: #d1d5db;
+}
+
+.focus\:border-indigo-500:focus {
+    border-color: #4f46e5;
+}
+
+
+.focus\:ring-indigo-500:focus {
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.5);
+}
+
+.rounded-md {
+    border-radius: 0.375rem;
+}
+
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+
+.block {
+    display: block;
+}
+
+.w-full {
+    width: 100%;
+}
+
+
+.items-center {
+    align-items: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.bg-gray-50 {
+    background-color: #f9fafb;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.me-3 {
+    margin-right: 0.75rem;
+}
+
+/* .shadow {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+} */
+
+
+.inline-flex {
+    display: inline-flex;
+    align-items: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.px-4 {
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+}
+
+.py-2 {
+    padding-top: 0.5rem; /* 8px */
+    padding-bottom: 0.5rem; /* 8px */
+}
+
+.bg-gray-800 {
+    background-color: #2d3748;
+}
+
+.border {
+    border-width: 1px;
+}
+
+.border-transparent {
+    border-color: transparent;
+}
+
+.rounded-md {
+    border-radius: 0.375rem; /* 6px */
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-xs {
+    font-size: 0.75rem; /* 12px */
+}
+
+.text-white {
+    color: #fff;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.tracking-widest {
+    letter-spacing: 0.1em;
+}
+
+.hover\:bg-gray-700:hover {
+    background-color: #4a5568;
+}
+
+.focus\:bg-gray-700:focus {
+    background-color: #4a5568;
+}
+
+.active\:bg-gray-900:active {
+    background-color: #1a202c;
+}
+
+.focus\:outline-none:focus {
+    outline: none;
+}
+
+.focus\:ring-2:focus {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0);
+}
+
+.focus\:ring-indigo-500:focus {
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+}
+
+.focus\:ring-offset-2:focus {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.disabled\:opacity-50:disabled {
+    opacity: 0.5;
+}
+
+.transition {
+    transition: all 150ms ease-in-out;
+}
+
+.ease-in-out {
+    transition-timing-function: ease-in-out;
+}
+
+.duration-150 {
+    transition-duration: 150ms;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.border-t {
+    border-top-width: 1px;
+}
+
+.border-gray-200 {
+    border-color: #e5e7eb;
+}
+
+input {
+    padding-left: .3rem;
+}
+
+.w-8 {
+    width: 2rem;
+}
+
+.h-8 {
+    height: 2rem;
+}
+
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+
+.bg-gray-500 {
+    background-color: #6b7280; /* Cor de fundo cinza (Tailwind gray-500) */
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem; /* 6 * 0.25rem = 1.5rem */
+}
+
+.rounded-lg {
+    border-radius: 0.5rem; /* Raiz do borda grande */
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.shadow-xl {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Sombra grande */
+}
+.flex-row {
+    flex-direction: row; /* Organiza os itens em uma linha */
+}
+
+.text-end {
+    text-align: end; /* Alinha o texto ao final do contêiner */
+}
+
+.inline-flex {
+    display: inline-flex; /* Define o elemento como um contêiner flexível em linha */
+}
+
+.items-center {
+    align-items: center; /* Alinha os itens ao centro do contêiner flexível */
+}
+
+.px-4 {
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+}
+
+.py-2 {
+    padding-top: 0.5rem; /* 8px */
+    padding-bottom: 0.5rem; /* 8px */
+}
+
+.bg-white {
+    background-color: #ffffff; /* Cor de fundo branca */
+}
+
+.border {
+    border-width: 1px; /* Define a largura da borda */
+}
+
+.border-gray-300 {
+    border-color: #d1d5db; /* Cor da borda cinza */
+}
+
+.rounded-md {
+    border-radius: 0.375rem; /* Raiz arredondada média */
+}
+
+.font-semibold {
+    font-weight: 600; /* Peso da fonte semi-negrito */
+}
+
+.text-xs {
+    font-size: 0.75rem; /* Tamanho da fonte extra pequeno */
+}
+
+.text-gray-700 {
+    color: #374151; /* Cor do texto cinza escuro */
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.fixed {
+    position: fixed;
+    inset: 0;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.px-4 {
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+}
+
+.py-6 {
+    padding-top: 1.5rem; /* 24px */
+    padding-bottom: 1.5rem; /* 24px */
+}
+
+.transform {
+    transform: translateZ(0); /* Força a criação de um novo contexto de empilhamento, permitindo transições suaves */
+}
+
+.transition-all {
+    transition-property: all; /* Aplica transições a todas as propriedades */
+    transition-duration: 150ms; /* Define a duração da transição (150ms é o padrão do Tailwind) */
+    transition-timing-function: ease-in-out; /* Define a função de tempo (ease-in-out é o padrão do Tailwind) */
+}
+
+.ease-out {
+    transition-timing-function: ease-out; /* Transição mais rápida no início e mais lenta no fim */
+}
+
+.duration-300 {
+    transition-duration: 300ms; /* Define a duração da transição para 300ms */
+}
+
+.opacity-100 {
+    opacity: 1; /* Define a opacidade completa (100%) */
+}
+
+.ease-in {
+    transition-timing-function: ease-in; /* A transição será lenta no início e mais rápida no final */
+}
+
+.duration-200 {
+    transition-duration: 200ms; /* Define a duração da transição para 200ms */
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.bg-gray-500 {
+    background-color: #6B7280; /* Cor cinza com valor hex correspondente ao Tailwind */
+}
+
+.opacity-75 {
+    opacity: 0.75; /* Define a opacidade para 75% */
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem; /* 24px */
+}
+
+.bg-white {
+    background-color: #ffffff; /* Cor de fundo branca */
+}
+
+.rounded-lg {
+    border-radius: 0.5rem; /* 8px de raio para as bordas arredondadas */
+}
+
+.overflow-hidden {
+    overflow: hidden; /* Oculta qualquer conteúdo que ultrapasse os limites do elemento */
+}
+
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Define uma sombra de caixa grande */
+}
+
+
+.translate-y-4 {
+    transform: translateY(1rem); /* Translada o elemento verticalmente em 4 unidades (16px) */
+}
+
+.translate-y-0 {
+    transform: translateY(0); /* Remove qualquer translação vertical */
+}
+
+.border-gray-300 {
+    border-color: #D1D5DB; /* Define a cor da borda como cinza claro (#D1D5DB) */
+}
+
+.focus\:border-indigo-500:focus {
+    border-color: #6366F1; /* Altera a cor da borda para índigo (#6366F1) quando o elemento está em foco */
+}
+
+.focus\:ring-indigo-500:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5); /* Aplica um anel (ring) de foco de cor índigo ao redor do elemento */
+}
+
+.rounded-md {
+    border-radius: 0.375rem; /* Define o raio da borda como 6px */
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Aplica uma leve sombra ao elemento */
+}
+
+.jetstream-modal {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+    padding-top: 1.5rem; /* 24px */
+    padding-bottom: 1.5rem; /* 24px */
+    display: none;
+    z-index: 10000;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(75, 85, 99, 0.75); /* Substitui bg-gray-500 e opacity-75 */
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.modal-backdrop.show {
+    opacity: 1;
+}
+
+.modal-content {
+    margin-bottom: 1.5rem; /* 24px */
+    background-color: white;
+    border-radius: 0.5rem; /* 8px */
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Substitui shadow-xl */
+    transform: translateY(1rem); /* translate-y-4 */
+    transition: all 0.3s ease-out;
+    width: 100%;
+    max-width: 40rem; /* 640px, equivalente a sm:max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(1rem) scale(0.95);
+}
+
+.modal-content.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+
+
+@media (min-width: 768px) {
+
+    .max-w-md {
+        max-width: 28rem; /* 448px */
+      }
+
+    .md\:col-span-1 {
+        grid-column: span 1;
+    }
+
+    .md\:col-span-2 {
+        grid-column: span 2;
+    }
+
+    .md\:mt-0 {
+        margin-top: 0;
+    }
+
+    .md\:grid {
+        display: grid;
+    }
+
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .md\:gap-6 {
+        gap: 1.5rem;
+    }
+
+}
+
+
+@media (min-width: 640px) {
+
+    .sm\:w-full {
+        width: 100%; /* Define a largura completa em telas pequenas (sm) e superiores */
+    }
+
+    .sm\:mx-auto {
+        margin-left: auto;
+        margin-right: auto; /* Centraliza o elemento horizontalmente em telas pequenas (sm) e superiores */
+    }
+
+    .sm\:translate-y-0 {
+        transform: translateY(0); /* Remove a translação vertical em telas pequenas (sm) e superiores */
+    }
+
+    .sm\:scale-95 {
+        transform: scale(0.95); /* Reduz o tamanho para 95% em telas pequenas (sm) e superiores */
+    }
+    .sm\:scale-100 {
+        transform: scale(1); /* Redefine o tamanho para 100% (escala original) em telas pequenas (sm) e superiores */
+    }
+
+    .max-w-sm {
+        max-width: 24rem; /* 384px */
+      }
+
+    .sm\:px-0 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .sm\:rounded-tl-md {
+        border-top-left-radius: 0.375rem;
+    }
+
+    .sm\:rounded-tr-md {
+        border-top-right-radius: 0.375rem;
+    }
+
+    .sm\:p-6 {
+        padding: 1.5rem;
+    }
+    .sm\:col-span-4 {
+        grid-column: span 4 / span 4;
+    }
+    .sm\:px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .sm\:rounded-bl-md {
+        border-bottom-left-radius: 0.375rem;
+    }
+
+    .sm\:rounded-br-md {
+        border-bottom-right-radius: 0.375rem;
+    }
+
+    .sm\:block {
+        display: block;
+    }
+
+
+
+    .sm\:max-w-2xl {
+        max-width: 42rem;
+    }
+
+    .sm\:mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sm\:translate-y-0 {
+        transform: translateY(0);
+    }
+
+    .sm\:scale-100 {
+            transform: scale(1);
+        }
+
+    .sm\:scale-100 {
+
+            transform: scale(1);
+        }
+}
+
+@media (min-width: 1024px) {
+    .max-w-lg {
+      max-width: 32rem; /* 512px */
+    }
+  }
+
+  /* Para telas extra grandes (xl) */
+  @media (min-width: 1280px) {
+    .max-w-xl {
+      max-width: 36rem; /* 576px */
+    }
+  }
+
+  /* Para telas 2x extra grandes (2xl) */
+  @media (min-width: 1536px) {
+    .max-w-2xl {
+      max-width: 42rem; /* 672px */
+    }
+  }

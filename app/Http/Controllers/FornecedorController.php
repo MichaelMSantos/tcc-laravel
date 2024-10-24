@@ -9,60 +9,45 @@ use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
 {
-   public function index()
-   {
-      $fornecedor = Fornecedor::paginate('5');
+    public function index()
+    {
+        $fornecedores = Fornecedor::paginate(10);
 
-      return view('dashboard.fornecedores', ['fornecedores' => $fornecedor]);
-   }
-   public function store(Request $request)
-   {
-      $fornecedores = new Fornecedor;
+        return view('pages.fornecedores', compact('fornecedores'));
+    }
+    public function store(Request $request)
+    {
+        $fornecedores = new Fornecedor;
 
-      $fornecedores->id = $request->id;
-      $fornecedores->nome = $request->nome;
-      $fornecedores->telefone = $request->telefone;
-      $fornecedores->endereco = $request->endereco;
-      $fornecedores->contato = $request->contato;
-      $fornecedores->whatsapp = $request->whatsapp;
+        $fornecedores->id = $request->id;
+        $fornecedores->nome = $request->nome;
+        $fornecedores->telefone = $request->telefone;
+        $fornecedores->endereco = $request->endereco;
+        $fornecedores->whatsapp = $request->whatsapp;
 
-      $fornecedores->save();
+        $fornecedores->save();
 
-      return back()->with('sucesso', 'Fornecedor registrada com sucesso');
-   }
+        return back()->with('sucesso', 'Fornecedor registrada com sucesso');
+    }
 
-   public function edit($id)
-   {
-      $fornecedor = Fornecedor::where('nome', $id)->firstOrFail();
+    public function update(Request $request)
+    {
 
-      return view('modal.fornecedor-edit', compact('fornecedor'));
-   }
+        $fornecedor = Fornecedor::all();
 
-   public function show($id) {
-      $fornecedor = Fornecedor::where('nome', $id)->firstOrFail();
-
-      return view('contatos', compact('fornecedor'));
-   }
-
-   public function update(Request $request)
-   {
-
-      $fornecedor = Fornecedor::all();
-
-      Fornecedor::findOrFail($request->id)->update($request->all());
+        Fornecedor::findOrFail($request->id)->update($request->all());
 
 
-      return back()->with('sucesso', 'Fornecedor atualizada com sucesso!');
-   }
+        return back()->with('sucesso', 'Fornecedor atualizada com sucesso!');
+    }
 
 
-   public function destroy($id)
-   {
-      $fornecedor = Fornecedor::findOrFail($id);
+    public function destroy($id)
+    {
+        $fornecedor = Fornecedor::findOrFail($id);
 
-      $fornecedor->delete();
+        $fornecedor->delete();
 
-      return redirect()->route('fornecedor.index')->with('sucesso', 'Fornecedor excluido com sucesso!');
-   }
-
+        return redirect()->route('fornecedor.index')->with('sucesso', 'Fornecedor excluido com sucesso!');
+    }
 }

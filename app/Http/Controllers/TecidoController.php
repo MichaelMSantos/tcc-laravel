@@ -12,9 +12,9 @@ class TecidoController extends Controller
 {
     public function index()
     {
-        $tecidos = Tecido::all();
+        $tecidos = Tecido::paginate(5);
 
-        return view('dashboard.estoque.tecidos', ['tecidos' => $tecidos]);
+        return view('estoque.tecido.index', ['tecidos' => $tecidos]);
     }
 
     public function store(Request $request)
@@ -102,6 +102,6 @@ class TecidoController extends Controller
 
         $tecido->delete();
 
-        return redirect()->route('tecido.index')->with('sucesso', 'Produto excluido com sucesso');
+        return back()->with('sucesso', 'Produto excluido com sucesso');
     }
 }
