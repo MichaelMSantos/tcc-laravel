@@ -11,11 +11,15 @@ use App\Http\Controllers\TecidoController;
 use App\Http\Controllers\TintaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use Laravel\Fortify\RoutePath;
 
-Route::get('/', function () {
-    return view('auth.login');
-})->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('user.validate');
+Route::get(RoutePath::for('login_user', '/login'), [AuthenticatedSessionController::class, 'create'])
+    ->middleware(['guest:' . config('fortify.guard')])
+    ->name('login_user');
+Route::get('/', [AuthController::class, 'show'])->name('login');
+
+Route::post('/authentication', [AuthController::class, 'login'])->name('user.validate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('user.logout');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
@@ -79,7 +83,6 @@ Route::middleware(['auth'])
         Route::get('/consultar', [ConsultaController::class, 'index']);
         Route::get('/consultar/produto', [ConsultaController::class, 'consultarProduto'])->name('consultar.produto');
         Route::get('/buscar-codigos', [ConsultaController::class, 'buscarCodigos'])->name('buscar.codigos');
-
     });
 
 Route::get('/produtos/{categoria}', [DashboardController::class, 'buscarProduto']);

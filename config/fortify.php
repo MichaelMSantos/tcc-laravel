@@ -17,6 +17,8 @@ return [
 
     'guard' => 'web',
 
+
+    'login' => 'login.user',
     /*
     |--------------------------------------------------------------------------
     | Fortify Password Broker

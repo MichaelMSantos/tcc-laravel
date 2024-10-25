@@ -9,11 +9,12 @@ class AuthController extends Controller
 {
     public function show()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     public function login()
     {
+
         validator(
             request()->all(),
             [
