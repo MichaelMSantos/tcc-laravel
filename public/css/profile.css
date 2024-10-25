@@ -770,3 +770,9 @@ input {
       max-width: 42rem; /* 672px */
     }
   }
+
+  /* modo escuro */
+
+  [data-bs-theme="dark"] .bg-white, .bg-gray-50 {
+background-color: #1a202c !important;
+  }

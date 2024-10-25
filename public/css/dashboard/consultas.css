@@ -30,26 +30,26 @@ aside {
     cursor: pointer;
 }
 
-.file-dnd .before-upload > div {
+.file-dnd .before-upload>div {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
 }
 
-.file-dnd .before-upload > div i {
+.file-dnd .before-upload>div i {
     font-size: 40px;
     color: #2f515f;
 }
 
-.file-dnd .before-upload > div h4 {
+.file-dnd .before-upload>div h4 {
     color: #111;
     margin-top: 5px;
     font-size: 16px;
     width: 160px;
 }
 
-.file-dnd .before-upload > div p {
+.file-dnd .before-upload>div p {
     color: #555;
     font-size: 14px;
 }
@@ -75,7 +75,7 @@ aside {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     width: 15px;
     height: 15px;
     text-align: center;
@@ -201,3 +201,18 @@ aside {
 .resultado p {
     margin: 0 !important;
 }
+
+
+/* modo escuro */
+
+
+[data-bs-theme="dark"] label, h4, p{
+    color: #fff !important;
+}
+
+[data-bs-theme="dark"] .file-dnd, .produto {
+    background-color: #2b2b2baf;
+}
+
+
+/* final do modo escuro */
