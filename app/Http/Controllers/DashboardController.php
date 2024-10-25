@@ -16,26 +16,26 @@ class DashboardController extends Controller
     public function index()
     {
         $recentes = DB::select("
-            (SELECT 'tintas' AS origem, tintas.codigo, tintas.quantidade, tintas.created_at, fornecedores.nome AS fornecedor
-            FROM tintas
-            JOIN fornecedores ON tintas.fornecedor_id = fornecedores.id
-            ORDER BY tintas.created_at DESC
-            LIMIT 3)
-            UNION ALL
-            (SELECT 'camisetas' AS origem, camisetas.codigo, camisetas.quantidade, camisetas.created_at, fornecedores.nome AS fornecedor
-            FROM camisetas
-            JOIN fornecedores ON camisetas.fornecedor_id = fornecedores.id
-            ORDER BY camisetas.created_at DESC
-            LIMIT 3)
-            UNION ALL
-            (SELECT 'tecidos' AS origem, tecidos.codigo, tecidos.quantidade, tecidos.created_at, fornecedores.nome AS fornecedor
-            FROM tecidos
-            JOIN fornecedores ON tecidos.fornecedor_id = fornecedores.id
-            ORDER BY tecidos.created_at DESC
-            LIMIT 3)
-            ORDER BY created_at DESC
-            LIMIT 3
-        ");
+        (SELECT 'tintas' AS origem, tintas.codigo, tintas.quantidade, tintas.created_at, fornecedores.nome AS fornecedor
+        FROM tintas
+        LEFT JOIN fornecedores ON tintas.fornecedor_id = fornecedores.id
+        ORDER BY tintas.created_at DESC
+        LIMIT 3)
+        UNION ALL
+        (SELECT 'camisetas' AS origem, camisetas.codigo, camisetas.quantidade, camisetas.created_at, fornecedores.nome AS fornecedor
+        FROM camisetas
+        LEFT JOIN fornecedores ON camisetas.fornecedor_id = fornecedores.id
+        ORDER BY camisetas.created_at DESC
+        LIMIT 3)
+        UNION ALL
+        (SELECT 'tecidos' AS origem, tecidos.codigo, tecidos.quantidade, tecidos.created_at, fornecedores.nome AS fornecedor
+        FROM tecidos
+        LEFT JOIN fornecedores ON tecidos.fornecedor_id = fornecedores.id
+        ORDER BY tecidos.created_at DESC
+        LIMIT 3)
+        ORDER BY created_at DESC
+        LIMIT 3
+    ");
 
         $totalTintas = DB::table('tintas')->count();
         $totalCamisetas = DB::table('camisetas')->count();
@@ -62,6 +62,7 @@ class DashboardController extends Controller
             ['url' => '/dashboard/estoque/tecidos', 'img' => '/images/home/tecido.svg', 'label' => 'Tecidos'],
             ['url' => '#', 'img' => '/images/home/finance.svg', 'label' => 'Financeiro'],
         ];
+        // dd($recentes);
 
         return view('dashboard', compact('recentes', 'totalRegistro', 'adicoesRecentes', 'semEstoqueTotal', 'links'));
     }

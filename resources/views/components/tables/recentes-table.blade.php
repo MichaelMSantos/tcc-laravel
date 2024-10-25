@@ -18,7 +18,7 @@
                             <a href="/dashboard/estoque/{{ $recent->origem }}">{{ $recent->origem }}</a>
                         </td>
                         <td>{{ $recent->quantidade }}</td>
-                        <td>{{ $recent->fornecedor }}</td>
+                        <td>{{ $recent->fornecedor ?? 'Fornecedor não registrado' }}</td>
                         <td>{{ \Carbon\Carbon::parse($recent->created_at)->format('d/m/Y') }}</td>
                     </tr>
                 @endforeach
