@@ -19,7 +19,7 @@
 
             <div class="mt-4">
                 <x-ui.label for="password" value="{{ __('Password') }}" />
-                <x-ui.ui.input id="password" class="block mt-1 w-full" type="password" name="password" required
+                <x-ui.input id="password" class="block mt-1 w-full" type="password" name="password" required
                     autocomplete="new-password" />
             </div>
 
